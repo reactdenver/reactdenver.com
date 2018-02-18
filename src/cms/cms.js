@@ -9,3 +9,11 @@ CMS.registerPreviewStyle('/styles.css');
 CMS.registerPreviewTemplate('about', AboutPagePreview);
 CMS.registerPreviewTemplate('products', ProductPagePreview);
 CMS.registerPreviewTemplate('blog', BlogPostPreview);
+
+CMS.registerPreviewTemplate('upcomingevents', BlogPostPreview);
+CMS.registerPreviewTemplate('pastevents', BlogPostPreview);
+CMS.registerPreviewTemplate('codeofconduct', BlogPostPreview);
+CMS.registerPreviewTemplate('sponsorship', BlogPostPreview);
+CMS.registerPreviewTemplate('team', BlogPostPreview);
+CMS.registerPreviewTemplate('faq', BlogPostPreview);
+CMS.registerPreviewTemplate('contact', BlogPostPreview);

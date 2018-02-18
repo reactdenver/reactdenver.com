@@ -2,7 +2,7 @@
 templateKey: 'product-page'
 path: /products
 title: Our Coffee
-image: /img/jumbotron.jpg
+image: /img/coloradoflag2.png
 heading: What we offer
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their

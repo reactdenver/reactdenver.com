@@ -29,14 +29,15 @@ export default class IndexPage extends React.Component {
         />
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+            <h1 className="has-text-weight-bold is-size-2">Upcoming Events: Tuesday, February 20, 2018
+6:00 PM to 8:00 PM</h1>
           </div>
           {posts
             .filter(post => post.node.frontmatter.templateKey === "blog-post")
             .map(({ node: post }) => (
               <div
                 className="content"
-                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
+                style={{ border: "2px solid #eaecee", padding: "2em 4em" }}
                 key={post.id}
               >
                 <p>
