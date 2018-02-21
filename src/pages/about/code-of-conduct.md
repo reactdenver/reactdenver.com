@@ -11,7 +11,7 @@ Harassment includes offensive verbal comments related to gender, gender identity
 
 Participants asked to stop any harassing behavior are expected to comply immediately.
 
-If a participant engages in harassing behavior, the js.la organizers may take any action they deem appropriate, including warning the offender or expulsion from React Denver. If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of React Denver staff immediately.
+If a participant engages in harassing behavior, the Denver React organizers may take any action they deem appropriate, including warning the offender or expulsion from React Denver. If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of React Denver staff immediately.
 
 Events
 React Debver staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment.
