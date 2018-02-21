@@ -14,7 +14,7 @@ Participants asked to stop any harassing behavior are expected to comply immedia
 If a participant engages in harassing behavior, the Denver React organizers may take any action they deem appropriate, including warning the offender or expulsion from React Denver. If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of React Denver staff immediately.
 
 Events
-React Debver staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment.
+React Denver staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment.
 
 Online
 In addition to the principles outlined above, participants are also asked to refrain from recruiting through React Denver communications. Because demand for developers greatly outstrips supply, allowing recruiting through React Denver would reduce the quality of the community and its discussions.
