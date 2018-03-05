@@ -2,7 +2,7 @@
 templateKey: blog-post
 path: /webaccessbilityandreactnative
 title: Web Accessibility and React-Native w/ Expo & Snack
-date: 2018-02-20T15:04:10.000Z
+date: 2018-023-20T15:04:10.000Z
 description: Web Accessibility and React-Native w/ Expo & Snack
 ---
 ![React Native](https://www.novoda.com/blog/content/images/2018/01/react-native-logo-opt.svg)
