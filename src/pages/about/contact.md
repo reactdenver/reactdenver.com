@@ -4,5 +4,5 @@ path: /contact
 title: Contact Us
 ---
 ### Contact Us
-Email:
+Twitter: https://twitter.com/reactdenver
 
