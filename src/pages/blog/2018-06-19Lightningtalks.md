@@ -5,7 +5,7 @@ title: Lightning Talks
 date: 2018-06-19T15:04:10.000Z
 description: Lightning Talks
 ---
-![React](hhttps://cdn.colorlib.com/wp/wp-content/uploads/sites/2/react-dev-tools-logo.jpg)
+![React](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/react-dev-tools-logo.jpg)
 
 Come downtown for food, drink, talks, and socializing. We'll be talking about ReactJS and related technologies. This month's event will be lightning talks on all things React and frontend web development!
 
