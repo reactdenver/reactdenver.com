@@ -2,7 +2,7 @@
 templateKey: blog-post
 path: /lightningtalks
 title: Lightning Talks
-date: 2018-03-20T15:04:10.000Z
+date: 2018-06-19T15:04:10.000Z
 description: Lightning Talks
 ---
 ![React](hhttps://cdn.colorlib.com/wp/wp-content/uploads/sites/2/react-dev-tools-logo.jpg)
