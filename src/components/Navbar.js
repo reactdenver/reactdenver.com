@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'gatsby-link';
-
 import meetup from '../img/meetup.svg';
 import logo from '../img/coloradoflag2.png';
 
