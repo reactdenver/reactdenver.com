@@ -9,7 +9,7 @@ CMS.registerPreviewStyle('/styles.css');
 CMS.registerPreviewTemplate('about', AboutPagePreview);
 CMS.registerPreviewTemplate('products', ProductPagePreview);
 CMS.registerPreviewTemplate('blog', BlogPostPreview);
-CMS.registerPreviewTemplate('jobs', BlogPostPreview);
+CMS.registerPreviewTemplate('reactjobs', BlogPostPreview);
 
 CMS.registerPreviewTemplate('upcomingevents', BlogPostPreview);
 CMS.registerPreviewTemplate('pastevents', BlogPostPreview);
