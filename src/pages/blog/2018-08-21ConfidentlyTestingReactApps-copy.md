@@ -9,7 +9,7 @@ description: Tba
 
 Come downtown for food, drink, talks, and socializing. We'll be talking about ReactJS and related technologies.
 
-TBA
+TBA - August 21st, 2018
 
 Twitter: https://twitter.com/reactdenver
 Github: https://github.com/reactdenver/reactdenver.com
