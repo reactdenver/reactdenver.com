@@ -36,6 +36,9 @@ const Navbar = () => (
         <Link className="navbar-item" to="/blog">
           Blog
         </Link>
+        <Link className="navbar-item" to="/reactjobs">
+          React Jobs
+        </Link>
         <Link className="navbar-item" to="/contact">
           Contact
         </Link>
