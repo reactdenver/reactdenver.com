@@ -1,15 +1,15 @@
 ---
 templateKey: blog-post
-path: /testingreact
-title: Confidently Testing React Apps
-date: 2018-07-17T15:04:10.000Z
-description: Testing React Apps
+path: /tba
+title: Tba
+date: 2018-08-21T15:04:10.000Z
+description: Tba
 ---
 ![React](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/react-dev-tools-logo.jpg)
 
 Come downtown for food, drink, talks, and socializing. We'll be talking about ReactJS and related technologies.
 
-Following the guidance that “The more your tests resemble the way your software is used, the more confidence they can give you”, we’ll explore the pros and cons of different strategies and libraries for unit testing react components.
+TBA
 
 Twitter: https://twitter.com/reactdenver
 Github: https://github.com/reactdenver/reactdenver.com
