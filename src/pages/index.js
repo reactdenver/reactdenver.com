@@ -29,7 +29,7 @@ export default class IndexPage extends React.Component {
         />
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Upcoming Events: Tues, Sept 18th, 2018
+            <h1 className="has-text-weight-bold is-size-2">Upcoming Events: Tues, Oct 16th, 2018
 6:00 PM to 8:00 PM</h1>
           </div>
           {posts

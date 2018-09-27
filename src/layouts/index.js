@@ -13,7 +13,7 @@ const TemplateWrapper = ({ children }) => (
     <div>
       <center>
         <figure className="image">
-          <img src={logo} alt="Kaldi" style={{ width: '300px' }} />
+          <img src={logo} alt="Kaldi" style={{ width: '200px' }} />
         </figure>
         <h1 style={{ fontSize: '55px' }}>Welcome to React Denver Meetup!</h1>
         <p />
