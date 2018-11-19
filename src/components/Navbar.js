@@ -15,8 +15,10 @@ export default class Navbar extends React.Component {
   }
 
   handleBurger() {
-    this.setState({ isBurgerExpanded: !this.state.isBurgerExpanded })
-  }
+    this.setState(prevState => {
+      return { isBurgerExpanded: !prevState.isBurgerExpanded };
+    })
+  };
 
   render() {
     const { isBurgerExpanded } = this.state;
