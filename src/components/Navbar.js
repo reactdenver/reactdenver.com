@@ -54,34 +54,40 @@ export default class Navbar extends React.Component {
             style={isBurgerExpanded ? menuStyles : {}}
           >
             <div className="navbar-end">
-              <Link className="navbar-item" to="/">
+              <Link className="navbar-item" to="/" onClick={this.handleBurger}>
                 Home
               </Link>
-              <Link className="navbar-item" to="/pastevents">
+              <Link className="navbar-item" to="/pastevents" onClick={this.handleBurger}>
                 Past Events
               </Link>
-              <Link className="navbar-item" to="/codeofconduct">
+              <Link className="navbar-item" to="/codeofconduct" onClick={this.handleBurger}>
                 Code of Conduct
               </Link>
-              <Link className="navbar-item" to="/sponsorship">
+              <Link className="navbar-item" to="/sponsorship" onClick={this.handleBurger}>
                 Sponsorship
               </Link>
-              <Link className="navbar-item" to="/faq">
+              <Link className="navbar-item" to="/faq" onClick={this.handleBurger}>
                 FAQ
               </Link>
-              <Link className="navbar-item" to="/newsletter">
+              <Link className="navbar-item" to="/newsletter" onClick={this.handleBurger}>
                 Newsletter
               </Link>
-              <Link className="navbar-item" to="/blog">
+              <Link className="navbar-item" to="/blog" onClick={this.handleBurger}>
                 Blog
               </Link>
-              <Link className="navbar-item" to="/reactjobs">
+              <Link className="navbar-item" to="/reactjobs" onClick={this.handleBurger}>
                 React Jobs
               </Link>
-              <Link className="navbar-item" to="/contact">
+              <Link className="navbar-item" to="/contact" onClick={this.handleBurger}>
                 Contact
               </Link>
-              <a className="navbar-item" href="https://www.meetup.com/ReactDenver/" target="_blank" rel="noopener noreferrer">
+              <a
+                className="navbar-item"
+                href="https://www.meetup.com/ReactDenver/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={this.handleBurger}
+              >
                 <span className="icon">
                   <img src={meetup} alt="Meetup" />
                 </span>
