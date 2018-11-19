@@ -37,19 +37,19 @@ export default class Navbar extends React.Component {
               </figure>
             </Link>
             <span
-              className={`navbar-burger burger ${ isBurgerExpanded ? 'is-active' : '' }`}
+              className={`navbar-burger burger ${isBurgerExpanded ? 'is-active' : ''}`}
               data-target="navMenu"
               onClick={this.handleBurger}
             >
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${ isBurgerExpanded ? 'is-active' : '' }`}
-            style={isBurgerExpanded ? menuStyles : {}} 
+            className={`navbar-menu ${isBurgerExpanded ? 'is-active' : ''}`}
+            style={isBurgerExpanded ? menuStyles : {}}
           >
             <div className="navbar-end">
               <Link className="navbar-item" to="/">
@@ -80,9 +80,9 @@ export default class Navbar extends React.Component {
                 Contact
               </Link>
               <a className="navbar-item" href="https://www.meetup.com/ReactDenver/" target="_blank" rel="noopener noreferrer">
-          <span className="icon">
-            <img src={meetup} alt="Meetup" />
-          </span>
+                <span className="icon">
+                  <img src={meetup} alt="Meetup" />
+                </span>
               </a>
             </div>
           </div>
