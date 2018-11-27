@@ -56,9 +56,6 @@ export default class Navbar extends React.Component {
             style={isBurgerExpanded ? menuStyles : {}}
           >
             <div className="navbar-end">
-              <Link className="navbar-item" to="/" onClick={this.handleBurger}>
-                Home
-              </Link>
               <Link className="navbar-item" to="/pastevents" onClick={this.handleBurger}>
                 Past Events
               </Link>
