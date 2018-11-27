@@ -23,18 +23,8 @@ export default class Navbar extends React.Component {
   render() {
     const { isBurgerExpanded } = this.state;
 
-    const menuStyles = {
-      position: 'absolute',
-      zIndex: 1,
-      width: '100%'
-    };
-
-    const navStyles = {
-      marginBottom: '1em'
-    }
-
     return (
-      <nav className="navbar is-transparent" style={navStyles}>
+      <nav className="navbar is-transparent">
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
@@ -53,7 +43,6 @@ export default class Navbar extends React.Component {
           <div
             id="navMenu"
             className={`navbar-menu ${isBurgerExpanded ? 'is-active' : ''}`}
-            style={isBurgerExpanded ? menuStyles : {}}
           >
             <div className="navbar-end">
               <Link className="navbar-item" to="/pastevents" onClick={this.handleBurger}>
