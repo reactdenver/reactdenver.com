@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import meetup from '../img/meetup.svg';
+import logo from '../img/react-denver.svg';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -28,13 +29,16 @@ export default class Navbar extends React.Component {
       width: '100%'
     };
 
+    const navStyles = {
+      marginBottom: '1em'
+    }
+
     return (
-      <nav className="navbar is-transparent">
+      <nav className="navbar is-transparent" style={navStyles}>
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
-              <figure className="image">
-              </figure>
+              <img src={logo} alt="React Denver" width="50px" height="50px" />
             </Link>
             <span
               className={`navbar-burger burger ${isBurgerExpanded ? 'is-active' : ''}`}
