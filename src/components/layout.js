@@ -10,9 +10,8 @@ import GlobalStyle from "../theme/globalStyle";
 
 const ContentWrapper = styled.div`
   margin: 0 auto;
-  maxwidth: 960;
-  padding: 0px 1.0875rem 1.45rem;
-  paddingtop: 0;
+  max-width: 960px;
+  padding: 0 1.0875rem 1.45rem;
 `;
 
 const Layout = ({ children }) => (
@@ -22,6 +21,10 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            menuLinks {
+              name
+              link
+            }
           }
         }
       }
@@ -38,7 +41,10 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          menuLinks={data.site.siteMetadata.menuLinks}
+        />
         <ContentWrapper>{children}</ContentWrapper>
       </>
     )}

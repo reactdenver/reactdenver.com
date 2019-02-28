@@ -3,6 +3,36 @@ module.exports = {
     title: `React Denver`,
     description: `Website for React Denver Meetup`,
     author: `@reactdenver`,
+    menuLinks: [
+      {
+        name: "Code of Conduct",
+        link: "/conduct",
+      },
+      {
+        name: "Events",
+        link: "/events",
+      },
+      {
+        name: "Past Events",
+        link: "/past-events",
+      },
+      {
+        name: "Sponsorship",
+        link: "/sponsorship",
+      },
+      {
+        name: "FAQ",
+        link: "/faqs",
+      },
+      {
+        name: "Newsletter",
+        link: "/newsletter",
+      },
+      {
+        name: "Contact",
+        link: "/contact",
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,6 +43,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages/markdown`,
+        name: "markdown-pages",
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -28,8 +66,17 @@ module.exports = {
       },
     },
     "gatsby-plugin-styled-components",
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-meetup`,
+      options: {
+        key: process.env.MEETUP_API_KEY,
+        groupUrlName: "ReactDenver",
+        // Optional parameters for retrieving Events, see full documentation at
+        // https://www.meetup.com/meetup_api/docs/:urlname/events/?uri=%2Fmeetup_api%2Fdocs%2F%3Aurlname%2Fevents%2F#list
+        status: "upcoming,past",
+        desc: "true",
+        page: 50,
+      },
+    },
   ],
 };
