@@ -36,9 +36,9 @@ const Navigation = styled.nav`
   display: flex;
   margin-left: auto;
   white-space: nowrap;
-  overflow-x: scroll;
 
   @media (max-width: 1100px) {
+    overflow-x: scroll;
     margin-left: 0;
   }
 `;
