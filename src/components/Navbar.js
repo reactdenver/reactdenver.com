@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import meetup from '../img/meetup.svg';
-import logo from '../img/coloradoflag2.png';
+import logo from '../img/react-denver.svg';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -23,20 +23,12 @@ export default class Navbar extends React.Component {
   render() {
     const { isBurgerExpanded } = this.state;
 
-    const menuStyles = {
-      position: 'absolute',
-      zIndex: 1,
-      width: '100%'
-    };
-
     return (
       <nav className="navbar is-transparent">
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
-              <figure className="image">
-                <img src={logo} alt="Kaldi" style={{ width: '75px' }} />
-              </figure>
+              <img src={logo} alt="React Denver" width="50px" height="50px" />
             </Link>
             <span
               className={`navbar-burger burger ${isBurgerExpanded ? 'is-active' : ''}`}
@@ -51,12 +43,8 @@ export default class Navbar extends React.Component {
           <div
             id="navMenu"
             className={`navbar-menu ${isBurgerExpanded ? 'is-active' : ''}`}
-            style={isBurgerExpanded ? menuStyles : {}}
           >
             <div className="navbar-end">
-              <Link className="navbar-item" to="/" onClick={this.handleBurger}>
-                Home
-              </Link>
               <Link className="navbar-item" to="/pastevents" onClick={this.handleBurger}>
                 Past Events
               </Link>

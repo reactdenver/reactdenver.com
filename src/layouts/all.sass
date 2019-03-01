@@ -7,6 +7,11 @@ $kaldi-red-invert: #fff
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 
+// Bulma variable overrides
+// https://bulma.io/documentation
+$navbar-height: 60px;
+$navbar-item-img-max-height: none;
+
 // Helper Classes
 .full-width-image-container
   width: 100vw
@@ -25,3 +30,17 @@ $primary-invert: $kaldi-red-invert
   margin-top: 0 !important
 
 @import "~bulma"
+
+// Navbar styles
+nav
+  margin-bottom: 1em
+
+.navbar-menu.is-active
+  position: absolute
+  width: 100%
+  z-index: 1
+
+  @media screen and (min-width: 1024px)
+    position: static
+    width: auto
+    z-index: auto
