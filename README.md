@@ -1,4 +1,5 @@
 # React Denver Website
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 ## Getting Up and Running
 
@@ -24,3 +25,15 @@ Pull requests automatically build preview URLs via netlify.
 
 See something you can help with? Something that needs work? If you have time, we'd greatly appreciate pull requests for updates!
 If you notice something and need help implementing, please file an issue and someone will look into it.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="https://mckernan.in"><img src="https://avatars1.githubusercontent.com/u/6300047?v=4" width="100px;" alt="Kevin McKernan"/><br /><sub><b>Kevin McKernan</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=mckernanin" title="Code">💻</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
