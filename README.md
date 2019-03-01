@@ -13,3 +13,4 @@
 - Pages are created with markdown files in `src/pages/markdown`. To add a page, copy one of the existing pages and edit the file.
   - pages use templates defined in `src/templates`
 - Meetup events are pulled in from meetup.com's API.
+  - to see meetup events locally, you'll need to [grab an API key from Meetup.com](https://secure.meetup.com/meetup_api/key/) and set it in your `.env` file
