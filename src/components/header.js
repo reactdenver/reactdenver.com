@@ -8,6 +8,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: 1.45rem;
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
 `;
 
 const Headline = styled.div`
@@ -34,6 +35,12 @@ const Navigation = styled.nav`
   padding: 0 1.0875rem;
   display: flex;
   margin-left: auto;
+  white-space: nowrap;
+  overflow-x: scroll;
+
+  @media (max-width: 1100px) {
+    margin-left: 0;
+  }
 `;
 
 const NavigationItem = styled.li`
