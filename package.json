@@ -1,0 +1,47 @@
+{
+  "name": "react-denver-website",
+  "description": "Website for the React Denver Meetup",
+  "version": "2.0.0",
+  "author": "React Denver <reactdenver@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.1.19",
+    "gatsby-image": "^2.0.30",
+    "gatsby-plugin-manifest": "^2.0.20",
+    "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-sharp": "^2.0.23",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-source-meetup": "0.0.1",
+    "gatsby-transformer-remark": "^2.3.0",
+    "gatsby-transformer-sharp": "^2.1.14",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.1.3"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby-plugin-styled-components": "^3.0.6",
+    "prettier": "^1.16.4"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "projectName": "react-denver-v2",
+  "projectOwner": "reactdenver",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "mckernanin",
+      "name": "Kevin McKernan",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6300047?v=4",
+      "profile": "https://mckernan.in",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
