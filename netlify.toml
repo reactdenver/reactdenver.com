@@ -1,9 +1,0 @@
-[build]
-  publish = "public"
-  command = "npm run build"
-[build.environment]
-  YARN_VERSION = "1.3.2"
-  YARN_FLAGS = "--no-ignore-optional"
-[[redirects]]
-  from = "/dd2018"
-  to = "https://docs.google.com/forms/d/e/1FAIpQLSeQ9tG_TSwqM_NntEt36nADGdcpeaFdXV1L8yvtdTaSDMDvfA/viewform?usp=sf_link"
