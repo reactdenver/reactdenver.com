@@ -1,8 +1,16 @@
 # React Denver Meetup
 
 # Current Issues
-* GraphQL errors
 
+
+### Notes
+
+Use gatsby v1 by running $ gatsby run develop instead of $ gatsby develop.
+
+Might need to run:
+```
+$ npm rebuild node-sass
+```
 
 ### Access Locally
 ```
