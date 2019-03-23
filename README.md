@@ -1,5 +1,5 @@
 # React Denver Website
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
 ## Getting Up and Running
 
@@ -32,7 +32,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://mckernan.in"><img src="https://avatars1.githubusercontent.com/u/6300047?v=4" width="100px;" alt="Kevin McKernan"/><br /><sub><b>Kevin McKernan</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=mckernanin" title="Code">💻</a></td><td align="center"><a href="http://josh.leo.ng"><img src="https://avatars0.githubusercontent.com/u/30889892?v=4" width="100px;" alt="Josh Leong"/><br /><sub><b>Josh Leong</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=leodotng" title="Code">💻</a></td><td align="center"><a href="https://sheelahb.com"><img src="https://avatars0.githubusercontent.com/u/1900318?v=4" width="100px;" alt="Sheelah Brennan"/><br /><sub><b>Sheelah Brennan</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=sheelah" title="Code">💻</a></td></tr></table>
+<table><tr><td align="center"><a href="https://mckernan.in"><img src="https://avatars1.githubusercontent.com/u/6300047?v=4" width="100px;" alt="Kevin McKernan"/><br /><sub><b>Kevin McKernan</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=mckernanin" title="Code">💻</a> <a href="#eventOrganizing-mckernanin" title="Event Organizing">📋</a></td><td align="center"><a href="http://josh.leo.ng"><img src="https://avatars0.githubusercontent.com/u/30889892?v=4" width="100px;" alt="Josh Leong"/><br /><sub><b>Josh Leong</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=leodotng" title="Code">💻</a> <a href="#eventOrganizing-leodotng" title="Event Organizing">📋</a></td><td align="center"><a href="https://sheelahb.com"><img src="https://avatars0.githubusercontent.com/u/1900318?v=4" width="100px;" alt="Sheelah Brennan"/><br /><sub><b>Sheelah Brennan</b></sub></a><br /><a href="https://github.com/reactdenver/react-denver-v2/commits?author=sheelah" title="Code">💻</a></td><td align="center"><a href="http://willklein.co"><img src="https://avatars0.githubusercontent.com/u/1075861?v=4" width="100px;" alt="Will Klein"/><br /><sub><b>Will Klein</b></sub></a><br /><a href="#eventOrganizing-willklein" title="Event Organizing">📋</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
