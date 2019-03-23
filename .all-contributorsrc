@@ -46,6 +46,15 @@
       "contributions": [
         "eventOrganizing"
       ]
+    },
+    {
+      "login": "slamflipstrom",
+      "name": "Sam Lindstrom",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8062052?v=4",
+      "profile": "http://samlindstrom.com/",
+      "contributions": [
+        "eventOrganizing"
+      ]
     }
   ],
   "contributorsPerLine": 7
