@@ -55,6 +55,15 @@
       "contributions": [
         "eventOrganizing"
       ]
+    },
+    {
+      "login": "davidtadams",
+      "name": "David Adams",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4541737?v=4",
+      "profile": "https://www.linkedin.com/in/dtadams",
+      "contributions": [
+        "eventOrganizing"
+      ]
     }
   ],
   "contributorsPerLine": 7
