@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
 import Header from "./header";
+import Footer from "./footer";
 import GlobalStyle from "../theme/globalStyle";
 
 const ContentWrapper = styled.div`
@@ -36,6 +37,7 @@ const Layout = ({ children }) => (
           menuLinks={data.site.siteMetadata.menuLinks}
         />
         <ContentWrapper>{children}</ContentWrapper>
+        <Footer />
       </>
     )}
   />
