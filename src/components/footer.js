@@ -5,6 +5,7 @@ import logo from "../images/reactdenverlogo.png";
 import { Meetup } from 'styled-icons/fa-brands/Meetup'
 import { Twitter } from 'styled-icons/fa-brands/Twitter';
 import { Github } from 'styled-icons/fa-brands/Github';
+import { Youtube } from 'styled-icons/fa-brands/Youtube';
 
 
 const StyledLink = styled.a`
@@ -40,6 +41,9 @@ const Footer = () => (
             <Github size="30" color='white' />
         </StyledLink>
 
+        <StyledLink href="https://www.youtube.com/channel/UC0l91ig1FOXYaZonnr9m1lw">
+            <Youtube size="30" color='white' />
+        </StyledLink>
 
     </FooterWrapper >
 );
