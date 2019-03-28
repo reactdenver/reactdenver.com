@@ -1,29 +1,23 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-
-const EventStyles = styled.li`
-  list-style: none;
-`;
-
-const EventCard = ({ eventData }) => (
-  <EventStyles>
-    <h2>{eventData.name}</h2>
-    <a href={eventData.link}>RSVP Here!</a>
-  </EventStyles>
-);
+import { Event } from "../components/event";
 
 const EventTemplate = ({ data }) => {
   const {
     meetupGroup: { childrenMeetupEvent },
     markdownRemark: { frontmatter },
   } = data;
-  const events = childrenMeetupEvent.filter(
+  let events = childrenMeetupEvent.filter(
     meetup => meetup.status === frontmatter.eventStatus
   );
+
+  if (frontmatter.eventStatus === "upcoming") {
+    events = events.reverse().slice(0, 3);
+  }
+
   return (
     <Layout>
       <SEO
@@ -31,7 +25,9 @@ const EventTemplate = ({ data }) => {
         keywords={[`meetup`, `community`, `react`]}
       />
       <h1>{frontmatter.title}</h1>
-      {events && events.map(eventData => <EventCard eventData={eventData} />)}
+      {events.map(eventData => (
+        <Event eventData={eventData} />
+      ))}
     </Layout>
   );
 };
