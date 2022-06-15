@@ -5,9 +5,7 @@ title: FAQ
 
 ## Where?
 
-Turing School of Software & Design · 1331 17th St 100 · Denver, CO
-
-We are on the corner of 17th and Market in the basement of the Guaranty Bank Building.
+The Trade Desk at the corner of 16th & Wynkoop. The entrance is at on the northwest side, directly across 16th St from the Thirsty Lion. The revolving doors are set back slightly from the building face. Go up the stairs or elevator to the 2nd floor.
 
 ## When?
 
