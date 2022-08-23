@@ -39,9 +39,7 @@ export default function Index() {
           
         </li>
       </ul>
-      <Link to="/events">
-        Events list
-      </Link>
+      
       
     </div>
   );

@@ -14,30 +14,49 @@ export default function NavBar() {
 
   const title_style = {
     fontSize: '1.8em',
-    fontWeight: '400'
+    fontWeight: '400',
+    color: 'black'
   };
 
   const list_style = {
     
-    li: {
+    li_left: {
       display: 'inline',
+      float: 'left',
+    },
+    
+    li_right: {
+      display: 'inline',
+      float: 'right',
+      alightItems: 'center'
     },
     ul: {
+      display: 'flex',
       listStyleType: 'none',
       margin:0,
       padding: 0,
-      overflow: 'hidden',
-
+      alignItems: 'center'
     },
+    link: {
+      display: 'block',
+      width: '100px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      color: '#666666',
+    },
+    link_title: {
+      width: '200px',
+      textDecoration: 'none'
+    }
   }
 
   return(
     <div style={navbar_style} >
       <ul style={list_style.ul}>
-        <li style={list_style.li}><img style={{maxHeight: '50px'}} src={ReactDenverLogo}/></li>
-        <li><Link to='/'><div style={title_style}>React Denver</div></Link> </li>
-        <li><Link to='/events'>Events</Link></li>
-        <li><Link to='/talk'>Submit a talk</Link></li>
+        <li style={list_style.li_left}><Link style={list_style.link} to='/'><img style={{maxHeight: '50px'}} src={ReactDenverLogo}/></Link></li>
+        <li style={list_style.li_left}><Link style={list_style.link, list_style.link_title} to='/'><div style={title_style}>React Denver</div></Link> </li>
+        <li style={list_style.li_right}><Link style={list_style.link} to='/events'>Events</Link></li>
+        <li style={list_style.li_right}><Link style={list_style.link} to='/talk'>Submit a talk</Link></li>
       </ul>
       
       
