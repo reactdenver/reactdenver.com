@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react';
 import EventBanner from '~/components/event_banner';
+import NavBar from '~/components/nav_bar';
 
 export default function Index() {
   return (
@@ -8,13 +9,7 @@ export default function Index() {
         <EventBanner/>
       </div>
       <div>
-        nav bar
-        <Link to="/faq">
-          FAQ
-        </Link>
-        <Link to="/code_of_conduct">
-          Code of Conduct
-        </Link>
+        <NavBar/>
       </div>
       <h1>Welcome to Remix</h1>
       
