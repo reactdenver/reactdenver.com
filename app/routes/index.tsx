@@ -1,8 +1,12 @@
 import { Link } from '@remix-run/react';
+import EventBanner from '~/components/event_banner';
 
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+      <div>
+        <EventBanner/>
+      </div>
       <div>
         nav bar
         <Link to="/faq">
