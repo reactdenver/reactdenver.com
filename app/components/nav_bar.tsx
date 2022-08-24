@@ -61,6 +61,16 @@ export default function NavBar() {
         >
           Submit a talk
         </Link>
+        <Link
+          style={{
+            padding: "0 5px 0 10px",
+            color: "#666666",
+            textDecoration: "none",
+          }}
+          to="/code_of_conduct"
+        >
+          Code of Conduct
+        </Link>
       </div>
     </div>
   );
