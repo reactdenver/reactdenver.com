@@ -62,13 +62,6 @@ export default function NavBar() {
           Submit a talk
         </Link>
       </div>
-
-      {/* <Link to="/faq">
-          FAQ
-        </Link>
-        <Link to="/code_of_conduct">
-          Code of Conduct
-        </Link> */}
     </div>
   );
 }

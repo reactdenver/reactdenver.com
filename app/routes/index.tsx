@@ -1,18 +1,19 @@
-import { Link } from '@remix-run/react';
-import EventBanner from '~/components/event_banner';
-import NavBar from '~/components/nav_bar';
+import { Link } from "@remix-run/react";
+import EventBanner from "~/components/event_banner";
+import NavBar from "~/components/nav_bar";
+import Footer from "~/components/footer";
 
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <div>
-        <EventBanner/>
+        <EventBanner />
       </div>
       <div>
-        <NavBar/>
+        <NavBar />
       </div>
       <h1>Welcome to Remix</h1>
-      
+
       <ul>
         <li>
           <a
@@ -36,11 +37,12 @@ export default function Index() {
           <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
             Remix Docs
           </a>
-          
         </li>
       </ul>
-      
-      
+
+      <div>
+        <Footer />
+      </div>
     </div>
   );
-};
+}
