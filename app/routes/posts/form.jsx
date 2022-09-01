@@ -1,5 +1,6 @@
 import { redirect } from "@remix-run/node"
 import {useState} from 'react'
+import {Form} from '@remix-run/react'
 
 export const action = async ({request}) => {
   const form = await request.formData();
@@ -18,16 +19,10 @@ export const action = async ({request}) => {
 
 export default function Forms(){
 
-  const [isChecked, setIsChecked] = useState(false)
+  const [pizzaEnabled, setPizzaEnabled] = useState(true)
 
-
-function handleClick(e){
-  if(e.target.value === 'radio1'){
-    setIsChecked(true)
-  } else {
-    document.getElementById('pizza').checked = false
-    setIsChecked(false)
-  }
+function handleAttendenceChange(e){
+  setPizzaEnabled(e.target.value === 'in-person')
 }
 
   return (
@@ -37,8 +32,8 @@ function handleClick(e){
     <h4>Join us downtown and online</h4>
     </div>
 
-    <div id="form-content">
-    <form method='POST'>
+    <div className="form-content">
+    <Form method='POST'>
         <div id="form-control">
         <label>
           Your Name:{" "}
@@ -46,37 +41,37 @@ function handleClick(e){
         </label>
         </div>
 
-      <div id="form-control">
+      <div className="form-control">
         <label>
           Email:{" "}
           <input type='text' name='email' />
         </label>
       </div>
 
-      <div id='form-control'>
+      <div className='form-control'>
         <label>Attending in Person</label>
         <br />
-        <input name='in-person/online' type='radio' value='radio1' onChange={handleClick} />
+        <input name='in-person/online' type='radio' value='in-person' onChange={handleAttendenceChange} />
       </div>
 
-      <div id='form-control'>
+      <div className='form-control'>
         <label>Joining Online</label>
         <br />
-        <input name='in-person/online' type='radio' value='radio2' onChange={handleClick}/>
+        <input name='in-person/online' type='radio' value='virtual' onChange={handleAttendenceChange}/>
       </div>
 
-      <div id='form-control'>
+      <div className='form-control'>
         <label>Yes, I want pizza</label>
         <br />
-        <input id='pizza' name='pizza' type='checkbox' disabled={isChecked ? false : true}/>
+        <input id='pizza' name='pizza' type='checkbox' disabled={!pizzaEnabled}/>
       </div>
 
-      <div id='form-control'>
+      <div className='form-control'>
         <button type='submit'>
             Submit
           </button>
       </div>
-    </form>
+    </Form>
 
     </div>
     </>
