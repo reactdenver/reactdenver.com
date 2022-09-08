@@ -1,4 +1,5 @@
 import { Link } from '@remix-run/react';
+import Forms from './posts/form'
 
 export default function Index() {
   return (
@@ -13,7 +14,7 @@ export default function Index() {
         </Link>
       </div>
       <h1>Welcome to Remix</h1>
-      
+      <Forms />
       <ul>
         <li>
           <a
