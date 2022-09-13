@@ -1,12 +1,14 @@
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
+  Link,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import Header from "./header";
 import styles from "~/style/index.css";
 
 export const meta: MetaFunction = () => ({
@@ -32,6 +34,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
