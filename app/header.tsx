@@ -24,8 +24,8 @@ export default function Header() {
         </p>
       </div>
       <div className="header-right">
-        <Link to="/faq" className="header-right-link">
-          FAQ
+        <Link to="/events" className="header-right-link">
+          Events
         </Link>
         <Link to="/talk" className="header-right-link">
           Submit a Talk

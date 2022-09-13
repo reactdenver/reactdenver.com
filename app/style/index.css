@@ -13,6 +13,9 @@ a:hover {
   text-decoration: underline;
 }
 
+
+/* header specific classes and ids */
+
 .header-container {
  display:flex;
   margin:0;
@@ -57,4 +60,72 @@ a:hover {
 
 #RD-header-icon:hover {
   opacity: 50%;
+}
+
+
+
+/* Main Page Style */
+
+.main-container {
+  display: flex;
+  flex: 1;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.main-left-container {
+  flex:3;
+  flex-direction: column;
+}
+.main-right-container {
+  flex:2;
+}
+
+.welcome-section-container {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#welcome-text {
+  font-size: 40px;
+  font-weight: 600;
+  color: #374650;
+}
+
+.welcome-item {
+  margin-bottom: 25px;
+  flex-direction: row;
+}
+
+#tagline-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: #374650;
+}
+
+.link-btn {
+  justify-content: center;
+  align-items: center;
+}
+
+#discord-btn {
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  width: 220px;
+  height: 46px;
+  background-color: #5865F2;
+  border-radius: 8px;
+  justify-content: space-around;
+}
+
+#discord-btn-text {
+  color: white;
+}
+
+#discord-btn-icon {
+  max-height: 18.43px;
+  width: auto;
 }
