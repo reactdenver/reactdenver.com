@@ -59,7 +59,7 @@ a:hover {
 }
 
 #RD-header-icon:hover {
-  opacity: 50%;
+  opacity: 60%;
 }
 
 
@@ -95,6 +95,7 @@ a:hover {
 }
 
 .welcome-item {
+  display: flex;
   margin-bottom: 25px;
   flex-direction: row;
 }
@@ -121,11 +122,35 @@ a:hover {
   justify-content: space-around;
 }
 
+#discord-btn:hover {
+  opacity: 60%;
+}
+
 #discord-btn-text {
   color: white;
+}
+
+#discord-link:hover {
+  text-decoration: none;
 }
 
 #discord-btn-icon {
   max-height: 18.43px;
   width: auto;
+}
+
+#events-btn {
+  display: flex;
+  width: 168px;
+  height: 46px;
+  border: 2px #b7b7b7 solid;
+  border-radius: 8px;
+}
+
+#events-btn:hover {
+  background-color: #b7b7b7;
+}
+
+#events-link {
+  margin-left: 10px;
 }

@@ -18,7 +18,7 @@ export default function Index() {
             <h5 id="tagline-text">Happening monthly in downtown and online</h5>
           </div>
           <div className="welcome-item">
-            <a href="https://discord.com">
+            <a id="discord-link" href="https://discord.com">
               <div id="discord-btn" className="link-btn">
                 <img
                   src={require("~/assets/discord_icon.png")}
@@ -27,11 +27,13 @@ export default function Index() {
                 <p id="discord-btn-text">Join the Discord</p>
               </div>
             </a>
-            <Link to="/events">
-              <div className="link-btn">
-                <p></p>
-              </div>
-            </Link>
+            <div id="events-link">
+              <Link style={{ textDecoration: "none" }} to="/events">
+                <div id="events-btn" className="link-btn">
+                  <p>See all events</p>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
         <ul>
