@@ -1,50 +1,70 @@
-import { Link } from '@remix-run/react';
-import Forms from './posts/form'
+import { Link } from "@remix-run/react";
+import Forms from "./posts/form";
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <div>
-        nav bar
-        <Link to="/faq">
-          FAQ
-        </Link>
-        <Link to="/code_of_conduct">
-          Code of Conduct
-        </Link>
+    <div
+      className="main-container"
+      style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}
+    >
+      <div className="main-left-container">
+        <div className="welcome-section-container">
+          <div className="welcome-item">
+            <h1 id="welcome-text">
+              A community meetup for React developers in and around Denver
+            </h1>
+          </div>
+          <div className="welcome-item">
+            <h5 id="tagline-text">Happening monthly in downtown and online</h5>
+          </div>
+          <div className="welcome-item">
+            <a id="discord-link" href="https://discord.gg/fFngBEwNmV">
+              <div id="discord-btn" className="link-btn">
+                <img
+                  src={require("~/assets/discord_icon.png")}
+                  id="discord-btn-icon"
+                />
+                <p id="discord-btn-text">Join the Discord</p>
+              </div>
+            </a>
+            <div id="events-link">
+              <Link style={{ textDecoration: "none" }} to="/events">
+                <div id="events-btn" className="link-btn">
+                  <p>See all events</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              href="https://remix.run/tutorials/blog"
+              rel="noreferrer"
+            >
+              15m Quickstart Blog Tutorial
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://remix.run/tutorials/jokes"
+              rel="noreferrer"
+            >
+              Deep Dive Jokes App Tutorial
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
+              Remix Docs
+            </a>
+          </li>
+        </ul>
       </div>
-      <h1>Welcome to Remix</h1>
-      <Forms />
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-          
-        </li>
-      </ul>
-      <Link to="/events">
-        Events list
-      </Link>
-      
+      <div className="main-right-container">
+        <Forms />
+      </div>
     </div>
   );
-};
+}

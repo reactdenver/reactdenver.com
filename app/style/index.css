@@ -1,3 +1,164 @@
+:root {
+  --light-grey:#DDDDDD;
+  --grey: #b7b7b7;
+  --dark-grey: #666666;
+  --blue-grey: #374650;
+  --discord-blue: #5865F2;
+  --white: #ffffff;
+}
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  text-decoration: none;
+  color:var(--dark-grey)
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* header specific classes and ids */
+
+.header-container {
+ display:flex;
+  margin:0;
+  max-width: 1728px;
+  height: 72px;
+  border-bottom: 1px var(--light-grey) solid
+}
+
+.header-left {
+  margin-left:10%;
+  display:flex;
+  flex:1;
+  align-items: center;
+}
+
+.header-right {
+  margin-right: 10%;
+  display: flex;
+  flex:1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header-left-link {
+  padding:5px;
+}
+
+.header-right-link {
+  padding:20px;
+}
+
+#RD-header-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--blue-grey);
+}
+
+#RD-header-icon {
+  max-height: 32px;
+  width: auto;
+}
+
+#RD-header-icon:hover {
+  opacity: 60%;
+}
+
+
+
+/* Main Page Style */
+
+.main-container {
+  display: flex;
+  flex: 1;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.main-left-container {
+  flex:3;
+  flex-direction: column;
+}
+.main-right-container {
+  flex:2;
+}
+
+.welcome-section-container {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#welcome-text {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--blue-grey);
+}
+
+.welcome-item {
+  display: flex;
+  margin-bottom: 25px;
+  flex-direction: row;
+}
+
+#tagline-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--blue-grey);
+}
+
+.link-btn {
+  justify-content: center;
+  align-items: center;
+}
+
+#discord-btn {
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  width: 220px;
+  height: 46px;
+  background-color: var(--discord-blue);
+  border-radius: 8px;
+  justify-content: space-around;
+}
+
+#discord-btn:hover {
+  opacity: 60%;
+}
+
+#discord-btn-text {
+  color: var(--white)
+}
+
+#discord-link:hover {
+  text-decoration: none;
+}
+
+#discord-btn-icon {
+  max-height: 18.43px;
+  width: auto;
+}
+
+#events-btn {
+  display: flex;
+  width: 168px;
+  height: 46px;
+  border: 2px var(--grey) solid;
+  border-radius: 8px;
+}
+
+#events-btn:hover {
+  background-color: var(--grey);
+}
+
+#events-link {
+  margin-left: 10px;
 }
