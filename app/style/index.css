@@ -1,3 +1,11 @@
+:root {
+  --light-grey:#DDDDDD;
+  --grey: #b7b7b7;
+  --dark-grey: #666666;
+  --blue-grey: #374650;
+  --discord-blue: #5865F2;
+  --white: #ffffff;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +14,7 @@
 
 a:link {
   text-decoration: none;
-  color:#666666
+  color:var(--dark-grey)
 }
 
 a:hover {
@@ -21,7 +29,7 @@ a:hover {
   margin:0;
   max-width: 1728px;
   height: 72px;
-  border-bottom: 1px #DDDDDD solid
+  border-bottom: 1px var(--light-grey) solid
 }
 
 .header-left {
@@ -50,7 +58,7 @@ a:hover {
 #RD-header-text {
   font-size: 24px;
   font-weight: 600;
-  color: #374650
+  color: var(--blue-grey);
 }
 
 #RD-header-icon {
@@ -91,7 +99,7 @@ a:hover {
 #welcome-text {
   font-size: 40px;
   font-weight: 600;
-  color: #374650;
+  color: var(--blue-grey);
 }
 
 .welcome-item {
@@ -103,7 +111,7 @@ a:hover {
 #tagline-text {
   font-size: 18px;
   font-weight: 400;
-  color: #374650;
+  color: var(--blue-grey);
 }
 
 .link-btn {
@@ -117,7 +125,7 @@ a:hover {
   display: flex;
   width: 220px;
   height: 46px;
-  background-color: #5865F2;
+  background-color: var(--discord-blue);
   border-radius: 8px;
   justify-content: space-around;
 }
@@ -127,7 +135,7 @@ a:hover {
 }
 
 #discord-btn-text {
-  color: white;
+  color: var(--white)
 }
 
 #discord-link:hover {
@@ -143,12 +151,12 @@ a:hover {
   display: flex;
   width: 168px;
   height: 46px;
-  border: 2px #b7b7b7 solid;
+  border: 2px var(--grey) solid;
   border-radius: 8px;
 }
 
 #events-btn:hover {
-  background-color: #b7b7b7;
+  background-color: var(--grey);
 }
 
 #events-link {
