@@ -18,7 +18,7 @@ export default function Index() {
             <h5 id="tagline-text">Happening monthly in downtown and online</h5>
           </div>
           <div className="welcome-item">
-            <a id="discord-link" href="https://discord.com">
+            <a id="discord-link" href="https://discord.gg/fFngBEwNmV">
               <div id="discord-btn" className="link-btn">
                 <img
                   src={require("~/assets/discord_icon.png")}
