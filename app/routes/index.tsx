@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import Events_LG from "~/components/event_lg";
 import Forms from "./posts/form";
 
 export default function Index() {
@@ -35,6 +36,16 @@ export default function Index() {
               </Link>
             </div>
           </div>
+        </div>
+        <div
+          style={{
+            flex: 1,
+            borderWidth: 2,
+            borderColor: "black",
+            borderStyle: "solid",
+          }}
+        >
+          <Events_LG />
         </div>
         <ul>
           <li>
