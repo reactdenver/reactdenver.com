@@ -5,7 +5,7 @@ export default function Events_LG(event: object) {
     "Building React apps with End to End Encryption + Demystifying State Machines!";
   const eventAuthor = "Jane Goodall, Dennis Realman";
   const eventAddress = "1595 Wynkoop Street, Denver CO & online";
-  const imgURL = require("~/assets/Thumb-Example.png");
+  const imgURL = require("~/assets/Thumb-Default.png");
   return (
     <div className="event-lg-container">
       <img className="event-thumb-lg" src={imgURL} />
