@@ -37,16 +37,9 @@ export default function Index() {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            flex: 1,
-            borderWidth: 2,
-            borderColor: "black",
-            borderStyle: "solid",
-          }}
-        >
-          <Events_LG />
-        </div>
+
+        <Events_LG />
+
         <ul>
           <li>
             <a

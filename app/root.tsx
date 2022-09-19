@@ -23,6 +23,10 @@ export function links() {
       rel: "stylesheet",
       href: styles,
     },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Inter",
+    },
   ];
 }
 
