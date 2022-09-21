@@ -3,10 +3,11 @@
 
 ## Getting Up and Running
 
-1. `git clone git@github.com:reactdenver/react-denver-v2.git`
-2. `npm install` _need help getting node setup? [checkout this video](https://www.youtube.com/watch?v=K5_B737B9l0) from [@stolinski](https://github.com/stolinski)_
-3. `npm start`
-4. help us out!
+1. `git clone git@github.com:reactdenver/reactdenver.com.git`
+2. `git switch next` (work is being done off of the next branch)
+3. `npm install` _need help getting node setup? [checkout this video](https://www.youtube.com/watch?v=K5_B737B9l0) from [@stolinski](https://github.com/stolinski)_
+4. `npm start`
+5. help us out!
 
 ## About
 
