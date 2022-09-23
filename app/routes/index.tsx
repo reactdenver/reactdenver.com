@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import Events_LG from "~/components/event_lg";
 import Forms from "./posts/form";
 
 export default function Index() {
@@ -36,6 +37,9 @@ export default function Index() {
             </div>
           </div>
         </div>
+
+        <Events_LG />
+
         <ul>
           <li>
             <a

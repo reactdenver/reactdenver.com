@@ -8,7 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import Header from "./header";
+import Header from "~/components/header";
 import styles from "~/style/index.css";
 
 export const meta: MetaFunction = () => ({
@@ -22,6 +22,10 @@ export function links() {
     {
       rel: "stylesheet",
       href: styles,
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Inter",
     },
   ];
 }

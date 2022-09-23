@@ -1,3 +1,5 @@
+
+
 :root {
   --light-grey:#DDDDDD;
   --grey: #b7b7b7;
@@ -7,6 +9,7 @@
   --white: #ffffff;
 }
 * {
+  font-family: Inter;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -161,4 +164,46 @@ a:hover {
 
 #events-link {
   margin-left: 10px;
+}
+
+.event-lg-container {
+  display: flex;
+  margin: 20px 0 40px 0;
+  width: 823px;
+  height: 464px;
+}
+
+.event-thumb-lg {
+  position: absolute;
+  z-index: -1;
+  border-radius: 24;
+}
+
+.event-lg-text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  justify-content: flex-end;
+  padding: 48px 32px 48px 32px;
+}
+
+.event-title-text, .event-speaker-text, .event-next-text {
+  color: var(--white);
+}
+
+.event-title-text {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.event-speaker-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.event-next-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
