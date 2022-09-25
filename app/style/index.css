@@ -207,3 +207,17 @@ a:hover {
   font-weight: 700;
   letter-spacing: 4px;
 }
+
+#sponsors-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: content-box;
+  height: 200px;
+  width: 823px;
+  padding-top: 60px;
+  padding-bottom: 68px;
+  border-bottom: 1px solid black;
+}
