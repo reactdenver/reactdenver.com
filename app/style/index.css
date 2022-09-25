@@ -234,6 +234,21 @@ a:hover {
   top: 474px;
 }
 
+#footer-links {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  top: 510px;
+  left: calc(144px + 80px);
+  padding-left: 50px;
+}
+
+#footer-links a {
+  color:white;
+}
+
 #footer_skyline {
   position: absolute;
   width: 756px;
