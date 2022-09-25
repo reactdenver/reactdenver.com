@@ -233,3 +233,11 @@ a:hover {
   left: 144px;
   top: 474px;
 }
+
+#footer_skyline {
+  position: absolute;
+  width: 756px;
+  height: 225px;
+  right: 0px;
+  top: 0px;
+}
