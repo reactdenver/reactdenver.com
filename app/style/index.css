@@ -211,6 +211,26 @@ a:hover {
 }
 
 
+/* Code of conduct and privacy policy rules */
+div.legal{
+  margin: 50px 200px;
+}
+
+.legal h1 {
+  text-align: center;
+}
+
+.legal ul {
+  margin-left: 50px;
+}
+
+.legal p, .legal h1, .legal h2, .legal h3 {
+  padding: 10px;
+}
+
+/* End code of conduct and privacy policy rules */
+
+
 /* Footer rules */
 
 #footer-box {

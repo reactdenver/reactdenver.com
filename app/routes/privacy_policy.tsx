@@ -1,9 +1,8 @@
 export default function PrivacyPolicy() {
 
-  return (
-    <div>
+  return <div className='legal'>
     <h1>Privacy Policy</h1>
-    <p>The React Denver website uses Tito's event registration API. Its privacy policy below can also be viewed by clicking <a href='https://ti.to/privacy#privacy'>this link</a></p>
+    <p>The React Denver website uses Tito's event registration API to allow guests to register for our events. Its privacy policy, below, can also be viewed by clicking <b><a href='https://ti.to/privacy#privacy'>this link</a></b></p>
 
     <h2>Purpose and scope of notice</h2>
     <p>This Privacy Notice ("Notice") is intended to explain how your personal information will be handled by Team Tito Limited ("Tito" "we", "our" and "us") of Unit 2, 64 Dame Street, Dublin 2 and sets out the information including the personal information detailed below relating to you ("Personal Data") that will be collected and processed by Tito and/or on its behalf by its third party service providers in the context of your engagement with www.ti.to (the "Website") and the platform and services provided thereon (together the "Tito Services").</p>
@@ -29,16 +28,16 @@ export default function PrivacyPolicy() {
     <p>This includes information such as your name, email address, company, phone number and your password.</p>
 
     <h3>Device Information</h3>
-    <p>This includes information such as: * your device type, operating system, browser, IP address and other information derived from cookies used on the Website. Please see our Cookie Policy for further information; and * details of your visits to the Website such as traffic data, location data and the resources, advertisements and linked websites that you access through the Website.</p>
+    <p>This includes information such as: your device type, operating system, browser, IP address and other information derived from cookies used on the Website. Please see our Cookie Policy for further information; and details of your visits to the Website such as traffic data, location data and the resources, advertisements and linked websites that you access through the Website.</p>
     
     <h3>Transactional History</h3>
     <p>This includes information about the date, time, value and number of transactions you make through the Tito Services.</p>
     
     <h3>Miscellaneous</h3>
     <p>This includes any other information which is provided to us by you or on your behalf.</p>
-    
+
     <h2>Why we process your personal data</h2>
-    <p>The following details the legal bases for which ("Legal Basis") and the reasons why ("Purposes") we collect, obtain and process your Personal Data:</p>
+    <p>The following details the legal basis for which ("Legal Basis") and the reasons why ("Purposes") we collect, obtain and process your Personal Data:</p>
 
     <p>It is necessary to process this Personal Data to enter into and perform our contract with you in relation to:</p>
     <ul>
@@ -47,6 +46,7 @@ export default function PrivacyPolicy() {
       <li>If you do not wish to provide us with your Personal Data for these purposes, we will not be able to enter into or perform our contract(s) with you and you will not be able to avail of the Tito Services.</li>
     </ul>
 
+    <p>The purpose of the above is the following:</p>
     <ul>
       <li>To provide you with access to the Website and to allow you to use the Website.</li>
       <li>To determine, perform and execute the terms on which you will engage with us as an Event Organiser;</li>
@@ -64,6 +64,7 @@ export default function PrivacyPolicy() {
 
     <p>Before we process your Personal Data to pursue our legitimate interests for these purposes, we determine if such processing is necessary and we carefully consider the impact of our processing activities on your fundamental rights and freedoms. On balance, we have determined that such processing is necessary for our legitimate interests and that the processing which we conduct does not adversely impact on these rights and freedoms.</p>
 
+    <p>The purposes are:</p>
     <ul>
       <li>To monitor, test and improve the effectiveness of the Tito Services;</li>
       <li>to monitor metrics such as total number of visitors, traffic data and demographic patterns on our Website; and</li>
@@ -74,11 +75,16 @@ export default function PrivacyPolicy() {
       <li>To send you a personal introduction email when you first sign up for the Tito Services;</li>
       <li>to keep you updated with our news; and</li>
       <li>to send you promotional and marketing material which we believe would be of use or interest to you.</li>
-      <li>We may process your Personal Data where it is necessary to comply with legal obligations to which we are subject, to comply with our obligations under Irish and European law.
-    </li>
     </ul>
 
-    <p>We may process your Personal Data as necessary in order for us to establish, investigate, exercise or defend a legal claim to which you are a party.</p>
+    <p>We may process your Personal Data where it is necessary to comply with legal obligations to which we are subject, to comply with our obligations under Irish and European law.</p>
+
+    <p>We may process your Personal Data as necessary in order for us to establish, investigate, exercise or defend a legal claim to which you are a party for the following purposes:</p>
+    <ul>
+      <li>To file legal proceedings;</li>
+      <li>to investigate, establish, exercise or defend a legal claim; and</li>
+      <li>to settle legal claims.</li>
+    </ul>
 
     <h2>Disclosure of your personal data</h2>
     <p>We may disclose some or all of the Personal Data we collect from and obtain about you to the following third parties:</p>
@@ -122,7 +128,7 @@ export default function PrivacyPolicy() {
     <p>We are committed to taking reasonable and appropriate steps to protect the Personal Data that we hold from misuse, loss, or unauthorised access. We do this by having in place a range of appropriate technical and organisational measures.</p>
 
     <h2>Your rights and how to exercise them</h2>
-    You have a number of rights in relation to your Personal Data, which are set out in this Section 9. Note that in certain circumstances these rights might not be absolute.
+    <p>You have a number of rights in relation to your Personal Data, which are set out in this Section 9. Note that in certain circumstances these rights might not be absolute.</p>
 
     <h3>Right to be Informed</h3>
     <p>You have the right to know whether your Personal Data is being processed by us, how we use your Personal Data and your rights in relation to your Personal Data.</p>
@@ -177,10 +183,10 @@ export default function PrivacyPolicy() {
 
     <p>All passwords are stored in a one-way hash using strong (bcrypt) cryptography and multiple stretches.</p>
 
-    <h2>Audit Policy</h2>
+    <h3>Audit Policy</h3>
     <p>Tito will commission a detailed penetration test every 2 years, and an interim test every 6 months.</p>
 
-    <h2>Breach Policy</h2>
+    <h3>Breach Policy</h3>
     <p>In the event of a data breach, upon investigation, Tito will notify all individuals affected by the breach with:</p>
     <ul>
       <li>details of what happened</li>
@@ -189,5 +195,4 @@ export default function PrivacyPolicy() {
       <li>If there is evidence of a breach, all passwords will be reset, even those not specifically targetted by the breach.</li>
     </ul>
   </div>
-  )
 }

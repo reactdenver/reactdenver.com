@@ -1,8 +1,9 @@
+import React from 'react';
 
 export default function CodeOfConduct() {
   
   return (
-  <div>
+  <div className='legal'>
     <h1>Code of Conduct</h1>
     <h2>Principles</h2>
       <p>React Denver is dedicated to providing a harassment-free experience for everyone regardless of gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of React Denver participants in any form. Sexual language and imagery is not appropriate for any venue, including talks, workshops, parties, Twitter and other online media.</p>
