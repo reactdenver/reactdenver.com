@@ -7,7 +7,9 @@
   --blue-grey: #374650;
   --discord-blue: #5865F2;
   --white: #ffffff;
+  --purple: #A379C9;
 }
+
 * {
   font-family: Inter;
   box-sizing: border-box;
@@ -206,4 +208,28 @@ a:hover {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 4px;
+}
+
+
+/* Footer rules */
+
+#footer-box {
+  height: 690px;
+  position: relative;
+}
+
+#footer {
+  height: 514px;
+  background-color: var(--purple);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#RD_footer_icon {
+  width: 80px;
+  position: absolute;
+  left: 144px;
+  top: 474px;
 }
