@@ -1,4 +1,14 @@
 import React from 'react';
+import styles from '../style/index.css';
+ 
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+    },
+  ];
+}
 
 export default function Sponsors() {
 
