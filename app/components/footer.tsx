@@ -3,6 +3,14 @@ import styles from "~/style/index.css";
 
 import { Link } from "@remix-run/react";
 
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+    },
+  ];
+}
 
 export default function Footer() {
 
