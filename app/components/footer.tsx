@@ -20,7 +20,7 @@ export default function Footer() {
     <Link to="/">
       <img id="RD_footer_icon" src={require("../assets/RD_footer_icon.png")} alt="React Denver icon"/>
     </Link>
-    <img id="footer_skyline" src={require("../assets/footer_skyline.png")} alt="City skyline"/>
+    <img id="footer-skyline" src={require("../assets/footer_skyline.png")} alt="City skyline"/>
     <div id='footer-links'>
       <Link to="/code_of_conduct">Code of Conduct</Link>
       <Link to="/privacy_policy">Privacy Policy</Link>
