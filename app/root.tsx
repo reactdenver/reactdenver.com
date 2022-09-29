@@ -9,6 +9,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import Header from "~/components/header";
+import Footer from "~/components/footer"
 import styles from "~/style/index.css";
 
 export const meta: MetaFunction = () => ({
@@ -41,6 +42,7 @@ export default function App() {
         <Header />
         <Outlet />
         <ScrollRestoration />
+        <Footer />
         <Scripts />
         <LiveReload />
       </body>

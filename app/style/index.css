@@ -7,7 +7,9 @@
   --blue-grey: #374650;
   --discord-blue: #5865F2;
   --white: #ffffff;
+  --purple: #A379C9;
 }
+
 * {
   font-family: Inter;
   box-sizing: border-box;
@@ -221,3 +223,71 @@ a:hover {
   padding-bottom: 68px;
   border-bottom: 1px solid black;
 }
+
+/* Code of conduct and privacy policy rules */
+div.legal{
+  margin: 50px 200px;
+}
+
+.legal h1 {
+  text-align: center;
+}
+
+.legal ul {
+  margin-left: 50px;
+}
+
+.legal p, .legal h1, .legal h2, .legal h3 {
+  padding: 10px;
+}
+
+/* End code of conduct and privacy policy rules */
+
+
+/* Footer rules */
+
+#footer-box {
+  height: 690px;
+  position: relative;
+}
+
+#footer {
+  height: 514px;
+  background-color: var(--purple);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#RD_footer_icon {
+  width: 80px;
+  position: absolute;
+  left: 144px;
+  top: 474px;
+}
+
+#footer-links {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  top: 510px;
+  left: calc(144px + 80px);
+  padding-left: 50px;
+}
+
+#footer-links a {
+  color:white;
+}
+
+#footer-skyline {
+  position: absolute;
+  width: 756px;
+  height: 225px;
+  right: 0px;
+  top: 0px;
+}
+
+/* End of footer rules */
