@@ -14,6 +14,31 @@
 
 body {
   font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #232323;
+}
+
+p {
+  font-size: 18px;
+  color: #374650;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  padding: 0 0 1.5rem;
+}
+
+span.line {
+  width: 100%;
+  max-width: 823px;
+  border-bottom: 1px solid #dddddd;
+  display: inline;
+  margin: 16px;
 }
 
 /* ========== IMPORTS FONTS ========== */
@@ -264,7 +289,6 @@ a:hover {
 
 .welcome-item {
   display: flex;
-  margin-bottom: 25px;
   flex-direction: row;
 }
 
@@ -329,4 +353,135 @@ a:hover {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.page__container {
+  /* border: 2px solid green; */
+  display: flex;
+  flex-direction: column;
+}
+.page__container > * {
+  /* border: 2px solid blue; */
+}
+/* testing */
+
+/* CORE COMPONENTS */
+
+button {
+  padding: 10px 24px;
+  background-color: transparent;
+  border: 1px solid #b7b7b7;
+  border-radius: 8px;
+  font-size: 18px;
+  margin: 8px 24px 0 0;
+}
+button:hover {
+  cursor: pointer;
+}
+
+/* INDEX PAGE STYLES */
+
+.home__discord {
+  margin: 64px 16px;
+}
+.home__discord > .home__discordButtons {
+  margin: 24px 0;
+  display: inline-flex;
+}
+.home__discord > .home__discordButtons > .home__discourdButtonsLogo {
+  margin: 6px 24px 0 0;
+}
+.home__discord > .home__discordButtons > button {
+  color: #5865f2;
+}
+.home__previousEventTiles {
+  margin: 64px 16px;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+.previousEventTile {
+  display: flex;
+  flex-direction: row;
+  margin: 16px 0;
+  max-width: 1054px;
+}
+.previousEventTile > .previousEventTile__image {
+  /* width: 240px; */
+  /* height: 180px; */
+  /* max-height: 180px; */
+  /* background-color: #666666; */
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.previousEventTile > .previousEventTile__image > img {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+.previousEventTile > .previousEventTile__detail {
+  padding: 8px 16px;
+}
+.previousEventTile__title {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 8px 0;
+}
+a:visited > h3.previousEventTile__title {
+  color: #232323;
+}
+.seeMoreLink {
+  display: inline-block;
+  max-width: 100%;
+  color: #0094ff;
+  margin: 24px 0 16px;
+  font-size: 20px;
+}
+.seeMoreLink::after {
+  content: "->";
+  padding-left: 4px;
+}
+
+.nextMeetupHero {
+  margin: 16px;
+  max-width: 823px;
+  background-color: #666666;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  aspect-ratio: 823 / 464;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background: linear-gradient(
+      0deg,
+      rgba(163, 121, 201, 0.25),
+      rgba(163, 121, 201, 0.25)
+    ),
+    url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.nextMeetupHero > * {
+  padding: 0;
+  color: #ffffff;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.75));
+}
+.nextMeetupHero > span {
+  letter-spacing: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.nextMeetupHero h2 {
+  padding: 40px 0 8px 0;
+}
+.nextMeetupHero p:nth-child(3) {
+  padding: 8px 0 8px 0;
+  /* border: 1px solid red; */
 }

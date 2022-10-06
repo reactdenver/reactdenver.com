@@ -1,5 +1,6 @@
 .container {
-  background: rgba(255, 0, 0, 0.1);
+  /* background: rgba(255, 0, 0, 0.1); */
+  /* border: 1px solid green; */
   display: flex;
   flex-direction: column;
   width: 100%;

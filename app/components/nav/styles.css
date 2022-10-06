@@ -16,6 +16,7 @@ nav {
   justify-content: space-between;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 .nav__container > div {
   /* border: 1px solid red; */
