@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
-import { getEventMdxListItems } from "~/utils/mdx";
+import { getEventsJson } from "~/utils/events.server";
 
 export async function loader() {
-  const events = await getEventMdxListItems();
+  const events = await getEventsJson();
 
   return json(events, {
     headers: {
