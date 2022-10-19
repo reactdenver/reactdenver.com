@@ -228,17 +228,17 @@ div.legal{
   padding: 10px;
 }
 
-/* End code of conduct and privacy policy rules */
+/* ===End code of conduct and privacy policy rules ===*/
 
 
-/* Footer rules */
+/* ==============Footer rules =============*/
 
-#footer-box {
+.footer {
   height: 690px;
   position: relative;
 }
 
-#footer {
+.footer__body {
   height: 514px;
   background-color: var(--purple);
   position: absolute;
@@ -247,14 +247,14 @@ div.legal{
   right: 0px;
 }
 
-#RD_footer_icon {
+.footer__RD-icon {
   width: 80px;
   position: absolute;
   left: 144px;
   top: 474px;
 }
 
-#footer-links {
+.footer__links-box {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -265,11 +265,11 @@ div.legal{
   padding-left: 50px;
 }
 
-#footer-links a {
+.footer__link {
   color:white;
 }
 
-#footer-skyline {
+.footer__skyline {
   position: absolute;
   width: 756px;
   height: 225px;
