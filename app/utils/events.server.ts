@@ -58,7 +58,7 @@ export async function getEventsJson() {
   //     description,
   //     location,
   //     speakers,
-  //     date
+  //     date,
   //   };
   // });
 }

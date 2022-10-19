@@ -27,9 +27,6 @@ async function compileMdx<FrontmatterType extends Record<string, unknown>>(
     const { frontmatter, code } = await bundleMDX({
       source: indexFile.content,
       files,
-      mdxOptions(options) {
-        return options;
-      },
     });
 
     return {
