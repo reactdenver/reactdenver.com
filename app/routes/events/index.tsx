@@ -16,13 +16,16 @@ export default function Events() {
   const events = useLoaderData<typeof loader>();
 
   console.log(events);
-
   return (
     <div>
       <main>
         <h1>Events list</h1>
         <ul>
-          <li>placeholder event</li>
+          {events.map((event) => (
+            <li>
+              <Link to={`./${event.slug}`}>{event.title}</Link>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
