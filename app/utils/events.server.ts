@@ -1,7 +1,7 @@
 import { getEventMdxListItems } from "./mdx";
 
 export async function getEventsJson() {
-  const posts = await getEventMdxListItems();
+  // const posts = await getEventMdxListItems();
 
   return Promise.resolve([
     {
