@@ -10,6 +10,7 @@ import {
 } from "@remix-run/react";
 import Nav, { links as navLinks } from "./components/nav";
 import Layout, { links as layoutLinks } from "~/components/layout";
+import Footer from "~/components/footer";
 import normalize from "~/styles/normalize.css";
 import styles from "~/styles/index.css";
 
@@ -54,6 +55,7 @@ export default function App() {
             <Scripts />
             <LiveReload />
           </Layout>
+          <Footer />
         </div>
       </body>
     </html>

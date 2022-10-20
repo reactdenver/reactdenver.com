@@ -347,6 +347,50 @@ a:hover {
   margin-left: 10px;
 }
 
+.event-lg-container {
+  display: flex;
+  margin: 20px 0 40px 0;
+  width: 823px;
+  height: 464px;
+}
+
+.event-thumb-lg {
+  position: absolute;
+  z-index: -1;
+  border-radius: 24;
+}
+
+.event-lg-text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  justify-content: flex-end;
+  padding: 48px 32px 48px 32px;
+}
+
+.event-title-text,
+.event-speaker-text,
+.event-next-text {
+  color: var(--white);
+}
+
+.event-title-text {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.event-speaker-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.event-next-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
 /* testing */
 
 .root__layout__wrapper {
@@ -485,3 +529,73 @@ a:visited > h3.previousEventTile__title {
   padding: 8px 0 8px 0;
   /* border: 1px solid red; */
 }
+
+/* Code of conduct and privacy policy rules */
+div.legal {
+  margin: 50px 200px;
+}
+
+.legal h1 {
+  text-align: center;
+}
+
+.legal ul {
+  margin-left: 50px;
+}
+
+.legal p,
+.legal h1,
+.legal h2,
+.legal h3 {
+  padding: 10px;
+}
+
+/* ===End code of conduct and privacy policy rules ===*/
+
+/* ==============Footer rules =============*/
+
+.footer {
+  height: 690px;
+  position: relative;
+}
+
+.footer__body {
+  height: 514px;
+  background-color: var(--purple);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.footer__RD-icon {
+  width: 80px;
+  position: absolute;
+  left: 144px;
+  top: 474px;
+}
+
+.footer__links-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  top: 510px;
+  left: calc(144px + 80px);
+  padding-left: 50px;
+}
+
+.footer__link {
+  color: white;
+}
+
+.footer__skyline {
+  position: absolute;
+  width: 756px;
+  height: 225px;
+  right: 0px;
+  top: 0px;
+}
+
+/* End of footer rules */
