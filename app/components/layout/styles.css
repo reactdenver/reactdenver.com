@@ -1,0 +1,12 @@
+.container {
+  /* background: rgba(255, 0, 0, 0.1); */
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.container > * {
+  /* border: 1px solid red; */
+}

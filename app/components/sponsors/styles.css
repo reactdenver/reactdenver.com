@@ -1,0 +1,30 @@
+.sponsor__container {
+  /* margin: 16px; */
+  display: inline;
+  padding: 16px;
+  width: 100%;
+  margin: 64px 0;
+  /* border: 1px solid green; */
+}
+.sponsor__images {
+  display: flex;
+  align-items: center;
+}
+.sponsor__images > img {
+  max-height: 42px;
+  max-width: 250px;
+  height: 100%;
+  display: block;
+  margin: 24px 40px 24px 0;
+}
+.sponsor__people {
+  display: inline-flex;
+}
+.sponsor__person {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  background-color: gray;
+  border: 3px solid white;
+  margin-right: -12px;
+}

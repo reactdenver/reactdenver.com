@@ -1,0 +1,58 @@
+nav {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* border: 1px solid red; */
+  border-bottom: 1px solid #ddd;
+}
+
+.nav__container {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid red; */
+  height: 80px;
+  max-height: 80px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.nav__container > div {
+  /* border: 1px solid red; */
+}
+
+.nav__container > .nav__left > .logo_test {
+  width: 208px;
+  min-width: 208px;
+  max-width: 208px;
+  height: 34.7px;
+  min-height: 34.7px;
+  display: block;
+  /* background-color: red; */
+  /* background-image: url("navLogo.png"); */
+}
+
+.nav__logo {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  width: 208px;
+  min-width: 208px;
+  max-width: 208px;
+  height: 34.7px;
+  min-height: 34.7px;
+  display: block;
+}
+
+.nav__container > .nav__right > * {
+  margin: 0 16px;
+  color: #666;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+[data-nav-logo] {
+  background-image: url("/navLogo.svg");
+}
