@@ -26,6 +26,4 @@ type MdxPage = {
 
 type MdxListItem = Omit<MdxPage, "code">;
 
-type GitHubFile = { path: string; content: string };
-
-export { MdxPage, MdxListItem, GitHubFile };
+export { MdxPage, MdxListItem };
