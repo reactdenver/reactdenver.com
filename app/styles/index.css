@@ -587,7 +587,6 @@ div.legal {
 }
 
 a.footer__link {  
-  /* broke BEM convention to override an a:link rule elsewhere */
   color: white;
 }
 
