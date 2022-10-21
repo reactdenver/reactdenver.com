@@ -561,7 +561,7 @@ div.legal {
 
 .footer__body {
   height: 514px;
-  background-color: var(--purple);
+  background-color: #A379C9;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -586,7 +586,8 @@ div.legal {
   padding-left: 50px;
 }
 
-.footer__link {
+a.footer__link {  
+  /* broke BEM convention to override an a:link rule elsewhere */
   color: white;
 }
 
