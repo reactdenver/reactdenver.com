@@ -575,6 +575,13 @@ div.legal {
   top: 474px;
 }
 
+.footer__Net-icon {
+  position: absolute;
+  max-width: 30%;
+  height: auto;
+  top:-15px;
+}
+
 .footer__links-box {
   position: absolute;
   display: flex;
