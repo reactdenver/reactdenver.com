@@ -19,8 +19,6 @@ export default function Events() {
   // Will need to add a filter to show past events and one future event
 
   console.log(events);
-
-  // console.log(format(new Date(events[0].date), 'EEE, MMM d, y'));
   
   return (
   <div className={'past-events'}>
@@ -32,7 +30,7 @@ export default function Events() {
       <div className={'past-event__text-box'}>
         <p className={'past-event__text_small'}>{typeof event.date === 'string' && format(new Date(event.date), 'EEE, MMM d, y')}</p>
         <h3 className={'past-event__text_large'}>{event.title}</h3>
-        <p className={'past-event__text_small'}>{event.speakers?.map(speaker => `${speaker.name}`)}</p>
+        <p className={'past-event__text_small'}>{event.speakers?.map(speaker => `${speaker.name}`).join(', ')}</p>
         <p className={'past-event__text_small'}>{event.location}</p>
       </div>
     </Link>)}
