@@ -15,15 +15,18 @@ export async function loader() {
 
 export default function Events() {
   const events = useLoaderData<typeof loader>();
-
-  // Will need to add a filter to show past events and one future event
+  const eventsShown = events.filter(event => {
+    if(event.date) {
+      return new Date > new Date(event.date);
+    }
+  })
 
   console.log(events);
   
   return (
   <div className={'past-events'}>
     <h4 className={'past-events__headline'}>Previous Events:</h4>
-    {events.map(event => 
+    {eventsShown.map(event => 
     <Link key={event.id} className={'past-event__content'} to={`./${event.slug}`}>
       <img className={'past-event__image'} src={'https://source.unsplash.com/random/400x300'} alt={event.title}></img>
       {/*=============== Image source to be changed from placeholder when available========= */}
