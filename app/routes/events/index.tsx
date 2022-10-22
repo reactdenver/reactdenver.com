@@ -15,17 +15,17 @@ export async function loader() {
 
 export default function Events() {
   const events = useLoaderData<typeof loader>();
-  const eventsShown = events.filter(event => {
-    if(event.date) {
-      return new Date > new Date(event.date);
-    }
-  })
+  const eventsPast = events.filter(event => event.date && new Date >= new Date(event.date));
+  const futureEvent = events.find(event => event.date && new Date < new Date(event.date));
+  let eventsShown = eventsPast.concat((futureEvent || [])).reverse()
+  if(eventsShown.length > 7) 
+    eventsShown = eventsShown.slice(-7);
 
-  console.log(events);
+    console.log(events);
   
   return (
   <div className={'past-events'}>
-    <h4 className={'past-events__headline'}>Previous Events:</h4>
+    <h4 className={'past-events__headline'}>Events:</h4>
     {eventsShown.map(event => 
     <Link key={event.id} className={'past-event__content'} to={`./${event.slug}`}>
       <img className={'past-event__image'} src={'https://source.unsplash.com/random/400x300'} alt={event.title}></img>
