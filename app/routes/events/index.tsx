@@ -18,10 +18,8 @@ export default function Events() {
   const eventsPast = events.filter(event => event.date && new Date >= new Date(event.date));
   const futureEvent = events.find(event => event.date && new Date < new Date(event.date));
   let eventsShown = eventsPast.concat((futureEvent || [])).reverse()
-  if(eventsShown.length > 7) 
+  if(eventsShown.length > 7)
     eventsShown = eventsShown.slice(-7);
-
-    console.log(events);
   
   return (
   <div className={'events'}>
