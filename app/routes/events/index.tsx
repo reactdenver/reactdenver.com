@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { getEventsJson } from "~/utils/events.server";
-import PastEvent from "~/components/past_event";
 
 export async function loader() {
   const events = await getEventsJson();
@@ -18,20 +17,24 @@ export default function Events() {
 
   console.log(events);
   return (
-  <div className={'past-event'}>
-    <h4 className={'past-event__headline'}>Previous Events:</h4>
-    <img className={'past-event__image'} src='' alt=''></img>
-    <div className={'past-event__content'}>
-      <p className={'past-event__text_small'}>date</p>
-      <h3 className={'past-event__text_large'}>description</h3>
-      <p className={'past-event__text_small'}>speakers</p>
-      <p className={'past-event__text_small'}>location</p>
-    </div>
+  <div className={'past-events'}>
+    <h4 className={'past-events__headline'}>Previous Events:</h4>
+    {events.map(event => 
+    <Link key={event.id} className={'past-event__content'} to={`./${event.slug}`}>
+      <img className={'past-event__image'} src='https://picsum.photos/400/300' alt=''></img>
+      {/*=============== Image source to be changed when available from mdx========= */}
+      <div className={'past-event__text-box'}>
+        <p className={'past-event__text_small'}>{event.date}</p>
+        <h3 className={'past-event__text_large'}>{event.title}</h3>
+        <p className={'past-event__text_small'}>{event.speakers?.map(speaker => `${speaker.name}`)}</p>
+        <p className={'past-event__text_small'}>{event.location}</p>
+      </div>
+    </Link>)}
   </div>
     // <div>
     //   <main>
     //     <h1>Events list</h1>
-    //     <PastEvent />
+
     //     <ul>
     //       {events.map((event) => (
     //         <li>

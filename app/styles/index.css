@@ -532,17 +532,50 @@ a:visited > h3.previousEventTile__title {
 
 
 /*========Past Events Style================*/
-.past-event {
-  height: 300px;
+.past-events {
   max-width: 1054px;
-  display: flex;
   gap: 20px;
+  margin-left: 144px;
+  margin-top: 97px;
+}
+
+.past-events__headline {
+  font-size: 24px;
+  font-weight: 500px;
+}
+
+.past-event__content {
+  height: 300;
+  display: flex;
+  gap: 24px;
+  margin: 16px 0px;
+  border-radius: 8px;
+}
+
+.past-event__content:hover {
+  text-decoration: none;
+  box-shadow: 0 0 12px lightgray;
 }
 
 .past-event__image {
   height: 300px;
   width: 400px;
+  border-radius: 8px;
 }
+
+.past-event__text_small {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 0px;
+}
+
+.past-event__text_large {
+  font-size: 28px;
+  font-weight: 600px;
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
 /*========End Past Events Style============*/
 
 
