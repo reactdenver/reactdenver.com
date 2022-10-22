@@ -30,7 +30,7 @@ export default function Events() {
       <img className={'past-event__image'} src={'https://source.unsplash.com/random/400x300'} alt={event.title}></img>
       {/*=============== Image source to be changed from placeholder when available========= */}
       <div className={'past-event__text-box'}>
-        <p className={'past-event__text_small'}>{format(new Date(event.date), 'EEE, MMM d, y')}</p>
+        <p className={'past-event__text_small'}>{typeof event.date === 'string' && format(new Date(event.date), 'EEE, MMM d, y')}</p>
         <h3 className={'past-event__text_large'}>{event.title}</h3>
         <p className={'past-event__text_small'}>{event.speakers?.map(speaker => `${speaker.name}`)}</p>
         <p className={'past-event__text_small'}>{event.location}</p>
