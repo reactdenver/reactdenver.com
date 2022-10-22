@@ -553,6 +553,7 @@ a:visited > h3.previousEventTile__title {
 }
 
 .past-event__content:hover {
+  transition: .6s;
   text-decoration: none;
   box-shadow: 0 0 12px lightgray;
 }

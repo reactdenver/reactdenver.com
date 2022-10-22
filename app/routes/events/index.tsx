@@ -15,7 +15,10 @@ export async function loader() {
 export default function Events() {
   const events = useLoaderData<typeof loader>();
 
+  // Will need to add a filter to show past events and one future event
+
   console.log(events);
+  
   return (
   <div className={'past-events'}>
     <h4 className={'past-events__headline'}>Previous Events:</h4>
@@ -24,25 +27,12 @@ export default function Events() {
       <img className={'past-event__image'} src='https://picsum.photos/400/300' alt=''></img>
       {/*=============== Image source to be changed when available from mdx========= */}
       <div className={'past-event__text-box'}>
-        <p className={'past-event__text_small'}>{event.date}</p>
+        <p className={'past-event__text_small'}>{new Date(event.date).toDateString()}</p>
         <h3 className={'past-event__text_large'}>{event.title}</h3>
         <p className={'past-event__text_small'}>{event.speakers?.map(speaker => `${speaker.name}`)}</p>
         <p className={'past-event__text_small'}>{event.location}</p>
       </div>
     </Link>)}
   </div>
-    // <div>
-    //   <main>
-    //     <h1>Events list</h1>
-
-    //     <ul>
-    //       {events.map((event) => (
-    //         <li>
-    //           <Link to={`./${event.slug}`}>{event.title}</Link>
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   </main>
-    // </div>
   );
 }
