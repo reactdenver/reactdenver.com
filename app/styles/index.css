@@ -530,6 +530,22 @@ a:visited > h3.previousEventTile__title {
   /* border: 1px solid red; */
 }
 
+
+/*========Past Events Style================*/
+.past-event {
+  height: 300px;
+  max-width: 1054px;
+  display: flex;
+  gap: 20px;
+}
+
+.past-event__image {
+  height: 300px;
+  width: 400px;
+}
+/*========End Past Events Style============*/
+
+
 /* Code of conduct and privacy policy rules */
 div.legal {
   margin: 50px 200px;
