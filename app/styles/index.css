@@ -530,6 +530,56 @@ a:visited > h3.previousEventTile__title {
   /* border: 1px solid red; */
 }
 
+
+/*========Events Style================*/
+.events {
+  max-width: 1054px;
+  gap: 20px;
+  margin-left: 144px;
+  margin-top: 97px;
+}
+
+.events__headline {
+  font-size: 24px;
+  font-weight: 500px;
+}
+
+.event__content {
+  height: 300;
+  display: flex;
+  gap: 24px;
+  margin: 16px 0px;
+  border-radius: 8px;
+}
+
+.event__content:hover {
+  transition: .6s;
+  text-decoration: none;
+  box-shadow: 0 0 12px lightgray;
+}
+
+.event__image {
+  height: 300px;
+  width: 400px;
+  border-radius: 8px;
+}
+
+.event__text_small {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 0px;
+}
+
+.event__text_large {
+  font-size: 28px;
+  font-weight: 600px;
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+/*========End Events Style============*/
+
+
 /* Code of conduct and privacy policy rules */
 div.legal {
   margin: 50px 200px;
