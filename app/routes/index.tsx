@@ -3,6 +3,7 @@ import Events_LG from "~/components/event_lg";
 import Forms from "./posts/form";
 import Hero, { links as heroLinks } from "../components/hero";
 import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
+import { getEventsJson } from "~/utils/events.server";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 

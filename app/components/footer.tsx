@@ -1,5 +1,7 @@
-import React from "react";
 import { Link } from "@remix-run/react";
+import styles from '../styles/index.css';
+
+export const links = () => [{ rel: "stylesheet", href: styles }];
 
 export default function Footer() {
   return (
