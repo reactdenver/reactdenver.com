@@ -625,6 +625,11 @@ div.legal {
   top: 474px;
 }
 
+.footer__Net-icon {
+  display: flex;
+  max-height: 40px;
+}
+
 .footer__links-box {
   position: absolute;
   display: flex;
@@ -636,8 +641,13 @@ div.legal {
   padding-left: 50px;
 }
 
-a.footer__link {  
+a.footer__link { 
   color: white;
+}
+
+.footer__Net-box {
+  display: flex;
+  align-items: center;
 }
 
 .footer__skyline {
