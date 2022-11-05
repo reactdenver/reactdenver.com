@@ -15,9 +15,9 @@ export default function Event(params: any, size: string) {
       },
     ],
   };
-  console.log(params.size);
+
   return (
-    <div className="event__content">
+    <div className="event__content" style={{ pointerEvents: "none" }}>
       <img
         className={`event__image_${params.size}`}
         src={"https://source.unsplash.com/random/400x300"}
@@ -33,7 +33,9 @@ export default function Event(params: any, size: string) {
         <p className={"event__text_small"}>
           {event.speakers?.map((speaker) => `${speaker.name}`).join(", ")}
         </p>
-        <p className={"event__text_small"}>{event.location}</p>
+        {event.date && new Date() <= new Date(event.date) ? (
+          <p className={"event__text_small"}>{event.location}</p>
+        ) : null}
       </div>
     </div>
   );
