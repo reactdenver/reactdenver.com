@@ -16,7 +16,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   });
 };
 
-export default function Events() {
+export default function EventSlug() {
   const event = useLoaderData<typeof loader>();
 
   console.log(event);

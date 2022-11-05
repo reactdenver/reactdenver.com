@@ -63,7 +63,7 @@ async function getEventMdxListItems() {
   pages = pages.sort((a, z) => {
     const aTime = new Date(a.frontmatter.date ?? "").getTime();
     const zTime = new Date(z.frontmatter.date ?? "").getTime();
-    return aTime > zTime ? -1 : aTime === zTime ? 0 : 1;
+    return aTime < zTime ? -1 : aTime === zTime ? 0 : 1;
   });
   return pages.map(mapFromMdxPageToMdxListItem);
 }

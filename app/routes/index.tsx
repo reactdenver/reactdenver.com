@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import Events_LG from "~/components/event_lg";
+import Event from "~/components/event";
 import Forms from "./posts/form";
 import Hero, { links as heroLinks } from "../components/hero";
 import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
