@@ -1,40 +1,12 @@
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import Event from "~/components/event";
 import Forms from "./posts/form";
 import Hero, { links as heroLinks } from "../components/hero";
 import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
 import { getEventsJson } from "~/utils/events.server";
+import { json } from "@remix-run/node";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
-
-const PreviousEventTile = ({ size, image, date, title, slug, speakers }) => {
-  return (
-    <div className="previousEventTile">
-      <Link
-        to={slug}
-        className="previousEventTile__image"
-        style={{
-          minWidth: size + "px",
-          backgroundImage: "url('" + image + "')",
-        }}
-      >
-        {/* <img
-          src={image}
-          alt={`Photo from ${title}`}
-          style={{ width: size + "px" }}
-        /> */}
-        {/* </div> */}
-      </Link>
-      <div className="previousEventTile__detail">
-        <span className="previousEventTile__date">{date}</span>
-        <Link to={slug}>
-          <h3 className="previousEventTile__title">{title}</h3>
-        </Link>
-        <span className="previousEventTile__speakers">{speakers}</span>
-      </div>
-    </div>
-  );
-};
 
 const UpcomingEvent = ({ title, speakers, location }) => {
   return (
@@ -50,7 +22,29 @@ const UpcomingEvent = ({ title, speakers, location }) => {
   );
 };
 
+//load events from MDX files
+export async function loader() {
+  const events = await getEventsJson();
+
+  return json(events, {
+    headers: {
+      "Cache-Control": "private, max-age=3600",
+    },
+  });
+}
+
 export default function Index() {
+  const eventsAll = useLoaderData<typeof loader>();
+  let eventsPast = eventsAll.filter(
+    (event) => event.date && new Date() >= new Date(event.date)
+  );
+
+  //need to define variable for next event and use in info in JSX below
+
+  //only show most recent 4 events
+  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
+  eventsPast.reverse(); //display most recent to oldest
+
   return (
     <div className="page__container">
       <Hero />
@@ -67,56 +61,18 @@ export default function Index() {
       <span className="line"></span>
       <div className="home__previousEventTiles">
         <h2>Catch recordings from previous events:</h2>
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
+
+        {/* insert mapped events here */}
+        {eventsPast.map((event) => (
+          <Link
+            className="event__content"
+            key={event.id}
+            to={`./events/${event.slug}`}
+          >
+            <Event event={event} size={"small"} />
+          </Link>
+        ))}
+
         <div>
           <Link className="seeMoreLink" to="/events">
             See all past events
@@ -141,34 +97,3 @@ export default function Index() {
     </div>
   );
 }
-
-/* <div className="main-left-container">
-  <div className="welcome-section-container">
-    <div className="welcome-item">
-      <h1 id="welcome-text">
-        A community meetup for React developers in and around Denver
-      </h1>
-    </div>
-    <div className="welcome-item">
-      <h5 id="tagline-text">Happening monthly in downtown and online</h5>
-    </div>
-    <div className="welcome-item">
-      <a id="discord-link" href="https://discord.gg/fFngBEwNmV">
-        <div id="discord-btn" className="link-btn">
-          <img
-            src={require("~/assets/discord_icon.png")}
-            id="discord-btn-icon"
-          />
-          <p id="discord-btn-text">Join the Discord</p>
-        </div>
-      </a>
-      <div id="events-link">
-        <Link style={{ textDecoration: "none" }} to="/events">
-          <div id="events-btn" className="link-btn">
-            <p>See all events</p>
-          </div>
-        </Link>
-      </div>
-    </div>
-  </div>
-</div> */
