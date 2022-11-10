@@ -9,20 +9,22 @@ import { format } from "date-fns";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 
-const UpcomingEvent = ({ title, speakers, location, date }) => {
+const UpcomingEvent = ({ slug, title, speakers, location, date, image }) => {
   return (
-    <div>
-      <div className="nextMeetupHero">
-        <span>Next Meetup</span>
-        <h2>{title}</h2>
-        <p className={"event__text_small"}>
-          {typeof date === "string" && format(new Date(date), "EEE, MMM d, y")}
-        </p>
-        <p>{speakers}</p>
-        <p>{location} & online</p>
-      </div>
-      <Forms />
-    </div>
+    <Link
+      to={`./events/${slug}`}
+      className="nextMeetupHero"
+      title={title}
+      style={{ background: `url(${image})` }}
+    >
+      <span>Next Meetup</span>
+      <h2>{title}</h2>
+      <p className={"event__text_small"}>
+        {typeof date === "string" && format(new Date(date), "EEE, MMM d, y")}
+      </p>
+      <p>{speakers}</p>
+      <p>{location} & online</p>
+    </Link>
   );
 };
 
@@ -58,10 +60,10 @@ export default function Index() {
     <div className="page__container">
       <Hero />
       <div className="main-right-container"></div>
+
       <UpcomingEvent
-        image={
-          "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=480&q=80"
-        }
+        slug={eventNext[0]?.slug}
+        image={eventNext[0]?.front_image}
         date={eventNext[0]?.date}
         title={eventNext[0]?.title}
         speakers={eventNext[0]?.speakers[0]?.name}
