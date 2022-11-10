@@ -14,13 +14,15 @@ export default function Event(params: any, size: string) {
         name: params.event.speakers[0].name,
       },
     ],
+    front_image: params.event.front_image,
   };
+  console.log(params.event.front_image);
 
   return (
     <div className="event__content" style={{ pointerEvents: "none" }}>
       <img
         className={`event__image_${params.size}`}
-        src={"https://source.unsplash.com/random/400x300"}
+        src={event.front_image}
         alt={event.title}
       ></img>
       {/*=============== Image source to be changed from placeholder when available========= */}
