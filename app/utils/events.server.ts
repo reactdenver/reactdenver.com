@@ -6,7 +6,7 @@ export async function getEventsJson() {
   return posts.map((post) => {
     const {
       slug,
-      frontmatter: { title, description, location, speakers, date },
+      frontmatter: { title, description, location, speakers, date, front_image },
     } = post;
     return {
       id: slug,
@@ -16,6 +16,7 @@ export async function getEventsJson() {
       location,
       speakers,
       date,
+      front_image
     };
   });
 }

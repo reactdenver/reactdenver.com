@@ -546,7 +546,7 @@ a:visited > h3.previousEventTile__title {
 
 .event__content {
   height: 300;
-  display: flex;
+  display:flex;
   gap: 24px;
   margin: 16px 0px;
   border-radius: 8px;
@@ -558,9 +558,19 @@ a:visited > h3.previousEventTile__title {
   box-shadow: 0 0 12px lightgray;
 }
 
-.event__image {
+.event__image_small {
+  height: 180px;
+  width: 240px;
+  border-radius: 8px;
+}
+.event__image_medium {
   height: 300px;
   width: 400px;
+  border-radius: 8px;
+}
+.event__image_large {
+  height: 507px;
+  width: 840px;
   border-radius: 8px;
 }
 

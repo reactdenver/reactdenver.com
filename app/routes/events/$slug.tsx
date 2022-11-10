@@ -3,6 +3,7 @@ import { json } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import invariant from "tiny-invariant";
 import { getEventJson } from "~/utils/events.server";
+import Event from "~/components/event";
 
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.slug, "Slug/ID missing");
@@ -16,15 +17,14 @@ export const loader: LoaderFunction = async ({ params }) => {
   });
 };
 
-export default function Events() {
+export default function EventSlug() {
   const event = useLoaderData<typeof loader>();
 
-  console.log(event);
   return (
     <div>
       <main>
         <h1>Event</h1>
-        <pre>{JSON.stringify(event, null, "\t")}</pre>
+        <Event event={event.frontmatter} size={"large"} />
       </main>
     </div>
   );
