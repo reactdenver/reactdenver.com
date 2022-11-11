@@ -5,24 +5,36 @@ import Hero, { links as heroLinks } from "../components/hero";
 import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
 import { getEventsJson } from "~/utils/events.server";
 import { json } from "@remix-run/node";
-import { format } from "date-fns";
+import { format, addMinutes } from "date-fns";
+import type { MdxPage } from "types";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 
-const UpcomingEvent = ({ title, speakers, location, date }) => {
+type UpcomingEventProps = {
+  event: MdxPage["frontmatter"] & { slug: MdxPage["slug"] };
+};
+
+const UpcomingEvent = ({ event }: UpcomingEventProps) => {
+  const actualDate = new Date(event.date!);
+  const speakerList = event.speakers!.map((speaker) => speaker.name).join(", ");
   return (
-    <div>
-      <div className="nextMeetupHero">
-        <span>Next Meetup</span>
-        <h2>{title}</h2>
-        <p className={"event__text_small"}>
-          {typeof date === "string" && format(new Date(date), "EEE, MMM d, y")}
-        </p>
-        <p>{speakers}</p>
-        <p>{location} & online</p>
-      </div>
-      <Forms />
-    </div>
+    <Link
+      to={`./events/${event.slug}`}
+      className="nextMeetupHero"
+      title={event.title}
+      style={{ background: `url(${event.front_image})` }}
+    >
+      <span>Next Meetup</span>
+      <h2>{event.title}</h2>
+      <p className="event__text_small">
+        {format(
+          addMinutes(actualDate, actualDate.getTimezoneOffset()),
+          "EEE, MMM d, y"
+        )}
+      </p>
+      <p>{speakerList}</p>
+      <p>{event.location} & online</p>
+    </Link>
   );
 };
 
@@ -46,9 +58,7 @@ export default function Index() {
   //get next event info
   let eventNext = eventsAll.filter(
     (event) => event.date && new Date() <= new Date(event.date)
-  );
-  eventNext.reverse();
-  eventNext.length > 1 ? (eventNext = eventNext.slice(-1)) : null;
+  )[0];
 
   //only show most recent 4 events
   eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
@@ -58,15 +68,9 @@ export default function Index() {
     <div className="page__container">
       <Hero />
       <div className="main-right-container"></div>
-      <UpcomingEvent
-        image={
-          "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=480&q=80"
-        }
-        date={eventNext[0]?.date}
-        title={eventNext[0]?.title}
-        speakers={eventNext[0]?.speakers[0]?.name}
-        location={eventNext[0]?.location}
-      />
+
+      <UpcomingEvent event={eventNext!} />
+      {/* <Forms /> */}
       <Sponsors />
       <span className="line"></span>
       <div className="home__previousEventTiles">
@@ -74,11 +78,7 @@ export default function Index() {
 
         {/* insert mapped events here */}
         {eventsPast.map((event) => (
-          <Link
-            className="event__content"
-            key={event.id}
-            to={`./events/${event.slug}`}
-          >
+          <Link key={event.id} to={`./events/${event.slug}`}>
             <Event event={event} size={"small"} />
           </Link>
         ))}

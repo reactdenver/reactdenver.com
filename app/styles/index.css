@@ -501,14 +501,10 @@ a:visited > h3.previousEventTile__title {
   flex-direction: column;
   justify-content: end;
   background: linear-gradient(
-      0deg,
-      rgba(163, 121, 201, 0.25),
-      rgba(163, 121, 201, 0.25)
-    ),
-    url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    0deg,
+    rgba(163, 121, 201, 0.25),
+    rgba(163, 121, 201, 0.25)
+  );
 }
 .nextMeetupHero > * {
   padding: 0;
@@ -530,7 +526,6 @@ a:visited > h3.previousEventTile__title {
   /* border: 1px solid red; */
 }
 
-
 /*========Events Style================*/
 .events {
   max-width: 1054px;
@@ -546,14 +541,14 @@ a:visited > h3.previousEventTile__title {
 
 .event__content {
   height: 300;
-  display:flex;
+  display: flex;
   gap: 24px;
   margin: 16px 0px;
   border-radius: 8px;
 }
 
 .event__content:hover {
-  transition: .6s;
+  transition: 0.6s;
   text-decoration: none;
   box-shadow: 0 0 12px lightgray;
 }
@@ -589,7 +584,6 @@ a:visited > h3.previousEventTile__title {
 
 /*========End Events Style============*/
 
-
 /* Code of conduct and privacy policy rules */
 div.legal {
   margin: 50px 200px;
@@ -621,7 +615,7 @@ div.legal {
 
 .footer__body {
   height: 514px;
-  background-color: #A379C9;
+  background-color: #a379c9;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -651,7 +645,7 @@ div.legal {
   padding-left: 50px;
 }
 
-a.footer__link { 
+a.footer__link {
   color: white;
 }
 
