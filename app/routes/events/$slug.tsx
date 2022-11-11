@@ -24,7 +24,7 @@ export default function EventSlug() {
     <div>
       <main>
         <h1>Event</h1>
-        <Event event={event.frontmatter} size={"large"} />
+        <Event event={event} size={"large"} />
       </main>
     </div>
   );

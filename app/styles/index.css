@@ -547,12 +547,6 @@ a:visited > h3.previousEventTile__title {
   border-radius: 8px;
 }
 
-.event__content:hover {
-  transition: 0.6s;
-  text-decoration: none;
-  box-shadow: 0 0 12px lightgray;
-}
-
 .event__image_small {
   height: 180px;
   width: 240px;
