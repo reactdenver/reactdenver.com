@@ -505,12 +505,6 @@ a:visited > h3.previousEventTile__title {
     rgba(163, 121, 201, 0.25),
     rgba(163, 121, 201, 0.25)
   );
-  position: relative;
-}
-.nextMeetupHero img {
-  position: absolute;
-  width: 100%;
-  aspect-ratio: 16/9;
 }
 .nextMeetupHero > * {
   padding: 0;
