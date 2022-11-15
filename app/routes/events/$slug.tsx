@@ -23,8 +23,8 @@ export default function EventSlug() {
   return (
     <div className="eventLG__content">
       <div className="eventLG__text_container">
-        <h3 className={"eventLG__text_large"}>{event.frontmatter.title}</h3>
-        <p className={"eventLG__text_medium"}>
+        <h3 className="eventLG__text_large">{event.frontmatter.title}</h3>
+        <p className="eventLG__text_medium">
           {typeof event.frontmatter.date === "string" &&
             format(
               addMinutes(actualDate, actualDate.getTimezoneOffset()),
@@ -33,16 +33,16 @@ export default function EventSlug() {
         </p>
       </div>
       <div className="eventLG__text_container_details">
-        <p className={"eventLG__text_small"}>
+        <p className="eventLG__text_small">
           🎤{"  "}
           {event.frontmatter.speakers
             ?.map((speaker) => `${speaker.name}`)
             .join(", ")}
         </p>
-        <div className={"event__text_box"}>
+        <div className="event__text_box">
           {event.frontmatter.date &&
           new Date() <= new Date(event.frontmatter.date) ? (
-            <p className={"eventLG__text_small"}>
+            <p className="eventLG__text_small">
               🏢{event.frontmatter.location}
             </p>
           ) : null}
