@@ -547,6 +547,14 @@ a:visited > h3.previousEventTile__title {
   border-radius: 8px;
 }
 
+.eventLG__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 41px 0px;
+  border-radius: 8px;
+}
+
 .event__image_small {
   height: 180px;
   width: 240px;
@@ -557,10 +565,29 @@ a:visited > h3.previousEventTile__title {
   width: 400px;
   border-radius: 8px;
 }
+
 .event__image_large {
   height: 507px;
   width: 840px;
   border-radius: 8px;
+}
+
+.eventLG__text_container {
+  display: flex;
+  flex-direction: column;
+  height:200;
+  margin-bottom: 60px;
+}
+
+.eventLG__text_container_details {
+  display: flex;
+}
+
+.eventLG__text_description {
+  display:flex;
+  width: 840px;
+  flex-direction: column;
+  margin-top: 20px ;
 }
 
 .event__text_small {
@@ -576,6 +603,23 @@ a:visited > h3.previousEventTile__title {
   padding-bottom: 8px;
 }
 
+.eventLG__text_large {
+  display: flex;
+  font-size: 32px;
+  font-weight: 600px;
+  padding-top: 4px;
+  padding-bottom: 20px;
+}
+
+.eventLG__text_medium {
+  display:flex;
+  font-size: 24px;
+}
+
+.eventLG__text_small {
+  font-size: 18px;
+  padding: 8px 16px 0 0;
+}
 /*========End Events Style============*/
 
 /* Code of conduct and privacy policy rules */
