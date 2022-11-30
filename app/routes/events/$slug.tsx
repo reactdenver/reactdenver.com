@@ -4,10 +4,11 @@ import type { LoaderFunction } from "@remix-run/node";
 import invariant from "tiny-invariant";
 import { getEventJson } from "~/utils/events.server";
 
+import { format, addMinutes } from "date-fns";
+
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.slug, "Slug/ID missing");
   const event = await getEventJson(params.slug);
-  console.log(params);
 
   return json(event, {
     headers: {
@@ -16,16 +17,46 @@ export const loader: LoaderFunction = async ({ params }) => {
   });
 };
 
-export default function Events() {
+export default function EventSlug() {
   const event = useLoaderData<typeof loader>();
-
-  console.log(event);
+  const actualDate = new Date(event.frontmatter.date);
   return (
-    <div>
-      <main>
-        <h1>Event</h1>
-        <pre>{JSON.stringify(event, null, "\t")}</pre>
-      </main>
+    <div className="eventLG__content">
+      <div className="eventLG__text_container">
+        <h3 className="eventLG__text_large">{event.frontmatter.title}</h3>
+        <p className="eventLG__text_medium">
+          {typeof event.frontmatter.date === "string" &&
+            format(
+              addMinutes(actualDate, actualDate.getTimezoneOffset()),
+              "EEE, MMM d, y"
+            )}
+        </p>
+      </div>
+      <div className="eventLG__text_container_details">
+        <p className="eventLG__text_small">
+          🎤{"  "}
+          {event.frontmatter.speakers
+            ?.map((speaker) => `${speaker.name}`)
+            .join(", ")}
+        </p>
+        <div className="event__text_box">
+          {event.frontmatter.date &&
+          new Date() <= new Date(event.frontmatter.date) ? (
+            <p className="eventLG__text_small">
+              🏢{event.frontmatter.location}
+            </p>
+          ) : null}
+        </div>
+      </div>
+      <img
+        className="event__image_large"
+        src={event.frontmatter.front_image}
+        alt={event.frontmatter.title}
+      />
+      <div className="eventLG__text_description">
+        <h3>Description</h3>
+        <p className="event__text_small">{event.frontmatter.description}</p>
+      </div>
     </div>
   );
 }

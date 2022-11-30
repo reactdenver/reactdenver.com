@@ -108,6 +108,17 @@ const UpcomingEvent = ({ title, speakers, location, eventData }) => {
   );
 };
 
+//load events from MDX files
+export async function loader() {
+  const events = await getEventsJson();
+
+  return json(events, {
+    headers: {
+      "Cache-Control": "private, max-age=3600",
+    },
+  });
+}
+
 export default function Index() {
   const eventData = useLoaderData()
   console.log(eventData);
@@ -128,56 +139,14 @@ export default function Index() {
       <span className="line"></span>
       <div className="home__previousEventTiles">
         <h2>Catch recordings from previous events:</h2>
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
-        <PreviousEventTile
-          image={
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80"
-          }
-          slug="/"
-          size={240}
-          date="Thurs, Sept 04"
-          title="React Hooks, Line & Sinker + Getting Real(time) w/ React, Redux, & Elixir"
-          speakers="Jane Goodall, Dennis Realman"
-        />
+
+        {/* insert mapped events here */}
+        {eventsPast.map((event) => (
+          <Link key={event.id} to={`./events/${event.slug}`}>
+            <Event event={event} size={"small"} />
+          </Link>
+        ))}
+
         <div>
           <Link className="seeMoreLink" to="/events">
             See all past events
@@ -202,34 +171,3 @@ export default function Index() {
     </div>
   );
 }
-
-/* <div className="main-left-container">
-  <div className="welcome-section-container">
-    <div className="welcome-item">
-      <h1 id="welcome-text">
-        A community meetup for React developers in and around Denver
-      </h1>
-    </div>
-    <div className="welcome-item">
-      <h5 id="tagline-text">Happening monthly in downtown and online</h5>
-    </div>
-    <div className="welcome-item">
-      <a id="discord-link" href="https://discord.gg/fFngBEwNmV">
-        <div id="discord-btn" className="link-btn">
-          <img
-            src={require("~/assets/discord_icon.png")}
-            id="discord-btn-icon"
-          />
-          <p id="discord-btn-text">Join the Discord</p>
-        </div>
-      </a>
-      <div id="events-link">
-        <Link style={{ textDecoration: "none" }} to="/events">
-          <div id="events-btn" className="link-btn">
-            <p>See all events</p>
-          </div>
-        </Link>
-      </div>
-    </div>
-  </div>
-</div> */

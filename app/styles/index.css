@@ -501,14 +501,10 @@ a:visited > h3.previousEventTile__title {
   flex-direction: column;
   justify-content: end;
   background: linear-gradient(
-      0deg,
-      rgba(163, 121, 201, 0.25),
-      rgba(163, 121, 201, 0.25)
-    ),
-    url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    0deg,
+    rgba(163, 121, 201, 0.25),
+    rgba(163, 121, 201, 0.25)
+  );
 }
 .nextMeetupHero > * {
   padding: 0;
@@ -529,7 +525,6 @@ a:visited > h3.previousEventTile__title {
   padding: 8px 0 8px 0;
   /* border: 1px solid red; */
 }
-
 
 /*========Events Style================*/
 .events {
@@ -552,16 +547,47 @@ a:visited > h3.previousEventTile__title {
   border-radius: 8px;
 }
 
-.event__content:hover {
-  transition: .6s;
-  text-decoration: none;
-  box-shadow: 0 0 12px lightgray;
+.eventLG__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 41px 0px;
+  border-radius: 8px;
 }
 
-.event__image {
+.event__image_small {
+  height: 180px;
+  width: 240px;
+  border-radius: 8px;
+}
+.event__image_medium {
   height: 300px;
   width: 400px;
   border-radius: 8px;
+}
+
+.event__image_large {
+  height: 507px;
+  width: 840px;
+  border-radius: 8px;
+}
+
+.eventLG__text_container {
+  display: flex;
+  flex-direction: column;
+  height:200;
+  margin-bottom: 60px;
+}
+
+.eventLG__text_container_details {
+  display: flex;
+}
+
+.eventLG__text_description {
+  display:flex;
+  width: 840px;
+  flex-direction: column;
+  margin-top: 20px ;
 }
 
 .event__text_small {
@@ -577,8 +603,24 @@ a:visited > h3.previousEventTile__title {
   padding-bottom: 8px;
 }
 
-/*========End Events Style============*/
+.eventLG__text_large {
+  display: flex;
+  font-size: 32px;
+  font-weight: 600px;
+  padding-top: 4px;
+  padding-bottom: 20px;
+}
 
+.eventLG__text_medium {
+  display:flex;
+  font-size: 24px;
+}
+
+.eventLG__text_small {
+  font-size: 18px;
+  padding: 8px 16px 0 0;
+}
+/*========End Events Style============*/
 
 /* Code of conduct and privacy policy rules */
 div.legal {
@@ -611,7 +653,7 @@ div.legal {
 
 .footer__body {
   height: 514px;
-  background-color: #A379C9;
+  background-color: #a379c9;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -641,7 +683,7 @@ div.legal {
   padding-left: 50px;
 }
 
-a.footer__link { 
+a.footer__link {
   color: white;
 }
 
