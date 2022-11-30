@@ -1,11 +1,69 @@
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import Events_LG from "~/components/event_lg";
-import Forms from "./posts/form";
+import Forms, {submitForm, checkSlug} from "./posts/form";
 import Hero, { links as heroLinks } from "../components/hero";
 import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
 import { getEventsJson } from "~/utils/events.server";
+import axios from 'axios'
+import { checkSlug } from "~/utils/tito.server";
+import { json } from "@remix-run/server-runtime";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
+
+export const loader = async () => {
+  const titoData = await checkSlug();
+  return json(titoData)
+}
+
+export const action = async ({request}) => {
+
+    const form = await request.formData();
+    const name = form.get('first-name')
+    const email = form.get('email')
+    const ticketType = form.get('in-person/online')
+    const pizza = form.get('pizza')
+    const slugId = form.get('slug-id')
+    const virtualId = form.get('virtual-id')
+    const inPersonId = form.get('inPerson-id')
+
+    const headers = {
+    'Access-Control-Allow-Origin': '*',
+    Authorization: `Token token=${process.env.SECRET_ACCESS_TOKEN}`,
+    Accept: 'application/json',
+    "Content-Type": 'application/json'
+    }
+
+console.log(name, email, ticketType, pizza, slugId, virtualId, inPersonId);
+
+try {
+
+    const isAttendingInPersonOrOnline = ticketType === 'online' ? virtualId : inPersonId
+
+    const registration = {
+      "registration":
+          {
+              "email": email,
+              "name": name,
+              "discount_code":"",
+              "source":"",
+              "line_items":[{"release_id":isAttendingInPersonOrOnline,"quantity":1}]
+          }
+    }
+
+    const authPost = axios.create({
+      baseURL: `https://api.tito.io/v3/react-denver/${slugId}`,
+      headers: headers,
+      })
+    
+    const response = await authPost.post('/registrations', registration)
+    const registrationData = response.data
+    console.log('data', registrationData.registration.name);
+  } 
+  catch (error) {
+    console.log(error.response.data);
+  }
+  return ""; 
+}
 
 const PreviousEventTile = ({ size, image, date, title, slug, speakers }) => {
   return (
@@ -36,7 +94,7 @@ const PreviousEventTile = ({ size, image, date, title, slug, speakers }) => {
   );
 };
 
-const UpcomingEvent = ({ title, speakers, location }) => {
+const UpcomingEvent = ({ title, speakers, location, eventData }) => {
   return (
     <div>
       <div className="nextMeetupHero">
@@ -45,12 +103,14 @@ const UpcomingEvent = ({ title, speakers, location }) => {
         <p>{speakers}</p>
         <p>{location} & online</p>
       </div>
-      <Forms />
+      <Forms eventData={eventData}/>
     </div>
   );
 };
 
 export default function Index() {
+  const eventData = useLoaderData()
+  console.log(eventData);
   return (
     <div className="page__container">
       <Hero />
@@ -62,6 +122,7 @@ export default function Index() {
         title="Building React apps with End to End Encryption + Demystifying State Machines!"
         speakers="Jane Goodall, Dennis Realman"
         location="1595 Wynkoop Street, Denver CO"
+        eventData={eventData}
       />
       <Sponsors />
       <span className="line"></span>

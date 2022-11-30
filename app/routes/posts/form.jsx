@@ -1,23 +1,9 @@
 import { redirect } from "@remix-run/node"
 import {useState} from 'react'
-import {Form} from '@remix-run/react'
+import {Form, useLoaderData} from '@remix-run/react'
+import axios from 'axios'
 
-export const action = async ({request}) => {
-  const form = await request.formData();
-  const name = form.get('first-name')
-  const email = form.get('email')
-  const inPerson = form.get('in-person')
-  const online = form.get('online')
-  const pizza = form.get('pizza')
-
-  const fields = {name, email, inPerson, online, pizza}
-
-  const post = await db.post.create({data: fields})
-  
-  return redirect('/')
-}
-
-export default function Forms(){
+export default function Forms({eventData}){
 
   const [pizzaEnabled, setPizzaEnabled] = useState(true)
 
@@ -28,13 +14,13 @@ function handleAttendenceChange(e){
   return (
     <>
 
-    <div id="form-header">
+    <div start_date="form-header">
     <h4>Join us downtown and online</h4>
     </div>
 
     <div className="form-content">
     <Form method='POST'>
-        <div id="form-control">
+        <div start_date="form-control">
         <label>
           Your Name:{" "}
           <input type='text' name='first-name' />
@@ -63,9 +49,11 @@ function handleAttendenceChange(e){
       <div className='form-control'>
         <label>Yes, I want pizza</label>
         <br />
-        <input id='pizza' name='pizza' type='checkbox' disabled={!pizzaEnabled}/>
+        <input start_date='pizza' name='pizza' type='checkbox' disabled={!pizzaEnabled}/>
       </div>
-
+      <input type='hidden' name='slug-id' value={eventData.nextEventSlug} />
+      <input type='hidden' name='inPerson-id' value={eventData.inPersonId} />
+      <input type='hidden' name='virtual-id' value={eventData.virtualId} />
       <div className='form-control'>
         <button type='submit'>
             Submit
