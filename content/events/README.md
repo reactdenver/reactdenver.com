@@ -14,6 +14,7 @@ speakers:
   - speaker: Jeff Baumgardt
     twitter: https://twitter.com/JeffBaumgardt
 ---
+youtube_id: abcd1234
 ```
 
 ```md
