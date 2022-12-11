@@ -10,7 +10,7 @@ import { readFile, readdir } from "fs/promises";
 async function downloadMdxFile(
   relativeMdxFileOrDirectory: string
 ): Promise<{ entry: string; file: string }> {
-  const mdxFileOrDirectory = `content/${relativeMdxFileOrDirectory}`;
+  const mdxFileOrDirectory = `app/content/${relativeMdxFileOrDirectory}`;
   const content = await downloadFile(mdxFileOrDirectory);
 
   let file = "";

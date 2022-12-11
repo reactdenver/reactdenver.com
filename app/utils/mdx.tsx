@@ -47,7 +47,7 @@ async function getMdxPagesInDirectory(contentDir: string) {
 }
 
 async function getMdxDirList(contentDir: string) {
-  const fullContentDirPath = `content/${contentDir}`;
+  const fullContentDirPath = `app/content/${contentDir}`;
   const dirList = (await downloadDirList(fullContentDirPath))
     .map(({ name }) => ({
       name,
