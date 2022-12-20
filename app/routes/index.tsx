@@ -7,7 +7,7 @@ import { getEventsJson } from "~/utils/events.server";
 import { json } from "@remix-run/node";
 import { format, addMinutes } from "date-fns";
 import type { MdxPage } from "types";
-import useEventDates from "~/useEventDates";
+import useEventDates from "~/hooks/useEventDates";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 

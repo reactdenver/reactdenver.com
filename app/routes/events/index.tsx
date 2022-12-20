@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { getEventsJson } from "~/utils/events.server";
-import useEventDates from "~/useEventDates";
+import useEventDates from "~/hooks/useEventDates";
 import Event from "~/components/event";
 
 export async function loader() {
