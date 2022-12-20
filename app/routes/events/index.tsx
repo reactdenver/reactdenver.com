@@ -24,7 +24,7 @@ export default function Events() {
     (event) => event.date && new Date() < new Date(event.date)
   );
   let eventsShown = eventsPast.concat(futureEvent || []).reverse();
-  if (eventsShown.length > 7) eventsShown = eventsShown.slice(-7);
+  if (eventsShown.length > 7) eventsShown = eventsShown;
 
   return (
     <div className={"events"}>
