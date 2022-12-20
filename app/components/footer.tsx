@@ -24,13 +24,15 @@ export default function Footer() {
           Privacy Policy
         </Link>
 
-        <a className="footer__Net-box" href="https://www.netlify.com/">
-          <a className="footer__link">Hosted by Netlify</a>
+        <div className="footer__Net-box">
+          <a className="footer__link" href="https://www.netlify.com/">
+            Hosted by Netlify
+          </a>
           <img
             className="footer__Net-icon"
             src={require("../assets/netlify_icon-transparent.png")}
           />
-        </a>
+        </div>
       </div>
     </div>
   );

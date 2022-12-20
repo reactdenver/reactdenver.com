@@ -7,6 +7,7 @@ import { getEventsJson } from "~/utils/events.server";
 import { json } from "@remix-run/node";
 import { format, addMinutes } from "date-fns";
 import type { MdxPage } from "types";
+import useEventDates from "~/hooks/useEventDates";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 
@@ -51,14 +52,8 @@ export async function loader() {
 
 export default function Index() {
   const eventsAll = useLoaderData<typeof loader>();
-  let eventsPast = eventsAll.filter(
-    (event) => event.date && new Date() >= new Date(event.date)
-  );
 
-  //get next event info
-  let eventNext = eventsAll.filter(
-    (event) => event.date && new Date() <= new Date(event.date)
-  )[0];
+  let { eventNext, eventsPast } = useEventDates(eventsAll);
 
   //only show most recent 4 events
   eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
