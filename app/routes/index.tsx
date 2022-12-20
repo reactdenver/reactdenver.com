@@ -50,19 +50,15 @@ export async function loader() {
 }
 
 export default function Index() {
-  const now = new Date();
+  const now: Date = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
   const eventsAll = useLoaderData<typeof loader>();
-  let eventsPast = eventsAll.filter((event) => {
-    console.log(event.date && new Date(event.date));
-    return (
+  let eventsPast = eventsAll.filter(
+    (event) =>
       event.date &&
       now > new Date(event.date) &&
       !isSameDay(now, new Date(event.date))
-    );
-  });
-
-  console.log(eventsPast);
+  );
 
   //get next event info
   let eventNext = eventsAll.filter(

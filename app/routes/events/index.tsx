@@ -18,6 +18,7 @@ export default function Events() {
   const eventSize = "md";
   const events = useLoaderData<typeof loader>();
 
+  
   const eventsPast = events.filter(
     (event) =>
       event.date &&
