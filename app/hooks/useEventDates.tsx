@@ -8,7 +8,6 @@ export default function useEventDates(eventsAll: any[]) {
       !isSameDay(now, new Date(event.date))
   );
 
-  //get next event info
   let eventNext = eventsAll.find(
     (event) =>
       event.date &&
