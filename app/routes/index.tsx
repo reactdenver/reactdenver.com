@@ -50,34 +50,38 @@ export async function loader() {
 }
 
 export default function Index() {
-  function isSameDay(d1: Date, d2: Date) {
+  const now = new Date();
+
+  const eventsAll = useLoaderData<typeof loader>();
+  let eventsPast = eventsAll.filter((event) => {
+    console.log(event.date && new Date(event.date));
+    return (
+      event.date &&
+      now > new Date(event.date) &&
+      !isSameDay(now, new Date(event.date))
+    );
+  });
+
+  console.log(eventsPast);
+
+  //get next event info
+  let eventNext = eventsAll.filter(
+    (event) =>
+      event.date &&
+      (now <= new Date(event.date) || isSameDay(now, new Date(event.date)))
+  )[0];
+
+  //only show most recent 4 events
+  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
+  eventsPast.reverse(); //display most recent to oldest
+
+  function isSameDay(d1: Date, d2: Date): boolean {
     return (
       d1.getFullYear() === d2.getFullYear() &&
       d1.getMonth() === d2.getMonth() &&
       d1.getDate() === d2.getDate()
     );
   }
-
-  const eventsAll = useLoaderData<typeof loader>();
-
-  let eventsPast = eventsAll.filter(
-    (event) =>
-      event.date &&
-      new Date() > new Date(event.date) &&
-      !isSameDay(new Date(), new Date(event.date))
-  );
-
-  //get next event info
-  let eventNext = eventsAll.filter(
-    (event) =>
-      event.date &&
-      (new Date() < new Date(event.date) ||
-        isSameDay(new Date(), new Date(event.date)))
-  )[0];
-
-  //only show most recent 4 events
-  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
-  eventsPast.reverse(); //display most recent to oldest
 
   return (
     <div className="page__container">
