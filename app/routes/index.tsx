@@ -7,6 +7,7 @@ import { getEventsJson } from "~/utils/events.server";
 import { json } from "@remix-run/node";
 import { format, addMinutes } from "date-fns";
 import type { MdxPage } from "types";
+import useEventDates from "~/useEventDates";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 
@@ -50,30 +51,9 @@ export async function loader() {
 }
 
 export default function Index() {
-  const now: Date = new Date(new Date().setUTCHours(0, 0, 0, 0));
-
   const eventsAll = useLoaderData<typeof loader>();
-  let eventsPast = eventsAll.filter(
-    (event) =>
-      event.date &&
-      now > new Date(event.date) &&
-      !isSameDay(now, new Date(event.date))
-  );
 
-  //get next event info
-  let eventNext = eventsAll.find(
-    (event) =>
-      event.date &&
-      (now <= new Date(event.date) || isSameDay(now, new Date(event.date)))
-  );
-
-  function isSameDay(d1: Date, d2: Date): boolean {
-    return (
-      d1.getFullYear() === d2.getFullYear() &&
-      d1.getMonth() === d2.getMonth() &&
-      d1.getDate() === d2.getDate()
-    );
-  }
+  let { eventNext, eventsPast } = useEventDates(eventsAll);
 
   //only show most recent 4 events
   eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
