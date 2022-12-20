@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { getEventsJson } from "~/utils/events.server";
-
 import Event from "~/components/event";
 
 export async function loader() {
@@ -18,19 +17,19 @@ export default function Events() {
   const eventSize = "md";
   const events = useLoaderData<typeof loader>();
 
-  
+  const now: Date = new Date(new Date().setUTCHours(0, 0, 0, 0));
+
   const eventsPast = events.filter(
     (event) =>
       event.date &&
-      new Date() > new Date(event.date) &&
-      !isSameDay(new Date(), new Date(event.date))
+      now > new Date(event.date) &&
+      !isSameDay(now, new Date(event.date))
   );
 
   const futureEvent = events.find(
     (event) =>
       event.date &&
-      (new Date() < new Date(event.date) ||
-        isSameDay(new Date(), new Date(event.date)))
+      (now < new Date(event.date) || isSameDay(now, new Date(event.date)))
   );
 
   let eventsShown = eventsPast.concat(futureEvent || []).reverse();
