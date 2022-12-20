@@ -24,8 +24,15 @@ export default function Events() {
     (event) => event.date && new Date() < new Date(event.date)
   );
   let eventsShown = eventsPast.concat(futureEvent || []).reverse();
-  if (eventsShown.length > 7) eventsShown = eventsShown;
 
+  function isSameDay(d1: Date, d2: Date) {
+    return (
+      d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate()
+    );
+  }
+  
   return (
     <div className={"events"}>
       <h4 className={"events__headline"}>Events:</h4>
