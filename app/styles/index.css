@@ -551,7 +551,7 @@ a:visited > h3.previousEventTile__title {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin: 41px 0px;
+  margin: 41px 16px;
   border-radius: 8px;
 }
 
@@ -575,7 +575,7 @@ a:visited > h3.previousEventTile__title {
 .eventLG__text_container {
   display: flex;
   flex-direction: column;
-  height:200;
+  height: 200;
   margin-bottom: 60px;
 }
 
@@ -584,10 +584,10 @@ a:visited > h3.previousEventTile__title {
 }
 
 .eventLG__text_description {
-  display:flex;
+  display: flex;
   width: 840px;
   flex-direction: column;
-  margin-top: 20px ;
+  margin-top: 20px;
 }
 
 .event__text_small {
@@ -612,7 +612,7 @@ a:visited > h3.previousEventTile__title {
 }
 
 .eventLG__text_medium {
-  display:flex;
+  display: flex;
   font-size: 24px;
 }
 
