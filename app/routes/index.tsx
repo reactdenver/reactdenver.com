@@ -61,15 +61,11 @@ export default function Index() {
   );
 
   //get next event info
-  let eventNext = eventsAll.filter(
+  let eventNext = eventsAll.find(
     (event) =>
       event.date &&
       (now <= new Date(event.date) || isSameDay(now, new Date(event.date)))
-  )[0];
-
-  //only show most recent 4 events
-  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
-  eventsPast.reverse(); //display most recent to oldest
+  );
 
   function isSameDay(d1: Date, d2: Date): boolean {
     return (
@@ -78,6 +74,10 @@ export default function Index() {
       d1.getDate() === d2.getDate()
     );
   }
+
+  //only show most recent 4 events
+  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
+  eventsPast.reverse(); //display most recent to oldest
 
   return (
     <div className="page__container">
