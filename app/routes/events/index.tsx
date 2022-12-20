@@ -18,10 +18,16 @@ export default function Events() {
   const eventSize = "md";
   const events = useLoaderData<typeof loader>();
   const eventsPast = events.filter(
-    (event) => event.date && new Date() >= new Date(event.date)
+    (event) =>
+      event.date &&
+      new Date() > new Date(event.date) &&
+      !isSameDay(new Date(), new Date(event.date))
   );
   const futureEvent = events.find(
-    (event) => event.date && new Date() < new Date(event.date)
+    (event) =>
+      event.date &&
+      (new Date() < new Date(event.date) ||
+        isSameDay(new Date(), new Date(event.date)))
   );
   let eventsShown = eventsPast.concat(futureEvent || []).reverse();
 
@@ -32,7 +38,7 @@ export default function Events() {
       d1.getDate() === d2.getDate()
     );
   }
-  
+
   return (
     <div className={"events"}>
       <h4 className={"events__headline"}>Events:</h4>
