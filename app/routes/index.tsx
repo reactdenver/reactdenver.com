@@ -55,10 +55,9 @@ export default function Index() {
 
   const { eventNext, eventsPast } = useEventDates(eventsAll);
 
-  //only show most recent 4 events
   let eventsPastShown = [];
   eventsPast.length > 4 ? (eventsPastShown = eventsPast.slice(-4)) : null;
-  eventsPast.reverse(); //display most recent to oldest
+  eventsPastShown.reverse();
 
   return (
     <div className="page__container">

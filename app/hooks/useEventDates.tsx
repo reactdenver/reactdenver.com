@@ -1,3 +1,7 @@
+// ==========================================================
+//  CHANGE MDX EVENT BACK FROM 21 to 20
+// ==========================================================
+
 export default function useEventDates(events: any[]) {
   const now: Date = new Date();
   const today: Date = new Date(
