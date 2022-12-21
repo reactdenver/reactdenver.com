@@ -1,14 +1,14 @@
-export default function useEventDates(eventsAll: any[]) {
+export default function useEventDates(events: any[]) {
   const now: Date = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
-  let eventsPast = eventsAll.filter(
+  let eventsPast = events.filter(
     (event) =>
       event.date &&
       now > new Date(event.date) &&
       !isSameDay(now, new Date(event.date))
   );
 
-  let eventNext = eventsAll.find(
+  let eventNext = events.find(
     (event) =>
       event.date &&
       (now <= new Date(event.date) || isSameDay(now, new Date(event.date)))
