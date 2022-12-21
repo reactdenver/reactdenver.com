@@ -18,9 +18,9 @@ export default function Events() {
   const eventSize = "md";
   const events = useLoaderData<typeof loader>();
 
-  let { eventNext, eventsPast } = useEventDates(events);
+  const { eventNext, eventsPast } = useEventDates(events);
 
-  let eventsShown = eventsPast.concat(eventNext || []).reverse();
+  const eventsShown = eventsPast.concat(eventNext || []).reverse();
 
   return (
     <div className={"events"}>

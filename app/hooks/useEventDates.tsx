@@ -3,14 +3,14 @@ export default function useEventDates(events: any[]) {
   const today: Date = new Date(
     Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
   );
-  console.log(today == new Date(events[5].date));
-  let eventsPast = events.filter(
+  // console.log(today == new Date(events[5].date));
+  const eventsPast = events.filter(
     (event) => event.date && today > new Date(event.date)
   );
 
   // && !isSameDay(today, new Date(event.date))
 
-  let eventNext = events.find(
+  const eventNext = events.find(
     (event) => event.date && today <= new Date(event.date)
   );
 
