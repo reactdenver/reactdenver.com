@@ -53,11 +53,11 @@ export async function loader() {
 export default function Index() {
   const eventsAll = useLoaderData<typeof loader>();
 
-  let { eventNext, eventsPast } = useEventDates(eventsAll);
+  const { eventNext, eventsPast } = useEventDates(eventsAll);
 
-  //only show most recent 4 events
-  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
-  eventsPast.reverse(); //display most recent to oldest
+  let eventsPastShown = [];
+  eventsPast.length > 4 ? (eventsPastShown = eventsPast.slice(-4)) : null;
+  eventsPastShown.reverse();
 
   return (
     <div className="page__container">
@@ -72,7 +72,7 @@ export default function Index() {
         <h2>Catch recordings from previous events:</h2>
 
         {/* insert mapped events here */}
-        {eventsPast.map((event) => (
+        {eventsPastShown.map((event) => (
           <Link key={event.id} to={`./events/${event.slug}`}>
             <Event event={event} size={"small"} />
           </Link>

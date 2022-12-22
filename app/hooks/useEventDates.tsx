@@ -1,26 +1,16 @@
-export default function useEventDates(eventsAll: any[]) {
-  const now: Date = new Date(new Date().setUTCHours(0, 0, 0, 0));
-
-  let eventsPast = eventsAll.filter(
-    (event) =>
-      event.date &&
-      now > new Date(event.date) &&
-      !isSameDay(now, new Date(event.date))
+export default function useEventDates(events: any[]) {
+  const now: Date = new Date();
+  const today: Date = new Date(
+    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
   );
 
-  let eventNext = eventsAll.find(
-    (event) =>
-      event.date &&
-      (now <= new Date(event.date) || isSameDay(now, new Date(event.date)))
+  const eventsPast = events.filter(
+    (event) => event.date && today > new Date(event.date)
   );
 
-  function isSameDay(d1: Date, d2: Date): boolean {
-    return (
-      d1.getFullYear() === d2.getFullYear() &&
-      d1.getMonth() === d2.getMonth() &&
-      d1.getDate() === d2.getDate()
-    );
-  }
+  const eventNext = events.find(
+    (event) => event.date && today <= new Date(event.date)
+  );
 
   return { eventNext, eventsPast };
 }
