@@ -62,10 +62,12 @@ export default function Index() {
   return (
     <div className="page__container">
       <Hero />
-      <div className="main-right-container"></div>
-
+      <div className="main-right-container">
       <UpcomingEvent event={eventNext!} />
-      {/* <Forms /> */}
+
+      <Forms />
+      </div>
+
       <Sponsors />
       <span className="line"></span>
       <div className="home__previousEventTiles">

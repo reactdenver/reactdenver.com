@@ -493,6 +493,7 @@ a:visited > h3.previousEventTile__title {
 .nextMeetupHero {
   margin: 16px;
   max-width: 823px;
+  min-width: 823px;
   background-color: #666666;
   color: #ffffff;
   border-radius: 24px;
