@@ -28,51 +28,52 @@ function handleAttendenceChange(e){
   return (
     <>
 
+<div className='signup-form'>
     <div id="form-header">
-    <h4>Join us downtown and online</h4>
+    <h4 className='form-title'>Join us downtown and online</h4>
     </div>
 
     <div className="form-content">
     <Form method='POST'>
         <div id="form-control">
-        <label>
-          Your Name:{" "}
-          <input type='text' name='first-name' />
+        <label className='input-label'>
+          Your Name{" "}
         </label>
+          <input className='input-field' type='text' name='first-name' />
         </div>
 
       <div className="form-control">
-        <label>
-          Email:{" "}
-          <input type='text' name='email' />
+        <label className='input-label'>
+          Email{" "}
+        </label>
+          <input className='input-field' type='text' name='email' />
+      </div>
+
+      <div className='form-control radio-button-label'>
+        <label>Attending in Person
+          <input className='radio-checkbox-button' name='in-person/online' type='radio' value='in-person' onChange={handleAttendenceChange} />
         </label>
       </div>
 
-      <div className='form-control'>
-        <label>Attending in Person</label>
-        <br />
-        <input name='in-person/online' type='radio' value='in-person' onChange={handleAttendenceChange} />
+      <div className='form-control radio-button-label'>
+        <label>Joining Online
+        <input className='radio-checkbox-button' name='in-person/online' type='radio' value='virtual' onChange={handleAttendenceChange}/>
+        </label>
       </div>
 
-      <div className='form-control'>
-        <label>Joining Online</label>
-        <br />
-        <input name='in-person/online' type='radio' value='virtual' onChange={handleAttendenceChange}/>
-      </div>
-
-      <div className='form-control'>
+      {/* <div className='form-control radio-button-label'>
         <label>Yes, I want pizza</label>
-        <br />
-        <input id='pizza' name='pizza' type='checkbox' disabled={!pizzaEnabled}/>
-      </div>
+        <input className='radio-checkbox-button' id='pizza' name='pizza' type='checkbox' disabled={!pizzaEnabled}/>
+      </div> */}
 
       <div className='form-control'>
         <button type='submit'>
-            Submit
+            Register
           </button>
       </div>
     </Form>
 
+    </div>
     </div>
     </>
   )

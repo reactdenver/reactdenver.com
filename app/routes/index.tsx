@@ -1,6 +1,7 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useActionData } from "@remix-run/react";
 import Event from "~/components/event";
-import Forms from "./posts/form";
+// import Forms from "./posts/form";
+import SignupForm from "../components/form";
 import Hero, { links as heroLinks } from "../components/hero";
 import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
 import { getEventsJson } from "~/utils/events.server";
@@ -8,6 +9,7 @@ import { json } from "@remix-run/node";
 import { format, addMinutes } from "date-fns";
 import type { MdxPage } from "types";
 import useEventDates from "~/hooks/useEventDates";
+import { checkSlug, createRegistration } from "~/utils/tito.server";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 
@@ -42,16 +44,53 @@ const UpcomingEvent = ({ event }: UpcomingEventProps) => {
 //load events from MDX files
 export async function loader() {
   const events = await getEventsJson();
+  const titoEventData = await checkSlug()
 
-  return json(events, {
+  return json(
+    {events, ...titoEventData}, 
+    {
     headers: {
       "Cache-Control": "private, max-age=3600",
-    },
-  });
+      },
+    }
+  );
 }
+
+export const action = async ({ request }: { request: Request }) => {
+  const form = await request.formData();
+  const name = form.get("first-name");
+  const email = form.get("email");
+  const ticketType = form.get("in-person/online");
+  const slugId = form.get("slug-id");
+  const virtualId = form.get("virtual-id");
+  const inPersonId = form.get("inPerson-id");
+
+  if (
+    typeof name !== "string" ||
+    typeof email !== "string" ||
+    typeof slugId !== "string" ||
+    typeof virtualId !== "string" ||
+    typeof inPersonId !== "string" ||
+    typeof ticketType !== "string"
+  ) {
+    throw new Error("Invalid form values");
+  }
+
+  const message = await createRegistration({
+    name,
+    email,
+    releaseId: ticketType === "virtual" ? virtualId : inPersonId,
+    eventSlug: slugId,
+  });
+
+  return json({ message });
+};
+
 
 export default function Index() {
   const eventsAll = useLoaderData<typeof loader>();
+  const {events, ...titoEventData} = useLoaderData<typeof loader>();
+  const signupEventMessage = useActionData<typeof action>()
 
   const { eventNext, eventsPast } = useEventDates(eventsAll);
 
@@ -62,10 +101,15 @@ export default function Index() {
   return (
     <div className="page__container">
       <Hero />
-      <div className="main-right-container"></div>
-
+      <div className="main-right-container">
       <UpcomingEvent event={eventNext!} />
-      {/* <Forms /> */}
+
+      <SignupForm 
+        eventData={titoEventData}
+        responseMessage={signupEventMessage}
+        />
+      </div>
+
       <Sponsors />
       <span className="line"></span>
       <div className="home__previousEventTiles">
