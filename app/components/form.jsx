@@ -2,7 +2,7 @@ import { Form } from "@remix-run/react";
 
 export default function Forms({ eventData, responseMessage }) {
   return (
-    <>
+    <div className="signup-form">
       <div start_date="form-header">
         <h4>Join us downtown and online</h4>
       </div>
@@ -10,27 +10,39 @@ export default function Forms({ eventData, responseMessage }) {
       <div className="form-content">
         <Form method="POST">
           <div start_date="form-control">
-            <label>
-              Your Name: <input type="text" name="first-name" />
+            <label className="input-label">
+              Your Name:
+              <input className="input-field" type="text" name="first-name" />
             </label>
           </div>
 
           <div className="form-control">
+            <label className="input-label">Email:</label>
+            <input className="input-field" type="text" name="email" />
+          </div>
+
+          <div className="form-control radio-button-label">
             <label>
-              Email: <input type="text" name="email" />
+              Attending in Person
+              <input
+                className="radio-checkbox-button"
+                name="in-person/online"
+                type="radio"
+                value="in-person"
+              />
             </label>
           </div>
 
-          <div className="form-control">
-            <label>Attending in Person</label>
-            <br />
-            <input name="in-person/online" type="radio" value="in-person" />
-          </div>
-
-          <div className="form-control">
-            <label>Joining Online</label>
-            <br />
-            <input name="in-person/online" type="radio" value="virtual" />
+          <div className="form-control radio-button-label">
+            <label>
+              Joining Online
+              <input
+                className="radio-checkbox-button"
+                name="in-person/online"
+                type="radio"
+                value="virtual"
+              />
+            </label>
           </div>
 
           <input type="hidden" name="slug-id" value={eventData.nextEventSlug} />
@@ -46,10 +58,12 @@ export default function Forms({ eventData, responseMessage }) {
         </Form>
       </div>
       {responseMessage && responseMessage.message ? (
-        <div>
-          <p>{responseMessage.message}</p>
+        <div className="signup-form-message">
+          <a href={responseMessage.message} target="_blank">
+            {responseMessage.message}
+          </a>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }

@@ -18,20 +18,15 @@ export default function Sponsors() {
         Supported on Open Collective by the following fine folks:
       </p>
       <div className="sponsor__images">
-        <img src="./The_Trade_Desk.png" />
-        <img src="./gusto.png" />
-        <img src="./technical_integrity.png" />
-      </div>
-      <div className="sponsor__people">
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
-        <div className="sponsor__person"></div>
+        <a href="https://www.thetradedesk.com/us" target="_blank">
+          <img src="./The_Trade_Desk.png" />
+        </a>
+        <a href="https://gusto.com/" target="_blank">
+          <img src="./gusto.png" />
+        </a>
+        <a href="https://technicalintegrity.com/" target="_blank">
+          <img src="./technical_integrity.png" />
+        </a>
       </div>
     </div>
   );

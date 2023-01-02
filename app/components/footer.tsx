@@ -33,6 +33,15 @@ export default function Footer() {
             src={require("../assets/netlify_icon-transparent.png")}
           />
         </div>
+
+        <div className="footer__Net-box">
+          <a
+            className="footer__link"
+            href="https://github.com/reactdenver/reactdenver.com"
+          >
+            Code hosted on Github contributions welcome
+          </a>
+        </div>
       </div>
     </div>
   );

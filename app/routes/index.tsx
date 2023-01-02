@@ -1,9 +1,8 @@
 import { Link, useLoaderData, useActionData } from "@remix-run/react";
 import Event from "~/components/event";
-// import Forms from "./posts/form";
-import SignupForm from "../components/form";
-import Hero, { links as heroLinks } from "../components/hero";
-import Sponsors, { links as sponsorsLinks } from "../components/sponsors";
+import SignupForm from "~/components/form";
+import Hero, { links as heroLinks } from "~/components/hero";
+import Sponsors, { links as sponsorsLinks } from "~/components/sponsors";
 import { getEventsJson } from "~/utils/events.server";
 import { json } from "@remix-run/node";
 import { format, addMinutes } from "date-fns";
@@ -44,13 +43,13 @@ const UpcomingEvent = ({ event }: UpcomingEventProps) => {
 //load events from MDX files
 export async function loader() {
   const events = await getEventsJson();
-  const titoEventData = await checkSlug()
+  const titoEventData = await checkSlug();
 
   return json(
-    {events, ...titoEventData}, 
+    { events, ...titoEventData },
     {
-    headers: {
-      "Cache-Control": "private, max-age=3600",
+      headers: {
+        "Cache-Control": "private, max-age=3600",
       },
     }
   );
@@ -86,13 +85,11 @@ export const action = async ({ request }: { request: Request }) => {
   return json({ message });
 };
 
-
 export default function Index() {
-  const eventsAll = useLoaderData<typeof loader>();
-  const {events, ...titoEventData} = useLoaderData<typeof loader>();
-  const signupEventMessage = useActionData<typeof action>()
+  const { events, ...titoEventData } = useLoaderData<typeof loader>();
+  const signupEventMessage = useActionData<typeof action>();
 
-  const { eventNext, eventsPast } = useEventDates(eventsAll);
+  const { eventNext, eventsPast } = useEventDates(events);
 
   let eventsPastShown = [];
   eventsPast.length > 4 ? (eventsPastShown = eventsPast.slice(-4)) : null;
@@ -102,11 +99,11 @@ export default function Index() {
     <div className="page__container">
       <Hero />
       <div className="main-right-container">
-      <UpcomingEvent event={eventNext!} />
+        <UpcomingEvent event={eventNext!} />
 
-      <SignupForm 
-        eventData={titoEventData}
-        responseMessage={signupEventMessage}
+        <SignupForm
+          eventData={titoEventData}
+          responseMessage={signupEventMessage}
         />
       </div>
 
@@ -131,17 +128,15 @@ export default function Index() {
       <span className="line"></span>
       <div className="home__discord">
         <h2>Join the Discord to connect before and after the show.</h2>
-        <div className="home__discordButtons">
-          <img
-            className="home__discourdButtonsLogo"
-            src={require("~/assets/Discord-Logo-Color1.svg")}
-          />
-          {/* oops these probably should be links */}
-          <button>#general</button>
-          <button>#events</button>
-          <button>#hiring</button>
-          <button>#speaking</button>
-        </div>
+        <a id="discord-link" href="https://discord.gg/fFngBEwNmV">
+          <div id="discord-btn" className="link-btn" style={{ width: "165px" }}>
+            <img
+              src={require("~/assets/discord_icon.png")}
+              id="discord-btn-icon"
+            />
+            <p id="discord-btn-text"># General</p>
+          </div>
+        </a>
       </div>
     </div>
   );

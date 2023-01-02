@@ -1,12 +1,11 @@
-import { useLoaderData } from "@remix-run/react";
+import { Params, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
-import type { LoaderFunction } from "@remix-run/node";
 import invariant from "tiny-invariant";
 import { getEventJson } from "~/utils/events.server";
 
 import { format, addMinutes } from "date-fns";
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader = async ({ params }: { params: Params }) => {
   invariant(params.slug, "Slug/ID missing");
   const event = await getEventJson(params.slug);
 
@@ -19,7 +18,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 
 export default function EventSlug() {
   const event = useLoaderData<typeof loader>();
-  const actualDate = new Date(event.frontmatter.date);
+  const actualDate = new Date(event.frontmatter.date!);
   return (
     <div className="eventLG__content">
       <div className="eventLG__text_container">
@@ -48,11 +47,22 @@ export default function EventSlug() {
           ) : null}
         </div>
       </div>
-      <img
-        className="event__image_large"
-        src={event.frontmatter.front_image}
-        alt={event.frontmatter.title}
-      />
+      {event.frontmatter.youtube_id ? (
+        <iframe
+          width="840"
+          height="507"
+          src={`https://www.youtube.com/embed/${event.frontmatter.youtube_id}`}
+          title={event.frontmatter.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      ) : (
+        <img
+          className="event__image_large"
+          src={event.frontmatter.front_image}
+          alt={event.frontmatter.title}
+        />
+      )}
       <div className="eventLG__text_description">
         <h3>Description</h3>
         <p className="event__text_small">{event.frontmatter.description}</p>

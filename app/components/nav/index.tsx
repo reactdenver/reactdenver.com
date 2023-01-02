@@ -22,9 +22,6 @@ export default function Nav() {
           <Link to="/events" className="">
             Events
           </Link>
-          <Link to="/talk" className="">
-            Submit a Talk
-          </Link>
         </div>
       </div>
     </nav>

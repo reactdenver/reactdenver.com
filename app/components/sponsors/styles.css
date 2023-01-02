@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
 }
+.sponsor__images > a > img,
 .sponsor__images > img {
   max-height: 42px;
   max-width: 250px;
