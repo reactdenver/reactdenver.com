@@ -88,28 +88,15 @@ export const action = async ({ request }: { request: Request }) => {
 
 
 export default function Index() {
-  // const eventsAll = useLoaderData<typeof loader>();
+  const eventsAll = useLoaderData<typeof loader>();
   const {events, ...titoEventData} = useLoaderData<typeof loader>();
   const signupEventMessage = useActionData<typeof action>()
 
-  // const { eventNext, eventsPast } = useEventDates(eventsAll);
+  const { eventNext, eventsPast } = useEventDates(eventsAll);
 
-  // let eventsPastShown = [];
-  // eventsPast.length > 4 ? (eventsPastShown = eventsPast.slice(-4)) : null;
-  // eventsPastShown.reverse();
-
-  let eventsPast = events.filter(
-    (event) => event.date && new Date() >= new Date(event.date)
-  );
-
-  //get next event info
-  let eventNext = events.filter(
-    (event) => event.date && new Date() <= new Date(event.date)
-  )[0];
-
-  //only show most recent 4 events
-  eventsPast.length > 4 ? (eventsPast = eventsPast.slice(-4)) : null;
-  eventsPast.reverse(); //display most recent to oldest
+  let eventsPastShown = [];
+  eventsPast.length > 4 ? (eventsPastShown = eventsPast.slice(-4)) : null;
+  eventsPastShown.reverse();
 
   return (
     <div className="page__container">
