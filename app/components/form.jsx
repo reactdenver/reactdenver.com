@@ -53,13 +53,15 @@ export default function Forms({ eventData, responseMessage }) {
           />
           <input type="hidden" name="virtual-id" value={eventData.virtualId} />
           <div className="form-control">
-            <button type="submit">Submit</button>
+            <button type="submit">Register</button>
           </div>
         </Form>
       </div>
       {responseMessage && responseMessage.message ? (
         <div className="signup-form-message">
           <a href={responseMessage.message} target="_blank">
+            Here's your ticket:
+            <br />
             {responseMessage.message}
           </a>
         </div>
