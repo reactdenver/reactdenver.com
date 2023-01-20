@@ -13,9 +13,9 @@ export const checkSlug = async () => {
   // get event slug
   const { data: eventData } = await axios(url, { headers });
   let sortedEvents = eventData.events.sort((first: any, second: any) =>
-    first.start_date < second.start_date
+    new Date(first.start_date) < new Date(second.start_date)
       ? 1
-      : first.start_date > second.start_date
+      : new Date(first.start_date) > new Date(second.start_date)
       ? -1
       : 0
   );
