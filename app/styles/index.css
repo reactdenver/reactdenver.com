@@ -618,9 +618,9 @@ a:visited > h3.previousEventTile__title {
 }
 
 .event__image_large {
-  height: 507px;
-  width: 840px;
+  aspect-ratio: 16/9;
   border-radius: 8px;
+  max-width: 840px;
 }
 
 .eventLG__text_container {
@@ -636,7 +636,6 @@ a:visited > h3.previousEventTile__title {
 
 .eventLG__text_description {
   display: flex;
-  width: 840px;
   flex-direction: column;
   margin-top: 20px;
 }
