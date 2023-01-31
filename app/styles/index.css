@@ -272,7 +272,6 @@ a:hover {
 }
 .main-right-container {
   display: flex;
-  flex: 2;
 }
 
 .welcome-section-container {
@@ -405,9 +404,6 @@ a:hover {
   display: flex;
   flex-direction: column;
 }
-.page__container > * {
-  /* border: 2px solid blue; */
-}
 /* testing */
 
 /* CORE COMPONENTS */
@@ -492,8 +488,6 @@ a:visited > h3.previousEventTile__title {
 
 .nextMeetupHero {
   margin: 16px;
-  max-width: 823px;
-  min-width: 823px;
   background-color: #666666;
   color: #ffffff;
   border-radius: 24px;
@@ -533,12 +527,8 @@ a:visited > h3.previousEventTile__title {
 
 .signup-form {
   padding: 24px;
-  font: Inter;
   font-weight: 500;
   color: #000000;
-  /* display: flex; */
-  width: 617px;
-  float: right;
   height: 464px;
 }
 
@@ -557,7 +547,7 @@ a:visited > h3.previousEventTile__title {
 .input-field {
   border: 1px solid #b7b7b7;
   border-radius: 6px;
-  width: 461px;
+  width: 100%;
   height: 32px;
 }
 
@@ -762,3 +752,30 @@ a.footer__link {
 }
 
 /* End of footer rules */
+
+@media (min-width: 1041px) {
+  .nextMeetupHero {
+    flex: 2;
+  }
+
+  .signup-form {
+    flex: 1;
+  }
+}
+
+@media (max-width: 1040px) {
+  .main-right-container {
+    flex-direction: column;
+  }
+
+  .footer__links-box {
+    flex-wrap: wrap;
+    left: initial;
+    padding-left: initial;
+  }
+
+  .footer__RD-icon {
+    left: calc(50% - 40px);
+    top: 400px;
+  }
+}
