@@ -18,6 +18,7 @@ type MdxPage = {
     };
 
     date?: string;
+    time?: string;
     location?: string;
     speakers?: Array<{ name: string; twitter?: string; github?: string }>;
     front_image?: string;
