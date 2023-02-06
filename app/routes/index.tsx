@@ -18,9 +18,6 @@ type UpcomingEventProps = {
 
 const UpcomingEvent = ({ event }: UpcomingEventProps) => {
   const actualDate = new Date(event.date!);
-  const hour = Number(event.time?.split(":")[0]);
-  const minute = Number(event.time?.split(":")[1]);
-  const time = hour > 12 ? `${24 - hour}` : `${hour}`;
 
   const speakerList = event.speakers!.map((speaker) => speaker.name).join(", ");
   return (
@@ -37,7 +34,7 @@ const UpcomingEvent = ({ event }: UpcomingEventProps) => {
           addMinutes(actualDate, actualDate.getTimezoneOffset()),
           "EEE, MMM d, y"
         )}{" "}
-        - {time}:{minute} {hour > 12 ? "pm" : "am"} (MST)
+        - 6:00 pm (MST)
       </p>
       <p>{speakerList}</p>
       <p>{event.location} & online</p>
