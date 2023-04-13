@@ -77,6 +77,12 @@ export const action = async ({ request }: { request: Request }) => {
     throw new Error("Invalid form values");
   }
 
+  if (name.includes("redir.php")) {
+    throw new Error(
+      "Your name probably doesn't look like that. Are you sure your not a bot?"
+    );
+  }
+
   const message = await createRegistration({
     name,
     email,
