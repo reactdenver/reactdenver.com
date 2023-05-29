@@ -3,12 +3,14 @@ import Event from "~/components/event";
 import SignupForm from "~/components/form";
 import Hero, { links as heroLinks } from "~/components/hero";
 import Sponsors, { links as sponsorsLinks } from "~/components/sponsors";
+import { EmailForm } from "~/components/emailForm";
 import { getEventsJson } from "~/utils/events.server";
 import { json } from "@remix-run/node";
 import { format, addMinutes } from "date-fns";
 import type { MdxPage } from "types";
 import useEventDates from "~/hooks/useEventDates";
 import { checkSlug, createRegistration } from "~/utils/tito.server";
+import { createSubscription } from "~/utils/converkit.server";
 
 export const links = () => [...heroLinks(), ...sponsorsLinks()];
 
@@ -59,43 +61,63 @@ export async function loader() {
 
 export const action = async ({ request }: { request: Request }) => {
   const form = await request.formData();
-  const name = form.get("first-name");
-  const email = form.get("email");
-  const ticketType = form.get("in-person/online");
-  const slugId = form.get("slug-id");
-  const virtualId = form.get("virtual-id");
-  const inPersonId = form.get("inPerson-id");
+  const intent = form.get("intent");
+  console.log("here1");
 
-  if (
-    typeof name !== "string" ||
-    typeof email !== "string" ||
-    typeof slugId !== "string" ||
-    typeof virtualId !== "string" ||
-    typeof inPersonId !== "string" ||
-    typeof ticketType !== "string"
-  ) {
-    throw new Error("Invalid form values");
+  if (intent === "subscription") {
+    console.log("here");
+    const email = form.get("email");
+    if (typeof email !== "string") {
+      throw new Error("Email is not valid");
+    }
+
+    const message = await createSubscription(email);
+    console.log(message);
+    return json({ message, type: "subscription" });
+  } else {
+    const name = form.get("first-name");
+    const email = form.get("email");
+    const ticketType = form.get("in-person/online");
+    const slugId = form.get("slug-id");
+    const virtualId = form.get("virtual-id");
+    const inPersonId = form.get("inPerson-id");
+
+    if (
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof slugId !== "string" ||
+      typeof virtualId !== "string" ||
+      typeof inPersonId !== "string" ||
+      typeof ticketType !== "string"
+    ) {
+      throw new Error("Invalid form values");
+    }
+
+    if (name.includes("redir.php")) {
+      throw new Error(
+        "Your name probably doesn't look like that. Are you sure your not a bot?"
+      );
+    }
+
+    const message = await createRegistration({
+      name,
+      email,
+      releaseId: ticketType === "virtual" ? virtualId : inPersonId,
+      eventSlug: slugId,
+    });
+
+    return json({ message, type: "event" });
   }
-
-  if (name.includes("redir.php")) {
-    throw new Error(
-      "Your name probably doesn't look like that. Are you sure your not a bot?"
-    );
-  }
-
-  const message = await createRegistration({
-    name,
-    email,
-    releaseId: ticketType === "virtual" ? virtualId : inPersonId,
-    eventSlug: slugId,
-  });
-
-  return json({ message });
 };
 
 export default function Index() {
   const { events, ...titoEventData } = useLoaderData<typeof loader>();
-  const signupEventMessage = useActionData<typeof action>();
+  const actionMessage = useActionData<typeof action>();
+
+  const eventMessage =
+    actionMessage?.type === "event" ? actionMessage : undefined;
+  const subscriptionMessage =
+    actionMessage?.type === "subscription" ? actionMessage : undefined;
 
   const { eventNext, eventsPast } = useEventDates(events);
 
@@ -105,14 +127,12 @@ export default function Index() {
 
   return (
     <div className="page__container">
+      <EmailForm responseMessage={subscriptionMessage} />
       <Hero />
       <div className="main-right-container">
         <UpcomingEvent event={eventNext!} />
 
-        <SignupForm
-          eventData={titoEventData}
-          responseMessage={signupEventMessage}
-        />
+        <SignupForm eventData={titoEventData} responseMessage={eventMessage} />
       </div>
 
       <Sponsors />

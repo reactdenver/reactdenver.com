@@ -8,7 +8,7 @@ export default function Forms({ eventData, responseMessage }) {
       </div>
 
       <div className="form-content">
-        <Form method="POST">
+        <Form method="post">
           <div start_date="form-control">
             <label className="input-label">
               Your Name:
@@ -53,7 +53,7 @@ export default function Forms({ eventData, responseMessage }) {
           />
           <input type="hidden" name="virtual-id" value={eventData.virtualId} />
           <div className="form-control">
-            <button type="submit">Register</button>
+            <button type="submit" name="intent" value="register">Register</button>
           </div>
         </Form>
       </div>

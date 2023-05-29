@@ -778,3 +778,33 @@ a.footer__link {
     top: 400px;
   }
 }
+
+.emailForm {
+  border: 1px solid #ddd;
+  border-top: 0;
+  box-shadow: 2px 2px 3px var(--dark-grey);
+  background: hsl(272deg 97.95% 72.43% / 30%);
+}
+
+.emailForm div {
+  display: flex;
+  margin: 16px;
+}
+
+.emailFormContent {
+  flex: 2;
+  height: 42px;
+  line-height: 42px;
+}
+
+.emailForm input {
+  height: 41px;
+  border: 1px solid #b7b7b7;
+  padding-left: 8px;
+  margin-right: 16px;
+}
+
+.emailForm button {
+  margin: 0;
+  background: white;
+}
