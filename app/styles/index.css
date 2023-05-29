@@ -783,7 +783,7 @@ a.footer__link {
   border: 1px solid #ddd;
   border-top: 0;
   box-shadow: 2px 2px 3px var(--dark-grey);
-  background: hsl(272deg 97.95% 72.43% / 30%);
+  background-color: #a379c9;
 }
 
 .emailForm div {
@@ -795,6 +795,7 @@ a.footer__link {
   flex: 2;
   height: 42px;
   line-height: 42px;
+  color: white;
 }
 
 .emailForm input {
