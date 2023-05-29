@@ -62,17 +62,14 @@ export async function loader() {
 export const action = async ({ request }: { request: Request }) => {
   const form = await request.formData();
   const intent = form.get("intent");
-  console.log("here1");
 
   if (intent === "subscription") {
-    console.log("here");
     const email = form.get("email");
     if (typeof email !== "string") {
       throw new Error("Email is not valid");
     }
 
     const message = await createSubscription(email);
-    console.log(message);
     return json({ message, type: "subscription" });
   } else {
     const name = form.get("first-name");
