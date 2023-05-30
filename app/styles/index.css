@@ -795,6 +795,9 @@ a.footer__link {
   flex: 2;
   height: 42px;
   line-height: 42px;
+}
+
+.emailFormContent p {
   color: white;
 }
 
@@ -808,4 +811,21 @@ a.footer__link {
 .emailForm button {
   margin: 0;
   background: white;
+}
+
+@media (max-width: 1040px) {
+  .emailForm div {
+    flex-direction: column;
+  }
+
+  .emailFormContent {
+    height: auto;
+    line-height: 1.2;
+    color: white;
+  }
+
+  .emailForm input {
+    margin-bottom: 16px;
+    width: 100%;
+  }
 }
