@@ -5,7 +5,8 @@ import category from "./schemas/category";
 import post from "./schemas/post";
 import author from "./schemas/author";
 import speaker from "./schemas/speaker";
+import event from "./schemas/event";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, blockContent, speaker],
+  types: [post, author, category, blockContent, speaker, event],
 };
