@@ -74,7 +74,7 @@ export default function Navbar(props) {
                         sizes="(max-width: 640px) 100vw, 200px"
                       />
                     ) : (
-                      <span className="block text-center">Stablo</span>
+                      <span className="block text-center">React Denver</span>
                     )}
                   </Link>
                   <Link href="/" className="hidden w-28 dark:block">
@@ -86,7 +86,7 @@ export default function Navbar(props) {
                         sizes="(max-width: 640px) 100vw, 200px"
                       />
                     ) : (
-                      <span className="block text-center">Stablo</span>
+                      <span className="block text-center">React Denver</span>
                     )}
                   </Link>
                   <Disclosure.Button

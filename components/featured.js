@@ -84,9 +84,6 @@ export default function Featured({ post, pathPrefix }) {
                         "MMMM dd, yyyy"
                       )}
                     </time>
-                    <span className="text-white">
-                      · {post.estReadingTime || "5"} min read
-                    </span>
                   </div>
                 </div>
               </div>
