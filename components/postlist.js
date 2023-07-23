@@ -4,7 +4,6 @@ import { cx } from "@/utils/all";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 import { PhotoIcon } from "@heroicons/react/24/outline";
-import CategoryLabel from "@/components/blog/category";
 
 export default function PostList({
   post,
@@ -67,10 +66,6 @@ export default function PostList({
 
         <div className={cx(minimal && "flex items-center")}>
           <div>
-            <CategoryLabel
-              categories={post.categories}
-              nomargin={minimal}
-            />
             <h2
               className={cx(
                 fontSize === "large"

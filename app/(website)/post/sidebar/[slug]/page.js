@@ -3,7 +3,6 @@ import PostPage from "./sidebar";
 import {
   getAllPostsSlugs,
   getPostBySlug,
-  getTopCategories,
 } from "@/lib/sanity/client";
 
 export async function generateStaticParams() {
@@ -17,8 +16,7 @@ export async function generateMetadata({ params }) {
 
 export default async function PostDefault({ params }) {
   const post = await getPostBySlug(params.slug);
-  const categories = await getTopCategories();
-  return <PostPage post={post} categories={categories} />;
+  return <PostPage post={post} />;
 }
 
 // export const revalidate = 60;

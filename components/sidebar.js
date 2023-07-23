@@ -16,9 +16,6 @@ export default function Sidebar(props) {
           pathPrefix={props.pathPrefix}
         />
       )}
-      {props.categories && (
-        <Categories categories={props.categories} />
-      )}
     </div>
   );
 }
@@ -75,32 +72,6 @@ function RelatedPosts({ related, pathPrefix }) {
           );
         })}
       </div>
-    </div>
-  );
-}
-
-function Categories({ categories }) {
-  return (
-    <div className="mt-10">
-      <h3 className="text-2xl font-bold dark:text-white">
-        Categories
-      </h3>
-      <ul className="grid mt-4">
-        {categories.map((item, index) => (
-          <li key={item._id}>
-            <Link
-              href={`/category/${item.slug.current}`}
-              className="flex items-center justify-between py-2">
-              <h4 className="text-gray-800 dark:text-gray-400">
-                {item.title}
-              </h4>
-              <Label pill={true} color={item.color}>
-                {item.count}
-              </Label>
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

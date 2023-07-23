@@ -84,30 +84,6 @@ export async function getAllAuthors() {
   return [];
 }
 
-// Category
-
-export async function getAllCategories() {
-  if (client) {
-    const slugs = (await client.fetch(catpathquery)) || [];
-    return slugs.map(slug => ({ slug }));
-  }
-  return [];
-}
-
-export async function getPostsByCategory(slug) {
-  if (client) {
-    return (await client.fetch(postsbycatquery, { slug })) || {};
-  }
-  return {};
-}
-
-export async function getTopCategories() {
-  if (client) {
-    return (await client.fetch(catquery)) || [];
-  }
-  return [];
-}
-
 export async function getPaginatedPosts(limit) {
   if (client) {
     return (

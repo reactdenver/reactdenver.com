@@ -8,7 +8,7 @@ import AuthorCard from "@/components/blog/authorCard";
 import Sidebar from "@/components/sidebar";
 
 export default function Post(props) {
-  const { loading, post, categories } = props;
+  const { loading, post } = props;
 
   const slug = post?.slug;
 
@@ -106,7 +106,6 @@ export default function Post(props) {
         </article>
         <aside className="sticky top-0 w-full self-start md:w-96">
           <Sidebar
-            categories={categories}
             pathPrefix="sidebar"
             related={post.related.filter(
               item => item.slug.current !== slug

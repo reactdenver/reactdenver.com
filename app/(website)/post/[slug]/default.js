@@ -6,7 +6,6 @@ import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 
-import CategoryLabel from "@/components/blog/category";
 import AuthorCard from "@/components/blog/authorCard";
 
 export default function Post(props) {
@@ -30,10 +29,6 @@ export default function Post(props) {
     <>
       <Container className="!pt-0">
         <div className="mx-auto max-w-screen-md ">
-          <div className="flex justify-center">
-            <CategoryLabel categories={post.categories} />
-          </div>
-
           <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
             {post.title}
           </h1>
