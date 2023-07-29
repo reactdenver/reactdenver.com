@@ -1,7 +1,6 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   postquery,
-  limitquery,
   paginatedquery,
   configQuery,
   singlequery,
@@ -9,10 +8,9 @@ import {
   allauthorsquery,
   authorsquery,
   postsbyauthorquery,
-  postsbycatquery,
-  catpathquery,
-  catquery,
-  searchquery
+  allspeakersquery,
+  speakersquery,
+  postsbyspeakerquery,
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -70,6 +68,14 @@ export async function getAllAuthorsSlugs() {
   return [];
 }
 
+export async function getAllSpeakersSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(speakersquery)) || [];
+    return slugs.map(slug => ({ slug }));
+  }
+  return [];
+}
+
 export async function getAuthorPostsBySlug(slug) {
   if (client) {
     return (await client.fetch(postsbyauthorquery, { slug })) || {};
@@ -77,9 +83,23 @@ export async function getAuthorPostsBySlug(slug) {
   return {};
 }
 
+export async function getSpeakerPostsBySlug(slug) {
+  if (client) {
+    return (await client.fetch(postsbyspeakerquery, { slug })) || {};
+  }
+  return {};
+}
+
 export async function getAllAuthors() {
   if (client) {
     return (await client.fetch(allauthorsquery)) || [];
+  }
+  return [];
+}
+
+export async function getAllSpeakers() {
+  if (client) {
+    return (await client.fetch(allspeakersquery)) || [];
   }
   return [];
 }

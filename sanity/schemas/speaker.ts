@@ -47,6 +47,46 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: "social",
+      type: "array",
+      title: "Social Links",
+      description: "Enter your Social Media URLs",
+      validation: Rule => Rule.unique(),
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              type: "string",
+              name: "media",
+              title: "Choose Social Media",
+              options: {
+                list: [
+                  { title: "Twitter", value: "twitter" },
+                  { title: "Facebook", value: "facebook" },
+                  { title: "GitHub", value: "github" },
+                  { title: "Instagram", value: "instagram" },
+                  { title: "Linkedin", value: "linkedin" },
+                  { title: "Youtube", value: "youtube" }
+                ]
+              }
+            },
+            {
+              type: "url",
+              name: "url",
+              title: "Full Profile URL"
+            }
+          ],
+          preview: {
+            select: {
+              title: "media",
+              subtitle: "url"
+            }
+          }
+        }
+      ]
+    }),
   ],
   preview: {
     select: {
