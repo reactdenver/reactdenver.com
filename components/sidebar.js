@@ -11,7 +11,7 @@ export default function Sidebar(props) {
       <Searchbar />
 
       {props.related && (
-        <RelatedPosts
+        <RelatedEvents
           related={props.related}
           pathPrefix={props.pathPrefix}
         />
@@ -24,7 +24,7 @@ function Searchbar() {
   return (
     <div>
       <h3 className="text-2xl font-bold dark:text-white">
-        Search Posts
+        Search Events
       </h3>
       <form action="/search" method="GET" className="mt-4">
         <SearchInput placeholder="Search" />
@@ -33,7 +33,7 @@ function Searchbar() {
   );
 }
 
-function RelatedPosts({ related, pathPrefix }) {
+function RelatedEvents({ related, pathPrefix }) {
   return (
     <div className="mt-10">
       <h3 className="text-2xl font-bold dark:text-white">Related</h3>
@@ -45,7 +45,7 @@ function RelatedPosts({ related, pathPrefix }) {
           return (
             <Link
               key={index}
-              href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
+              href={`/event/${pathPrefix ? `${pathPrefix}/` : ""}${
                 item.slug.current
               }`}>
               <div className="flex gap-5">

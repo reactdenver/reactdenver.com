@@ -1,16 +1,20 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   postquery,
+  eventquery,
   paginatedquery,
+  paginatedeventsquery,
   configQuery,
   singlequery,
+  singleeventquery,
   pathquery,
+  patheventquery,
   allauthorsquery,
   authorsquery,
   postsbyauthorquery,
   allspeakersquery,
   speakersquery,
-  postsbyspeakerquery,
+  eventsbyspeakerquery,
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -38,6 +42,13 @@ export async function getAllPosts() {
   return [];
 }
 
+export async function getAllEvents() {
+  if (client) {
+    return (await client.fetch(eventquery)) || [];
+  }
+  return [];
+}
+
 export async function getSettings() {
   if (client) {
     return (await client.fetch(configQuery)) || [];
@@ -52,10 +63,25 @@ export async function getPostBySlug(slug) {
   return {};
 }
 
+export async function getEventBySlug(slug) {
+  if (client) {
+    return (await client.fetch(singleeventquery, { slug })) || {};
+  }
+  return {};
+}
+
 export async function getAllPostsSlugs() {
   if (client) {
     const slugs = (await client.fetch(pathquery)) || [];
     return slugs.map(slug => ({ slug }));
+  }
+  return [];
+}
+
+export async function getAllEventSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(patheventquery)) || [];
+    return slugs.map((slug) => ({ slug }));
   }
   return [];
 }
@@ -83,9 +109,9 @@ export async function getAuthorPostsBySlug(slug) {
   return {};
 }
 
-export async function getSpeakerPostsBySlug(slug) {
+export async function getSpeakerEventsBySlug(slug) {
   if (client) {
-    return (await client.fetch(postsbyspeakerquery, { slug })) || {};
+    return (await client.fetch(eventsbyspeakerquery, { slug })) || {};
   }
   return {};
 }
@@ -110,6 +136,18 @@ export async function getPaginatedPosts(limit) {
       (await client.fetch(paginatedquery, {
         pageIndex: 0,
         limit: limit
+      })) || {}
+    );
+  }
+  return {};
+}
+
+export async function getPaginatedEvents(limit) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedeventsquery, {
+        pageIndex: 0,
+        limit: limit,
       })) || {}
     );
   }

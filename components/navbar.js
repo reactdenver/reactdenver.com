@@ -16,16 +16,12 @@ export default function Navbar(props) {
       href: "/",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Speakers",
+      href: "/speakers",
     },
   ];
 
   const rightmenu = [
-    {
-      label: "Pages",
-      href: "/pages",
-    },
     {
       label: "Contact",
       href: "/contact",
@@ -54,7 +50,7 @@ export default function Navbar(props) {
                         <Link
                           href={item.href}
                           key={`${item.label}${index}`}
-                          className="px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
+                          className="px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-white"
                           target={item.external ? "_blank" : ""}
                           rel={item.external ? "noopener" : ""}
                         >
@@ -91,7 +87,7 @@ export default function Navbar(props) {
                   </Link>
                   <Disclosure.Button
                     aria-label="Toggle Menu"
-                    className="ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none dark:text-gray-300 md:hidden "
+                    className="ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none dark:text-white md:hidden "
                   >
                     <svg
                       className="h-6 w-6 fill-current"
@@ -128,7 +124,7 @@ export default function Navbar(props) {
                         <Link
                           href={item.href}
                           key={`${item.label}${index}`}
-                          className="px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
+                          className="px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-white"
                           target={item.external ? "_blank" : ""}
                           rel={item.external ? "noopener" : ""}
                         >
@@ -154,7 +150,7 @@ export default function Navbar(props) {
                         <Link
                           href={item.href}
                           key={`${item.label}${index}`}
-                          className="w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
+                          className="w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-white"
                           target={item.external ? "_blank" : ""}
                           rel={item.external ? "noopener" : ""}
                         >
@@ -215,7 +211,7 @@ const DropdownMenu = ({ menu, items, mobile }) => {
                           "flex items-center space-x-2 px-5 py-2 text-sm lg:space-x-4",
                           active
                             ? "text-blue-500"
-                            : "text-gray-700 hover:text-blue-500 focus:text-blue-500 dark:text-gray-300"
+                            : "text-gray-700 hover:text-blue-500 focus:text-blue-500 dark:text-white"
                         )}
                       >
                         <span> {item.title}</span>

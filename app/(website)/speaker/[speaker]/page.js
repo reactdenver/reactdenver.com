@@ -1,14 +1,17 @@
 import Speaker from "./speaker";
 
-import { getAllSpeakersSlugs, getSpeakerPostsBySlug } from "@/lib/sanity/client";
+import {
+  getAllSpeakersSlugs,
+  getSpeakerEventsBySlug,
+} from "@/lib/sanity/client";
 
 export async function generateStaticParams() {
   return await getAllSpeakersSlugs();
 }
 
 async function getSpeaker(slug) {
-  const posts = await getSpeakerPostsBySlug(slug);
-  return posts?.[0]?.speaker || {};
+  const events = await getSpeakerEventsBySlug(slug);
+  return events?.[0]?.speaker || {};
 }
 
 export async function generateMetadata({ params }) {
@@ -17,9 +20,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SpeakerPage({ params }) {
-  const posts = await getSpeakerPostsBySlug(params.speaker);
+  const events = await getSpeakerEventsBySlug(params.speaker);
   const speaker = await getSpeaker(params.speaker);
-  return <Speaker posts={posts} speaker={speaker} />;
+  return <Speaker events={events} speaker={speaker} />;
 }
 
 // export const revalidate = 60;

@@ -11,8 +11,8 @@ export async function sharedMetaData(params) {
     title: {
       default:
         settings?.title ||
-        "Stablo Pro - Blog Template for Next.js & Sanity CMS",
-      template: "%s | Stablo"
+        "React Denver",
+      template: "%s"
     },
     description:
       settings?.description ||

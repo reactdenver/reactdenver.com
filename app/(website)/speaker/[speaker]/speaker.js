@@ -1,12 +1,12 @@
 import Container from "@/components/container";
 import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
-import PostList from "@/components/postlist";
+import EventList from "@/components/eventlist";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function Speaker(props) {
-  const { loading, posts, speaker } = props;
+  const { loading, events, speaker } = props;
 
   const slug = speaker?.slug;
 
@@ -37,8 +37,8 @@ export default function Speaker(props) {
           </div>
         </div>
         <div className="mt-16 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
-          {posts.map(post => (
-            <PostList key={post._id} post={post} aspect="square" />
+          {events.map((event) => (
+            <EventList key={event._id} event={event} aspect="square" />
           ))}
         </div>
       </Container>

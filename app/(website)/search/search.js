@@ -1,7 +1,7 @@
 "use client";
 
 import Container from "@/components/container";
-import PostList from "@/components/postlist";
+import EventList from "@/components/eventlist";
 import SearchInput from "@/components/ui/search";
 import { searchquery } from "@/lib/sanity/groq";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -82,8 +82,8 @@ export default function Search(props) {
         )}
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {data &&
-            data.map((post, index) => (
-              <PostList key={post._id} post={post} aspect="square" />
+            data.map(event => (
+              <EventList key={event._id} event={event} aspect="square" />
             ))}
         </div>
       </Container>
