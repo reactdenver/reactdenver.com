@@ -55,7 +55,7 @@ export default function Search(props) {
         {query && data?.length === 0 && (
           <div className="flex items-center justify-center h-40">
             <span className="text-lg text-gray-500">
-              No posts found for {query}. Try again!
+              No events found for {query}. Try again!
             </span>
           </div>
         )}

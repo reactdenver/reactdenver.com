@@ -1,17 +1,10 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
-  postquery,
   eventquery,
-  paginatedquery,
   paginatedeventsquery,
   configQuery,
-  singlequery,
   singleeventquery,
-  pathquery,
   patheventquery,
-  allauthorsquery,
-  authorsquery,
-  postsbyauthorquery,
   allspeakersquery,
   speakersquery,
   eventsbyspeakerquery,
@@ -35,13 +28,6 @@ export const fetcher = async ([query, params]) => {
   return client ? client.fetch(query, params) : [];
 };
 
-export async function getAllPosts() {
-  if (client) {
-    return (await client.fetch(postquery)) || [];
-  }
-  return [];
-}
-
 export async function getAllEvents() {
   if (client) {
     return (await client.fetch(eventquery)) || [];
@@ -56,26 +42,11 @@ export async function getSettings() {
   return [];
 }
 
-export async function getPostBySlug(slug) {
-  if (client) {
-    return (await client.fetch(singlequery, { slug })) || {};
-  }
-  return {};
-}
-
 export async function getEventBySlug(slug) {
   if (client) {
     return (await client.fetch(singleeventquery, { slug })) || {};
   }
   return {};
-}
-
-export async function getAllPostsSlugs() {
-  if (client) {
-    const slugs = (await client.fetch(pathquery)) || [];
-    return slugs.map(slug => ({ slug }));
-  }
-  return [];
 }
 
 export async function getAllEventSlugs() {
@@ -85,28 +56,13 @@ export async function getAllEventSlugs() {
   }
   return [];
 }
-// Author
-export async function getAllAuthorsSlugs() {
-  if (client) {
-    const slugs = (await client.fetch(authorsquery)) || [];
-    return slugs.map(slug => ({ slug }));
-  }
-  return [];
-}
 
 export async function getAllSpeakersSlugs() {
   if (client) {
     const slugs = (await client.fetch(speakersquery)) || [];
-    return slugs.map(slug => ({ slug }));
+    return slugs.map((slug) => ({ slug }));
   }
   return [];
-}
-
-export async function getAuthorPostsBySlug(slug) {
-  if (client) {
-    return (await client.fetch(postsbyauthorquery, { slug })) || {};
-  }
-  return {};
 }
 
 export async function getSpeakerEventsBySlug(slug) {
@@ -116,30 +72,11 @@ export async function getSpeakerEventsBySlug(slug) {
   return {};
 }
 
-export async function getAllAuthors() {
-  if (client) {
-    return (await client.fetch(allauthorsquery)) || [];
-  }
-  return [];
-}
-
 export async function getAllSpeakers() {
   if (client) {
     return (await client.fetch(allspeakersquery)) || [];
   }
   return [];
-}
-
-export async function getPaginatedPosts(limit) {
-  if (client) {
-    return (
-      (await client.fetch(paginatedquery, {
-        pageIndex: 0,
-        limit: limit
-      })) || {}
-    );
-  }
-  return {};
 }
 
 export async function getPaginatedEvents(limit) {

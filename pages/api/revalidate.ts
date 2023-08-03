@@ -55,7 +55,7 @@ export default async function revalidate(
       return res.status(400).send(invalidSlug);
     }
 
-    const staleRoutes = [`/post/${sanityBody.slug.current}`, "/"];
+    const staleRoutes = [`/event/${sanityBody.slug.current}`, "/"];
     await Promise.all(
       staleRoutes.map(route => res.revalidate(route))
     );

@@ -87,7 +87,6 @@ export default function Event(props) {
         </div>
       </div>
 
-      {/* {post?.mainImage && <MainImage image={post.mainImage} />} */}
       <Container>
         <article className="mx-auto max-w-screen-md ">
           <div className="prose prose-lg mx-auto my-3 dark:prose-invert prose-a:text-blue-500">
