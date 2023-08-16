@@ -8,6 +8,8 @@ import {
   allspeakersquery,
   speakersquery,
   eventsbyspeakerquery,
+  allorganizersquery,
+  organizerquery,
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -75,6 +77,23 @@ export async function getSpeakerEventsBySlug(slug) {
 export async function getAllSpeakers() {
   if (client) {
     return (await client.fetch(allspeakersquery)) || [];
+  }
+  return [];
+}
+
+export async function getOrganizerBySlug(slug) {
+  if (client) {
+    const orgs = (await client.fetch(organizerquery, { slug })) || [];
+    if (orgs.length === 1) {
+      return orgs[0];
+    }
+  }
+  return {};
+}
+
+export async function getAllOrganizers() {
+  if (client) {
+    return (await client.fetch(allorganizersquery)) || [];
   }
   return [];
 }

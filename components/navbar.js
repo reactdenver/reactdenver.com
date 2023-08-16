@@ -23,6 +23,10 @@ export default function Navbar(props) {
 
   const rightmenu = [
     {
+      label: 'Organizers',
+      href: '/organizers'
+    },
+    {
       label: "Contact",
       href: "/contact",
     },
