@@ -4,7 +4,6 @@ import { getOrganizerBySlug } from "@/lib/sanity/client";
 
 async function getOrganizer(slug) {
   const organizer = await getOrganizerBySlug(slug);
-  console.log(organizer);
   return organizer || {};
 }
 

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function Organizer(props) {
-  console.log("props", props);
   const { organizer } = props;
 
   const slug = organizer?.slug;
