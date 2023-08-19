@@ -46,10 +46,20 @@ export default defineType({
       type: "datetime",
     }),
     defineField({
+      name: "eventAt",
+      title: "Event Date",
+      type: "datetime",
+    }),
+    defineField({
       name: "body",
       title: "Body",
       type: "blockContent",
     }),
+    defineField({
+      name: "titoSlug",
+      title: "Tito Slug",
+      type: "string"
+    })
   ],
 
   preview: {
