@@ -27,6 +27,9 @@ export default function Speakers({ speakers, settings }) {
                     sizes="(max-width: 320px) 100vw, 320px"
                     className="object-cover"
                   />
+                  <h4 className="absolute bottom-0 w-full bg-slate-900/50 p-2 text-lg font-bold text-white">
+                    {speaker.name}
+                  </h4>
                 </Link>
               </div>
             )

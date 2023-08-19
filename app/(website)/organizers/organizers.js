@@ -27,6 +27,9 @@ export default function Organizers({ organizers }) {
                     sizes="(max-width: 320px) 100vw, 320px"
                     className="object-cover"
                   />
+                  <h4 className="absolute bottom-0 w-full bg-slate-900/50 text-white text-lg font-bold p-2">
+                    {organizer.name}
+                  </h4>
                 </Link>
               </div>
             )
