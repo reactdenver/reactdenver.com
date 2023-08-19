@@ -72,10 +72,10 @@ export default function Event(props) {
                 <div className="flex space-x-2 text-sm md:flex-row md:items-center">
                   <time
                     className="text-gray-100 "
-                    dateTime={event?.publishedAt || event._createdAt}
+                    dateTime={event?.eventAt || event._createdAt}
                   >
                     {format(
-                      parseISO(event?.publishedAt || event._createdAt),
+                      parseISO(event?.eventAt || event._createdAt),
                       "MMMM dd, yyyy"
                     )}
                   </time>
@@ -112,18 +112,3 @@ export default function Event(props) {
     </>
   );
 }
-
-const MainImage = ({ image }) => {
-  return (
-    <div className="mb-12 mt-12 ">
-      <Image {...urlForImage(image)} alt={image.alt || "Thumbnail"} />
-      <figcaption className="text-center ">
-        {image.caption && (
-          <span className="text-sm italic text-gray-600 dark:text-gray-400">
-            {image.caption}
-          </span>
-        )}
-      </figcaption>
-    </div>
-  );
-};

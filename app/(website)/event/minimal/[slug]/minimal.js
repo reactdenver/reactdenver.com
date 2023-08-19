@@ -50,17 +50,17 @@ export default function Event(props) {
               <div>
                 <div className="flex items-center space-x-2 text-sm">
                   <p className="text-gray-800 dark:text-gray-400">
-                    <Link
-                      href={`/speaker/${event.speaker.slug.current}`}>
+                    <Link href={`/speaker/${event.speaker.slug.current}`}>
                       {event.speaker.name}
                     </Link>
                     ·
                   </p>
                   <time
                     className="text-gray-500 dark:text-gray-400"
-                    dateTime={event?.publishedAt || event._createdAt}>
+                    dateTime={event?.eventAt || event._createdAt}
+                  >
                     {format(
-                      parseISO(event?.publishedAt || event._createdAt),
+                      parseISO(event?.eventAt || event._createdAt),
                       "MMMM dd, yyyy"
                     )}
                   </time>
@@ -79,7 +79,8 @@ export default function Event(props) {
           <div className="mb-7 mt-7 flex justify-center">
             <Link
               href="/"
-              className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 ">
+              className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 "
+            >
               ← View all talks
             </Link>
           </div>
@@ -89,18 +90,3 @@ export default function Event(props) {
     </>
   );
 }
-
-const MainImage = ({ image }) => {
-  return (
-    <div className="mb-12 mt-12 ">
-      <Image {...urlForImage(image)} alt={image.alt || "Thumbnail"} />
-      <figcaption className="text-center ">
-        {image.caption && (
-          <span className="text-sm italic text-gray-600 dark:text-gray-400">
-            {image.caption}
-          </span>
-        )}
-      </figcaption>
-    </div>
-  );
-};
