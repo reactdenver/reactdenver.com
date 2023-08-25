@@ -1,24 +1,29 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { SunIcon } from "@heroicons/react/24/outline";
+import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
+import { useState,useEffect } from "react";
 
 const ThemeSwitch = () => {
-  //   const [mounted, setMounted] = useState(false);
+    const [mounted, setMounted] = useState(false);
   //   const { resolvedTheme, setTheme } = useTheme();
-  const { theme, setTheme } = useTheme();
-  // useEffect only runs on the client, so now we can safely show the UI
-  //   useEffect(() => {
-  //     setMounted(true);
-  //   }, []);
+    const { theme, setTheme } = useTheme();
+   //useEffect only runs on the client, so now we can safely show the UI
+     useEffect(() => {
+      setMounted(true);
+     }, []);
 
-  //   if (!mounted) {
-  //     return null;
-  //   }
+     if (!mounted) {
+       return null;
+     }
 
   return (
     <div className="inline-flex items-center">
-      <SunIcon className="w-4 h-4 mr-2" />
+
+        {theme === "system" && <ComputerDesktopIcon className="w-4 h-4 mr-2" />}
+        {theme === "dark" && <MoonIcon className="w-4 h-4 mr-2" />}
+        {theme === "light" && <SunIcon className="w-4 h-4 mr-2" />}
+
       <select
         name="themeSwitch"
         value={theme}
