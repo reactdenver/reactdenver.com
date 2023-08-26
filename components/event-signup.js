@@ -11,15 +11,15 @@ function EventSignup(eventProps) {
   });
 
   return (
-    <section className="md:flex md:items-center">
-      <div className="md:w-[55%]">
+    <section className="w-full md:flex md:items-center md:justify-between">
+      <div className="md:w-[60%]">
         <EventList
           key={eventProps.event.id}
           event={eventProps.event}
           aspect="landscape"
         />
       </div>
-      <div className="mx-auto md:w-[35%]">
+      <div className="md:w-[35%]">
         <form onSubmit={console.log("submitting")} className="my-10">
           <h2 className="text-brand-primary mb-3 mt-2 text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
             Join us downtown and online for our next event
