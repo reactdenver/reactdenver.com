@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/container";
+import EventSignup from "@/components/event-signup";
 import { notFound } from "next/navigation";
 import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
@@ -86,6 +87,7 @@ export default function Event(props) {
         <article className="mx-auto max-w-screen-md ">
           <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {event.body && <PortableText value={event.body} />}
+            <EventSignup event={event} />
           </div>
           <div className="mb-7 mt-7 flex justify-center">
             <Link

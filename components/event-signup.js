@@ -11,18 +11,15 @@ function EventSignup(eventProps) {
   });
 
   return (
-    <section className="w-full md:flex md:items-center md:justify-between">
-      <div className="md:w-[60%]">
-        <EventList
-          key={eventProps.event.id}
-          event={eventProps.event}
-          aspect="landscape"
-        />
-      </div>
-      <div className="md:w-[35%]">
-        <form onSubmit={console.log("submitting")} className="my-10">
+    <section className="w-full flex-col md:flex md:items-center md:justify-between">
+      <div className="w-full"></div>
+      <div className="w-full">
+        <form
+          onSubmit={console.log("submitting")}
+          className="flex flex-col items-center"
+        >
           <h2 className="text-brand-primary mb-3 mt-2 text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-            Join us downtown and online for our next event
+            Join us downtown and online
           </h2>
           <input
             type="checkbox"
@@ -30,7 +27,7 @@ function EventSignup(eventProps) {
             className="hidden"
             style={{ display: "none" }}
           ></input>
-          <div className="mb-5">
+          <div className="mb-5 w-full">
             <input
               type="text"
               placeholder="Full Name"
@@ -47,7 +44,7 @@ function EventSignup(eventProps) {
               </div>
             )}
           </div>
-          <div className="mb-5">
+          <div className="mb-5 w-full">
             <label htmlFor="email_address" className="sr-only">
               Email Address
             </label>
@@ -64,7 +61,7 @@ function EventSignup(eventProps) {
               }`}
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-5">
             <div>
               <input type="radio" id="inPerson" name="fav_language" />
               <label htmlFor="inPerson">Attending In Person</label>
@@ -76,7 +73,7 @@ function EventSignup(eventProps) {
           </div>
           <button
             type="submit"
-            className="w-full rounded-md bg-gray-900 px-7 py-4 font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 dark:bg-white dark:text-black "
+            className="m-auto w-full rounded-md bg-gray-900 px-7 py-4 font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 dark:bg-white dark:text-black md:w-[25%]"
           >
             {isSubmitting ? (
               <svg
@@ -100,7 +97,7 @@ function EventSignup(eventProps) {
                 ></path>
               </svg>
             ) : (
-              "Send Message"
+              "Register"
             )}
           </button>
         </form>

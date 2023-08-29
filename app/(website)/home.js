@@ -7,10 +7,8 @@ export default function Event({ events }) {
     <>
       {events && (
         <Container>
-          <EventSignup event={events[0]} />
-          <h2 className="font-semibold text-2xl mt-20">Previous Events</h2>
           <div className="my-10 grid gap-10 md:grid-cols-2 lg:gap-10">
-            {events.slice(1, 3).map((event) => (
+            {events.slice(0, 3).map((event) => (
               <EventList
                 key={event._id}
                 event={event}
