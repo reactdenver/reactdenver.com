@@ -85,9 +85,9 @@ export default function Event(props) {
 
       <Container>
         <article className="mx-auto max-w-screen-md ">
+          <EventSignup event={event} />
           <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {event.body && <PortableText value={event.body} />}
-            <EventSignup event={event} />
           </div>
           <div className="mb-7 mt-7 flex justify-center">
             <Link

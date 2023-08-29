@@ -11,7 +11,7 @@ function EventSignup(eventProps) {
   });
 
   return (
-    <section className="w-full flex-col md:flex md:items-center md:justify-between">
+    <section className="mb-10 w-full flex-col md:flex md:items-center md:justify-between">
       <div className="w-full"></div>
       <div className="w-full">
         <form
