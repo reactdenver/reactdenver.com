@@ -1,25 +1,92 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import EventList from "@/components/eventlist";
+
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  Authorization: `Token token=${process.env.SECRET_ACCESS_TOKEN}`,
+  Accept: "application/json",
+  "Content-Type": "application/json",
+};
 
 function EventSignup(eventProps) {
   const {
+    register,
+    handleSubmit,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm({
     mode: "onTouched",
   });
+
+  const getReleaseIds = async () => {
+    const url = "https://api.tito.io/v3/react-denver/events";
+    // get releaseID
+    const { data: releaseData } = await fetch(
+      `https://api.tito.io/v3/react-denver/${eventProps.event.slug.current}/releases`
+    );
+    const inPersonId = releaseData.releases[0].id;
+    const virtualId = releaseData.releases[1].id;
+
+    return { nextEventSlug, virtualId, inPersonId };
+  };
+
+  const createRegistration = async ({ name, email, releaseId, eventSlug }) => {
+    try {
+      const registration = {
+        registration: {
+          email: email,
+          name: name,
+          discount_code: "",
+          source: "",
+          notify: true,
+          line_items: [{ release_id: releaseId, quantity: 1 }],
+        },
+      };
+
+      const authPost = fetch({
+        baseURL: `https://api.tito.io/v3/react-denver/${eventProps.event.slug.current}`,
+        method: "POST",
+        headers: headers,
+      });
+
+      const response = await fetch(
+        `https://api.tito.io/v3/react-denver/${eventProps.event.slug.current}/registrations`,
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(registration),
+        }
+      );
+
+      const registrationData = response.data;
+
+      let message = "";
+      if (registrationData.registration.tickets) {
+        message = registrationData.registration.tickets[0].unique_url;
+      }
+      return message;
+    } catch (error) {
+      if (error) {
+        console.log(error.response);
+      }
+      return "Woops things didn't go as planned";
+    }
+  };
+
+  const onSubmit = (data) => {
+    checkSlug();
+  };
 
   return (
     <section className="mb-10 w-full flex-col md:flex md:items-center md:justify-between">
       <div className="w-full"></div>
       <div className="w-full">
         <form
-          onSubmit={console.log("submitting")}
+          onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center"
         >
           <h2 className="text-brand-primary mb-3 mt-2 text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-            Join us downtown and online
+            Join us downtown and online {eventProps.event.eventAt}
           </h2>
           <input
             type="checkbox"
@@ -37,6 +104,10 @@ function EventSignup(eventProps) {
                   ? "border-red-600 ring-red-100 focus:border-red-600 dark:ring-0"
                   : "border-gray-300 ring-gray-100 focus:border-gray-600 dark:border-gray-600 dark:ring-0 dark:focus:border-white"
               }`}
+              {...register("name", {
+                required: "Full name is required",
+                maxLength: 80,
+              })}
             />
             {errors.name && (
               <div className="mt-1 text-red-600">
@@ -59,15 +130,37 @@ function EventSignup(eventProps) {
                   ? "border-red-600 ring-red-100 focus:border-red-600 dark:ring-0"
                   : "border-gray-300 ring-gray-100 focus:border-gray-600 dark:border-gray-600 dark:ring-0 dark:focus:border-white"
               }`}
+              {...register("email", {
+                required: "Enter your email",
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "Please enter a valid email",
+                },
+              })}
             />
+            {errors.email && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.email.message}</small>
+              </div>
+            )}
           </div>
           <div className="mb-5">
             <div>
-              <input type="radio" id="inPerson" name="fav_language" />
+              <input
+                type="radio"
+                id="inPerson"
+                name="fav_language"
+                {...register("inperson")}
+              />
               <label htmlFor="inPerson">Attending In Person</label>
             </div>
             <div>
-              <input type="radio" id="online" name="fav_language" />
+              <input
+                type="radio"
+                id="online"
+                name="fav_language"
+                {...register("online")}
+              />
               <label htmlFor="online">Joining Online</label>
             </div>
           </div>
@@ -101,6 +194,16 @@ function EventSignup(eventProps) {
             )}
           </button>
         </form>
+        {isSubmitSuccessful && isSuccess && (
+          <div className="mt-3 text-center text-sm text-green-500">
+            {message || "Success. Message sent successfully"}
+          </div>
+        )}
+        {isSubmitSuccessful && !isSuccess && (
+          <div className="mt-3 text-center text-sm text-red-500">
+            {message || "Something went wrong. Please try later."}
+          </div>
+        )}
       </div>
     </section>
   );
