@@ -86,7 +86,7 @@ function EventSignup(eventProps) {
           className="flex flex-col items-center"
         >
           <h2 className="text-brand-primary mb-3 mt-2 text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-            Join us downtown and online {eventProps.event.eventAt}
+            Join us downtown and online
           </h2>
           <input
             type="checkbox"
