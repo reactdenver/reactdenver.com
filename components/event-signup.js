@@ -2,13 +2,6 @@
 
 import { useForm } from "react-hook-form";
 
-const headers = {
-  "Access-Control-Allow-Origin": "*",
-  Authorization: `Token token=${process.env.SECRET_ACCESS_TOKEN}`,
-  Accept: "application/json",
-  "Content-Type": "application/json",
-};
-
 function EventSignup(eventProps) {
   const {
     register,
@@ -18,16 +11,14 @@ function EventSignup(eventProps) {
     mode: "onTouched",
   });
 
-  const getReleaseIds = async () => {
-    const url = "https://api.tito.io/v3/react-denver/events";
-    // get releaseID
-    const { data: releaseData } = await fetch(
-      `https://api.tito.io/v3/react-denver/${eventProps.event.slug.current}/releases`
-    );
-    const inPersonId = releaseData.releases[0].id;
-    const virtualId = releaseData.releases[1].id;
-
-    return { nextEventSlug, virtualId, inPersonId };
+  const checkSlug = async () => {
+    const eventData = fetch("/api/tito")
+      .then((response) => response.json())
+      .then((eventData) => console.log(eventData))
+      .catch((error) => {
+        res.json(error);
+        res.status(405).end();
+      });
   };
 
   const createRegistration = async ({ name, email, releaseId, eventSlug }) => {
@@ -194,14 +185,14 @@ function EventSignup(eventProps) {
             )}
           </button>
         </form>
-        {isSubmitSuccessful && isSuccess && (
+        {isSubmitSuccessful && (
           <div className="mt-3 text-center text-sm text-green-500">
-            {message || "Success. Message sent successfully"}
+            {"Success. Message sent successfully"}
           </div>
         )}
-        {isSubmitSuccessful && !isSuccess && (
+        {isSubmitSuccessful && (
           <div className="mt-3 text-center text-sm text-red-500">
-            {message || "Something went wrong. Please try later."}
+            {"Something went wrong. Please try later."}
           </div>
         )}
       </div>

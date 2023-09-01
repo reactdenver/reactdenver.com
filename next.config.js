@@ -3,21 +3,24 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    appDir: true
+    appDir: true,
   },
   images: {
     formats: ["image/avif", "image/webp"],
     dangerouslyAllowSVG: true,
-    remotePatterns: [{ hostname: "cdn.sanity.io" }]
+    remotePatterns: [{ hostname: "cdn.sanity.io" }],
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
-    ignoreBuildErrors: process.env.VERCEL_ENV === "production"
+    ignoreBuildErrors: process.env.VERCEL_ENV === "production",
   },
   eslint: {
     /// Set this to false if you want production builds to abort if there's lint errors
-    ignoreDuringBuilds: process.env.VERCEL_ENV === "production"
-  }
+    ignoreDuringBuilds: process.env.VERCEL_ENV === "production",
+  },
+  env: {
+    SECRET_ACCESS_TOKEN: process.env.SECRET_ACCESS_TOKEN,
+  },
 };
 
 module.exports = nextConfig;
