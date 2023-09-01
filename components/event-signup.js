@@ -1,8 +1,15 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
 
 function EventSignup(eventProps) {
+  const [eventData, setEventData] = useState();
+
+  useEffect(() => {
+    checkSlug();
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -12,60 +19,41 @@ function EventSignup(eventProps) {
   });
 
   const checkSlug = async () => {
-    const eventData = fetch("/api/tito")
+    const eventData = fetch("/api/tito-check-slug")
       .then((response) => response.json())
-      .then((eventData) => console.log(eventData))
+      .then((json) => {
+        setEventData(json);
+        console.log(eventData);
+      })
       .catch((error) => {
         res.json(error);
         res.status(405).end();
       });
   };
 
-  const createRegistration = async ({ name, email, releaseId, eventSlug }) => {
-    try {
-      const registration = {
-        registration: {
-          email: email,
-          name: name,
-          discount_code: "",
-          source: "",
-          notify: true,
-          line_items: [{ release_id: releaseId, quantity: 1 }],
-        },
-      };
-
-      const authPost = fetch({
-        baseURL: `https://api.tito.io/v3/react-denver/${eventProps.event.slug.current}`,
-        method: "POST",
-        headers: headers,
-      });
-
-      const response = await fetch(
-        `https://api.tito.io/v3/react-denver/${eventProps.event.slug.current}/registrations`,
-        {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify(registration),
-        }
-      );
-
-      const registrationData = response.data;
-
-      let message = "";
-      if (registrationData.registration.tickets) {
-        message = registrationData.registration.tickets[0].unique_url;
-      }
-      return message;
-    } catch (error) {
-      if (error) {
-        console.log(error.response);
-      }
-      return "Woops things didn't go as planned";
-    }
-  };
-
   const onSubmit = (data) => {
-    checkSlug();
+    const registration = {
+      registrationData: {
+        email: data.email,
+        name: data.name,
+        discount_code: "",
+        source: "",
+        notify: true,
+        line_items: [{ release_id: data.attendance, quantity: 1 }],
+      },
+      nextEvent: eventData.nextEvent,
+    };
+
+    const createRegistration = fetch("/api/tito-create-registration", {
+      method: "POST",
+      body: JSON.stringify(registration),
+    })
+      .then((response) => {
+        console.log("response", response);
+      })
+      .catch((error) => {
+        console.log("something went wrong", error);
+      });
   };
 
   return (
@@ -140,8 +128,9 @@ function EventSignup(eventProps) {
               <input
                 type="radio"
                 id="inPerson"
-                name="fav_language"
-                {...register("inperson")}
+                name="attendance"
+                value={eventData?.inPerson}
+                {...register("attendance")}
               />
               <label htmlFor="inPerson">Attending In Person</label>
             </div>
@@ -149,8 +138,9 @@ function EventSignup(eventProps) {
               <input
                 type="radio"
                 id="online"
-                name="fav_language"
-                {...register("online")}
+                name="attendance"
+                value={eventData?.virtual}
+                {...register("attendance")}
               />
               <label htmlFor="online">Joining Online</label>
             </div>
