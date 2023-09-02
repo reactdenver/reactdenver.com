@@ -9,6 +9,7 @@ export default defineType({
       name: "name",
       title: "Name",
       type: "string",
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "slug",
@@ -52,7 +53,7 @@ export default defineType({
       type: "array",
       title: "Social Links",
       description: "Enter your Social Media URLs",
-      validation: Rule => Rule.unique(),
+      validation: (Rule) => Rule.unique(),
       of: [
         {
           type: "object",
@@ -68,24 +69,24 @@ export default defineType({
                   { title: "GitHub", value: "github" },
                   { title: "Instagram", value: "instagram" },
                   { title: "Linkedin", value: "linkedin" },
-                  { title: "Youtube", value: "youtube" }
-                ]
-              }
+                  { title: "Youtube", value: "youtube" },
+                ],
+              },
             },
             {
               type: "url",
               name: "url",
-              title: "Full Profile URL"
-            }
+              title: "Full Profile URL",
+            },
           ],
           preview: {
             select: {
               title: "media",
-              subtitle: "url"
-            }
-          }
-        }
-      ]
+              subtitle: "url",
+            },
+          },
+        },
+      ],
     }),
   ],
   preview: {
