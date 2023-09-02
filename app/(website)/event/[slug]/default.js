@@ -6,11 +6,19 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
-
 import SpeakerCard from "@/components/blog/speakerCard";
 
 export default function Event(props) {
+  //const [showForm, setShowForm] = useState();
   const { loading, event } = props;
+
+  const checkEventDatePast = (eventDate) => {
+    const today = new Date();
+    const event = new Date(eventDate);
+    return event.setHours(0, 0, 0, 0) <= today.setHours(0, 0, 0, 0);
+  };
+
+  const dateInPast = checkEventDatePast(event.eventAt);
 
   const slug = event?.slug;
 
@@ -85,7 +93,7 @@ export default function Event(props) {
 
       <Container>
         <article className="mx-auto max-w-screen-md ">
-          <EventSignup event={event} />
+          {!dateInPast && <EventSignup event={event} />}
           <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {event.body && <PortableText value={event.body} />}
           </div>

@@ -7,6 +7,7 @@ function EventSignup(eventProps) {
   const [eventData, setEventData] = useState();
   const [registerSuccess, setRegisterSuccess] = useState();
   const [ticketUrl, setTicketUrl] = useState("");
+
   useEffect(() => {
     checkSlug();
   }, []);
