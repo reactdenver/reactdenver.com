@@ -39,6 +39,7 @@ export default async function (req, res) {
           res.json(error);
           res.status(500).end();
         });
+      res.status(200);
     })
     .catch((error) => {
       res.json(error);

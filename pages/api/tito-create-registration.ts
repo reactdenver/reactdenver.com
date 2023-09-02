@@ -18,11 +18,10 @@ export default async function (req, res) {
         body: JSON.stringify(registrationDataToSend),
       }
     )
-      .then((response) => {
-        //const responseData = response;
-        console.log("responseData", response);
-        res.status(200).json({
-          response: "submitting in the api",
+      .then((response) => response.json())
+      .then((json) => {
+        res.status(201).json({
+          ticket: json.registration.tickets[0].unique_url,
         });
       })
       .catch((error) => {

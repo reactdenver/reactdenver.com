@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 
 function EventSignup(eventProps) {
   const [eventData, setEventData] = useState();
-
+  const [registerSuccess, setRegisterSuccess] = useState();
+  const [ticketUrl, setTicketUrl] = useState("");
   useEffect(() => {
     checkSlug();
   }, []);
@@ -23,7 +24,6 @@ function EventSignup(eventProps) {
       .then((response) => response.json())
       .then((json) => {
         setEventData(json);
-        console.log(eventData);
       })
       .catch((error) => {
         res.json(error);
@@ -48,11 +48,16 @@ function EventSignup(eventProps) {
       method: "POST",
       body: JSON.stringify(registration),
     })
-      .then((response) => {
-        console.log("response", response);
+      .then((response) => response.json())
+      .then((json) => {
+        setRegisterSuccess(true);
+        setTicketUrl(json.ticket);
       })
       .catch((error) => {
-        console.log("something went wrong", error);
+        Error.throw(
+          `Something went wrong creating a user registration: ${error}`
+        );
+        setRegisterSuccess(false);
       });
   };
 
@@ -89,7 +94,7 @@ function EventSignup(eventProps) {
               })}
             />
             {errors.name && (
-              <div className="mt-1 text-red-600">
+              <div className="text-red-600">
                 <small>{errors.name.message}</small>
               </div>
             )}
@@ -118,29 +123,40 @@ function EventSignup(eventProps) {
               })}
             />
             {errors.email && (
-              <div className="mt-1 text-red-600">
+              <div className="text-red-600">
                 <small>{errors.email.message}</small>
               </div>
             )}
           </div>
-          <div className="mb-5">
-            <div>
+          <div className="flex flex-col items-center">
+            {errors.attendance && (
+              <div className="text-red-600">
+                <small>{errors.attendance.message}</small>
+              </div>
+            )}
+            <div className="mt-1">
               <input
                 type="radio"
                 id="inPerson"
                 name="attendance"
                 value={eventData?.inPerson}
-                {...register("attendance")}
+                {...register("attendance", {
+                  required:
+                    "Please let us know if you will be attending online or in person",
+                })}
               />
               <label htmlFor="inPerson">Attending In Person</label>
             </div>
-            <div>
+            <div className="mb-2 mt-1">
               <input
                 type="radio"
                 id="online"
                 name="attendance"
                 value={eventData?.virtual}
-                {...register("attendance")}
+                {...register("attendance", {
+                  required:
+                    "Please let us know if you will be attending online or in person",
+                })}
               />
               <label htmlFor="online">Joining Online</label>
             </div>
@@ -175,12 +191,15 @@ function EventSignup(eventProps) {
             )}
           </button>
         </form>
-        {isSubmitSuccessful && (
-          <div className="mt-3 text-center text-sm text-green-500">
-            {"Success. Message sent successfully"}
+        {isSubmitSuccessful && registerSuccess && (
+          <div className="mt-3 text-center">
+            {"Registration Success. Here's your ticket:"}
+            <a className="block text-blue-600" target="_blank" href={ticketUrl}>
+              {ticketUrl}
+            </a>
           </div>
         )}
-        {isSubmitSuccessful && (
+        {isSubmitSuccessful && registerSuccess === false && (
           <div className="mt-3 text-center text-sm text-red-500">
             {"Something went wrong. Please try later."}
           </div>
