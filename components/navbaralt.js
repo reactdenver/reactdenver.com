@@ -25,8 +25,8 @@ export default function NavbarAlt(props) {
       href: "/organizers",
     },
     {
-      label: "Contact",
-      href: "/contact",
+      label: "Speaker Sign-up",
+      href: "/contact"
     },
   ];
 
