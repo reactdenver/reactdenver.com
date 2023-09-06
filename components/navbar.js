@@ -27,7 +27,7 @@ export default function Navbar(props) {
       href: '/organizers'
     },
     {
-      label: "Contact",
+      label: "Speaker Sign-Up",
       href: "/contact",
     },
   ];
