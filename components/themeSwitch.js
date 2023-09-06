@@ -8,7 +8,6 @@ const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
   return (
     <div className="inline-flex items-center">
-
         {theme === "system" && <ComputerDesktopIcon className="w-4 h-4 mr-2" />}
         {theme === "dark" && <MoonIcon className="w-4 h-4 mr-2" />}
         {theme === "light" && <SunIcon className="w-4 h-4 mr-2" />}

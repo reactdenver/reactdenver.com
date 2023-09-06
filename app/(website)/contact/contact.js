@@ -182,7 +182,7 @@ export default function Contact({ settings }) {
             </div>
 
             <div>
-              <label className="mb-5 text-white">Talk Duration</label>
+              <label className="mb-5 dark:text-white">Talk Duration</label>
               <div
                   className={`mb-5 ${
                   errors.duration
@@ -199,7 +199,7 @@ export default function Contact({ settings }) {
                     required: "Select your talk duration"
                   })}
                 />
-                <label className="ml-1 mr-3 text-white">15 Min</label>
+                <label className="ml-1 mr-3 dark:text-white">15 Min</label>
                 <input
                   id="30min"
                   type="radio"
@@ -209,7 +209,7 @@ export default function Contact({ settings }) {
                     required: "Select your talk duration"
                   })}
                 />
-                <label className="ml-1 mr-3 text-white">30 Min</label>
+                <label className="ml-1 mr-3 dark:text-white ">30 Min</label>
                 <input
                   id="1hr"
                   type="radio"
@@ -219,7 +219,7 @@ export default function Contact({ settings }) {
                     required: "Select your talk duration"
                   })}
                 />
-                <label className="ml-1 mr-3 text-white">1 Hour</label>
+                <label className="ml-1 mr-3 dark:text-white">1 Hour</label>
                 {errors.duration && (
                     <div className="mt-1 text-red-600">
                       {" "}
