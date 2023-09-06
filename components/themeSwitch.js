@@ -5,6 +5,7 @@ import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outl
 import { useState,useEffect } from "react";
 
 const ThemeSwitch = () => {
+
     const [mounted, setMounted] = useState(false);
   //   const { resolvedTheme, setTheme } = useTheme();
     const { theme, setTheme } = useTheme();
@@ -17,9 +18,9 @@ const ThemeSwitch = () => {
        return null;
      }
 
+
   return (
     <div className="inline-flex items-center">
-
         {theme === "system" && <ComputerDesktopIcon className="w-4 h-4 mr-2" />}
         {theme === "dark" && <MoonIcon className="w-4 h-4 mr-2" />}
         {theme === "light" && <SunIcon className="w-4 h-4 mr-2" />}

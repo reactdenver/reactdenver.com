@@ -1,18 +1,15 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
-  postquery,
-  limitquery,
-  paginatedquery,
+  eventquery,
+  paginatedeventsquery,
   configQuery,
-  singlequery,
-  pathquery,
-  allauthorsquery,
-  authorsquery,
-  postsbyauthorquery,
-  postsbycatquery,
-  catpathquery,
-  catquery,
-  searchquery
+  singleeventquery,
+  patheventquery,
+  allspeakersquery,
+  speakersquery,
+  eventsbyspeakerquery,
+  allorganizersquery,
+  organizerquery,
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -33,9 +30,9 @@ export const fetcher = async ([query, params]) => {
   return client ? client.fetch(query, params) : [];
 };
 
-export async function getAllPosts() {
+export async function getAllEvents() {
   if (client) {
-    return (await client.fetch(postquery)) || [];
+    return (await client.fetch(eventquery)) || [];
   }
   return [];
 }
@@ -47,49 +44,66 @@ export async function getSettings() {
   return [];
 }
 
-export async function getPostBySlug(slug) {
+export async function getEventBySlug(slug) {
   if (client) {
-    return (await client.fetch(singlequery, { slug })) || {};
+    return (await client.fetch(singleeventquery, { slug })) || {};
   }
   return {};
 }
 
-export async function getAllPostsSlugs() {
+export async function getAllEventSlugs() {
   if (client) {
-    const slugs = (await client.fetch(pathquery)) || [];
-    return slugs.map(slug => ({ slug }));
-  }
-  return [];
-}
-// Author
-export async function getAllAuthorsSlugs() {
-  if (client) {
-    const slugs = (await client.fetch(authorsquery)) || [];
-    return slugs.map(slug => ({ slug }));
+    const slugs = (await client.fetch(patheventquery)) || [];
+    return slugs.map((slug) => ({ slug }));
   }
   return [];
 }
 
-export async function getAuthorPostsBySlug(slug) {
+export async function getAllSpeakersSlugs() {
   if (client) {
-    return (await client.fetch(postsbyauthorquery, { slug })) || {};
+    const slugs = (await client.fetch(speakersquery)) || [];
+    return slugs.map((slug) => ({ slug }));
+  }
+  return [];
+}
+
+export async function getSpeakerEventsBySlug(slug) {
+  if (client) {
+    return (await client.fetch(eventsbyspeakerquery, { slug })) || {};
   }
   return {};
 }
 
-export async function getAllAuthors() {
+export async function getAllSpeakers() {
   if (client) {
-    return (await client.fetch(allauthorsquery)) || [];
+    return (await client.fetch(allspeakersquery)) || [];
   }
   return [];
 }
 
-export async function getPaginatedPosts(limit) {
+export async function getOrganizerBySlug(slug) {
+  if (client) {
+    const orgs = (await client.fetch(organizerquery, { slug })) || [];
+    if (orgs.length === 1) {
+      return orgs[0];
+    }
+  }
+  return {};
+}
+
+export async function getAllOrganizers() {
+  if (client) {
+    return (await client.fetch(allorganizersquery)) || [];
+  }
+  return [];
+}
+
+export async function getPaginatedEvents(limit) {
   if (client) {
     return (
-      (await client.fetch(paginatedquery, {
+      (await client.fetch(paginatedeventsquery, {
         pageIndex: 0,
-        limit: limit
+        limit: limit,
       })) || {}
     );
   }

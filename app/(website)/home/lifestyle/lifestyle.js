@@ -1,31 +1,31 @@
 import Container from "@/components/container";
-import PostList from "@/components/postlist";
+import EventList from "@/components/eventlist";
 import Featured from "@/components/featured";
 
-export default function HomeLifeStyle({ posts }) {
-  const featuredPost = posts.filter(item => item.featured) || null;
+export default function HomeLifeStyle({ events }) {
+  const featuredEvents = events.filter(item => item.featured) || null;
 
   return (
     <>
-      {featuredPost && featuredPost.length && (
-        <Featured post={featuredPost[0]} pathPrefix="lifestyle" />
+      {featuredEvents && featuredEvents.length && (
+        <Featured event={featuredEvents[0]} pathPrefix="lifestyle" />
       )}
 
       <Container large>
-        {featuredPost.length > 4 && (
+        {featuredEvents.length > 4 && (
           <>
             <div className="flex items-center justify-center mt-10">
               <h2 className="text-2xl">
-                <strong>Featured</strong> Posts
+                <strong>Featured</strong> Events
               </h2>
             </div>
             <div className="grid gap-10 mt-10 mb-20 lg:gap-10 md:grid-cols-3 lg:grid-cols-4 ">
-              {featuredPost.slice(1, 2).map(post => (
+              {featuredEvents.slice(1, 2).map(event => (
                 <div
                   className="md:col-span-2 md:row-span-2"
-                  key={post._id}>
-                  <PostList
-                    post={post}
+                  key={event._id}>
+                  <EventList
+                    event={event}
                     preloadImage={true}
                     pathPrefix="lifestyle"
                     fontSize="large"
@@ -34,10 +34,10 @@ export default function HomeLifeStyle({ posts }) {
                   />
                 </div>
               ))}
-              {featuredPost.slice(2, 6).map(post => (
-                <PostList
-                  key={post._id}
-                  post={post}
+              {featuredEvents.slice(2, 6).map(event => (
+                <EventList
+                  key={event._id}
+                  event={event}
                   aspect="landscape"
                   pathPrefix="lifestyle"
                   fontWeight="normal"
@@ -54,10 +54,10 @@ export default function HomeLifeStyle({ posts }) {
           </h3>
         </div>
         <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-4 ">
-          {posts.map(post => (
-            <PostList
-              key={post._id}
-              post={post}
+          {events.map(event => (
+            <EventList
+              key={event._id}
+              event={event}
               fontWeight="normal"
               pathPrefix="lifestyle"
               aspect="square"

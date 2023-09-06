@@ -29,8 +29,8 @@ export default function Contact({ settings }) {
   const { submit: onSubmit } = useWeb3Forms({
     access_key: apiKey,
     settings: {
-      from_name: "ReactDenver_web3Forms",
-      subject: "New Speaker Sign-up from React Denver Website"
+      from_name: "React Denver",
+      subject: "New Contact Message from React Denver Website"
     },
     onSuccess: (msg, data) => {
       setIsSuccess(true);
@@ -58,7 +58,9 @@ export default function Contact({ settings }) {
             Contact React Denver
           </h2>
           <p className="max-w-sm mt-5">
+
             Have something to say? We are here to help. Contact us directly!
+
           </p>
 
           <div className="mt-5">
@@ -70,6 +72,7 @@ export default function Contact({ settings }) {
                 </a>
               </div>
             )}
+
             {settings?.phone && (
               <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
                 <PhoneIcon className="w-4 h-4" />
@@ -80,6 +83,7 @@ export default function Contact({ settings }) {
                 <ChatBubbleLeftRightIcon className="w-4 h-4" />
                 <a className="no-underline hover:underline" href="https://discord.gg/33wkVQFV49">Click to join us on Discord</a>
               </div>
+
           </div>
         </div>
         <div>

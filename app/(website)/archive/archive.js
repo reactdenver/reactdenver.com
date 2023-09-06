@@ -2,8 +2,8 @@
 
 import Container from "@/components/container";
 import { useRouter, useSearchParams } from "next/navigation";
-import { paginatedquery } from "@/lib/sanity/groq";
-import PostList from "@/components/postlist";
+import { paginatedeventsquery } from "@/lib/sanity/groq";
+import EventList from "@/components/eventlist";
 import useSWR, { SWRConfig } from "swr";
 import {
   ChevronLeftIcon,
@@ -12,13 +12,13 @@ import {
 import { useState, useEffect } from "react";
 import { fetcher } from "@/lib/sanity/client";
 
-export default function Post({ posts: initialposts }) {
+export default function Event({ events: initialevents }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const page = searchParams.get("page");
   const pageIndex = parseInt(page) || 1;
 
-  const POSTS_PER_PAGE = 6;
+  const EVENTS_PER_PAGE = 6;
 
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstPage, setIsFirstPage] = useState(false);
@@ -26,19 +26,19 @@ export default function Post({ posts: initialposts }) {
 
   // [(($pageIndex - 1) * 10)...$pageIndex * 10]{
   const params = {
-    pageIndex: (pageIndex - 1) * POSTS_PER_PAGE,
-    limit: pageIndex * POSTS_PER_PAGE
+    pageIndex: (pageIndex - 1) * EVENTS_PER_PAGE,
+    limit: pageIndex * EVENTS_PER_PAGE
   };
 
   // const fetcher = (query, params) =>
   //   client && client.fetch(query, params);
 
   const {
-    data: posts,
+    data: events,
     error,
     isValidating
-  } = useSWR([paginatedquery, params], fetcher, {
-    fallbackData: initialposts,
+  } = useSWR([paginatedeventsquery, params], fetcher, {
+    fallbackData: initialevents,
     onSuccess: () => {
       setIsLoading(false);
     }
@@ -49,8 +49,8 @@ export default function Post({ posts: initialposts }) {
   }, [pageIndex]);
 
   useEffect(() => {
-    setIsLastPage(posts.length < POSTS_PER_PAGE);
-  }, [posts]);
+    setIsLastPage(events.length < EVENTS_PER_PAGE);
+  }, [events]);
 
   const handleNextPage = () => {
     router.push(`/archive?page=${pageIndex + 1}`);
@@ -68,10 +68,10 @@ export default function Post({ posts: initialposts }) {
         </h1>
         <div className="text-center">
           <p className="mt-2 text-lg">
-            See all posts we have ever written.
+            See all talks we have ever written.
           </p>
         </div>
-        {posts && posts?.length === 0 && (
+        {events && events?.length === 0 && (
           <div className="flex h-40 items-center justify-center">
             <span className="text-lg text-gray-500">
               End of the result!
@@ -88,10 +88,10 @@ export default function Post({ posts: initialposts }) {
             ))}
           </div>
         )}
-        {posts && !isLoading && !isValidating && (
+        {events && !isLoading && !isValidating && (
           <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
-            {posts.map(post => (
-              <PostList key={post._id} post={post} aspect="square" />
+            {events.map(event => (
+              <EventList key={event._id} event={event} aspect="square" />
             ))}
           </div>
         )}
