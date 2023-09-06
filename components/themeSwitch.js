@@ -5,18 +5,7 @@ import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outl
 import { useState,useEffect } from "react";
 
 const ThemeSwitch = () => {
-    const [mounted, setMounted] = useState(false);
-  //   const { resolvedTheme, setTheme } = useTheme();
-    const { theme, setTheme } = useTheme();
-   //useEffect only runs on the client, so now we can safely show the UI
-     useEffect(() => {
-      setMounted(true);
-     }, []);
-
-     if (!mounted) {
-       return null;
-     }
-
+  const { theme, setTheme } = useTheme();
   return (
     <div className="inline-flex items-center">
 

@@ -11,7 +11,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.13",
+    "@headlessui/react": "^1.7.17",
+    "@headlessui/tailwindcss": "^0.2.0",
     "@heroicons/react": "^2.0.17",
     "@portabletext/react": "^2.0.2",
     "@sanity/code-input": "^4.1.0",
@@ -37,6 +38,7 @@
     "react-hook-form": "^7.43.9",
     "react-iframe": "^1.8.5",
     "react-refractor": "^2.1.7",
+    "refractor": "^4.8.1",
     "sanity": "^3.14.1",
     "sanity-plugin-asset-source-unsplash": "^1.0.6",
     "styled-components": "^5.3.9",

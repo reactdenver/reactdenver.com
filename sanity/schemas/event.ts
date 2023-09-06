@@ -9,6 +9,7 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "slug",
@@ -24,6 +25,7 @@ export default defineType({
       title: "Speaker",
       type: "reference",
       to: { type: "speaker" },
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "mainImage",
@@ -44,11 +46,24 @@ export default defineType({
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "eventAt",
+      title: "Event Date",
+      type: "datetime",
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "body",
       title: "Body",
       type: "blockContent",
+    }),
+    defineField({
+      name: "titoSlug",
+      title: "Tito Slug",
+      type: "string",
+      validation: (rule) => rule.required(),
     }),
   ],
 

@@ -58,7 +58,7 @@ export default function Contact({ settings }) {
             Contact React Denver
           </h2>
           <p className="max-w-sm mt-5">
-            Have something to say? We are here to help. Contact us directly!
+            Have something to say? We are here to help.
           </p>
 
           <div className="mt-5">
@@ -70,16 +70,10 @@ export default function Contact({ settings }) {
                 </a>
               </div>
             )}
-            {settings?.phone && (
-              <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
-                <PhoneIcon className="w-4 h-4" />
-                <a href={`tel:${settings.phone}`}>{settings.phone}</a>
-              </div>
-            )}
-              <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
-                <ChatBubbleLeftRightIcon className="w-4 h-4" />
-                <a className="no-underline hover:underline" href="https://discord.gg/33wkVQFV49">Click to join us on Discord</a>
-              </div>
+            <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
+              <ChatBubbleLeftRightIcon className="w-4 h-4" />
+              <a className="no-underline hover:underline" href="https://discord.gg/33wkVQFV49">Click to join us on Discord</a>
+            </div>
           </div>
         </div>
         <div>

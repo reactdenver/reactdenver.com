@@ -1,10 +1,10 @@
 import HomeTwoCol from "./two-col";
 
-import { getAllPosts } from "@/lib/sanity/client";
+import { getAllEvents } from "@/lib/sanity/client";
 
 export default async function MinimalHomePage() {
-  const posts = await getAllPosts();
-  return <HomeTwoCol posts={posts} />;
+  const events = await getAllEvents();
+  return <HomeTwoCol events={events} />;
 }
 
 // export const revalidate = 60;
