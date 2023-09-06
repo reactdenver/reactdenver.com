@@ -18,9 +18,6 @@ const nextConfig = {
     /// Set this to false if you want production builds to abort if there's lint errors
     ignoreDuringBuilds: process.env.VERCEL_ENV === "production",
   },
-  env: {
-    SECRET_ACCESS_TOKEN: process.env.SECRET_ACCESS_TOKEN,
-  },
 };
 
 module.exports = nextConfig;
