@@ -15,7 +15,7 @@ function EventSignup(eventProps) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful, isSubmitting },
+    formState: { errors, isSubmitSuccessful, isSubmitting, isSubmitted },
   } = useForm({
     mode: "onTouched",
   });
@@ -55,9 +55,7 @@ function EventSignup(eventProps) {
         setTicketUrl(json.ticket);
       })
       .catch((error) => {
-        Error.throw(
-          `Something went wrong creating a user registration: ${error}`
-        );
+        console.error(`Something went wrong creating a user registration: ${error}`);
         setRegisterSuccess(false);
       });
   };
@@ -200,9 +198,14 @@ function EventSignup(eventProps) {
             </a>
           </div>
         )}
-        {isSubmitSuccessful && registerSuccess === false && (
+        {registerSuccess === false && (
           <div className="mt-3 text-center text-sm text-red-500">
-            {"Something went wrong. Please try later."}
+            {"Something went wrong creating a user registration. Please try later."}
+          </div>
+        )}
+        { isSubmitted && !isSubmitSuccessful (
+          <div className="mt-3 text-center text-sm text-red-500">
+            {"Something went wrong creating a user registration. Please try later."}
           </div>
         )}
       </div>
