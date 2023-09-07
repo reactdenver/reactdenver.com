@@ -20,7 +20,7 @@ function EventSignup(eventProps) {
     mode: "onTouched",
   });
 
-  const checkSlug = async () => {
+  const checkSlug = () => {
     const eventData = fetch("/api/tito-check-slug")
       .then((response) => response.json())
       .then((json) => {
