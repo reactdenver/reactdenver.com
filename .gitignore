@@ -1,7 +1,7 @@
 /node_modules
 *.log
 .DS_Store
-.env.local
+.env
 .env.*
 /.cache
 /public/build
@@ -9,3 +9,4 @@
 /.netlify
 /.vscode
 /.next
+/.idea
