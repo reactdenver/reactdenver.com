@@ -21,7 +21,7 @@ function EventSignup(eventProps) {
   });
 
   const checkSlug = () => {
-    const eventData = fetch("/api/tito-check-slug")
+    const eventData = fetch(`/api/tito-check-slug?eventId=${eventProps.event.titoSlug}`)
       .then((response) => response.json())
       .then((json) => {
         setEventData(json);
