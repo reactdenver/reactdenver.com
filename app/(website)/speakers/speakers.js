@@ -10,8 +10,8 @@ export default function Speakers({ speakers, settings }) {
         Speakers
       </h1>
 
-      <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16">
-        {speakers.slice(0, 3).map((speaker) => {
+      <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16 md:gap-y-32">
+        {speakers.map((speaker) => {
           const imageProps = urlForImage(speaker?.image) || null;
           return (
             imageProps && (

@@ -5,9 +5,7 @@ import { cx } from "@/utils/all";
 import Link from "next/link";
 
 export default function Featured({ event, pathPrefix }) {
-  const imageProps = event?.mainImage
-    ? urlForImage(event?.mainImage)
-    : null;
+  const imageProps = event?.mainImage ? urlForImage(event?.mainImage) : null;
 
   const SpeakerimageProps = event?.speaker?.image
     ? urlForImage(event.speaker.image)
@@ -15,7 +13,7 @@ export default function Featured({ event, pathPrefix }) {
   return (
     <div
       className={cx(
-        "grid gap-5 md:min-h-[calc(100vh-30vh)] md:grid-cols-2 md:gap-10"
+        "grid gap-5 md:min-h-[calc(100vh-60vh)] md:grid-cols-2 md:gap-10"
       )}
       style={{
         backgroundColor: event?.mainImage?.ImageColor || "black",

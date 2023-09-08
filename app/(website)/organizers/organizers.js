@@ -10,8 +10,8 @@ export default function Organizers({ organizers }) {
         Organization Team
       </h1>
 
-      <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16">
-        {organizers.slice(0, 3).map((organizer) => {
+      <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16 md:gap-y-32">
+        {organizers.map((organizer) => {
           const imageProps = urlForImage(organizer?.image) || null;
           return (
             imageProps && (
