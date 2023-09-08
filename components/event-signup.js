@@ -9,28 +9,16 @@ function EventSignup(eventProps) {
   const [ticketUrl, setTicketUrl] = useState("");
 
   useEffect(() => {
-    checkSlug();
+    setEventData(eventProps.nextEventData);
   }, []);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful, isSubmitting, isSubmitted },
+    formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm({
     mode: "onTouched",
   });
-
-  const checkSlug = () => {
-    const eventData = fetch(`/api/tito-check-slug?eventId=${eventProps.event.titoSlug}`)
-      .then((response) => response.json())
-      .then((json) => {
-        setEventData(json);
-      })
-      .catch((error) => {
-        res.json(error);
-        res.status(405).end();
-      });
-  };
 
   const onSubmit = (data) => {
     const registration = {
@@ -199,11 +187,6 @@ function EventSignup(eventProps) {
           </div>
         )}
         {registerSuccess === false && (
-          <div className="mt-3 text-center text-sm text-red-500">
-            {"Something went wrong creating a user registration. Please try later."}
-          </div>
-        )}
-        { isSubmitted && !isSubmitSuccessful (
           <div className="mt-3 text-center text-sm text-red-500">
             {"Something went wrong creating a user registration. Please try later."}
           </div>

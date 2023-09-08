@@ -9,8 +9,7 @@ import { parseISO, format } from "date-fns";
 import SpeakerCard from "@/components/blog/speakerCard";
 
 export default function Event(props) {
-  //const [showForm, setShowForm] = useState();
-  const { loading, event } = props;
+  const { loading, event, nextEventData } = props;
 
   const checkEventDatePast = (eventDate) => {
     const today = new Date();
@@ -93,7 +92,7 @@ export default function Event(props) {
 
       <Container>
         <article className="mx-auto max-w-screen-md ">
-          {!dateInPast && <EventSignup event={event} />}
+          {!dateInPast && <EventSignup event={event} nextEventData={nextEventData}/>}
           <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {event.body && <PortableText value={event.body} />}
           </div>
