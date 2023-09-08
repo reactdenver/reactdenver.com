@@ -20,7 +20,7 @@ function EventSignup(eventProps) {
     mode: "onTouched",
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const registration = {
       registrationData: {
         email: data.email,
@@ -33,19 +33,19 @@ function EventSignup(eventProps) {
       nextEvent: eventData.nextEvent,
     };
 
-    const createRegistration = fetch("/api/tito-create-registration", {
-      method: "POST",
-      body: JSON.stringify(registration),
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        setRegisterSuccess(true);
-        setTicketUrl(json.ticket);
-      })
-      .catch((error) => {
-        console.error(`Something went wrong creating a user registration: ${error}`);
-        setRegisterSuccess(false);
+    try {
+      const createRegistration = await fetch("/api/tito-create-registration", {
+        method: "POST",
+        body: JSON.stringify(registration),
       });
+      const registrationJson = await createRegistration.json();
+      setRegisterSuccess(true);
+      setTicketUrl(registrationJson.ticket);
+    }
+    catch(error) {
+      console.error(`Something went wrong creating a user registration: ${error}`);
+      setRegisterSuccess(false);
+    }
   };
 
   return (
