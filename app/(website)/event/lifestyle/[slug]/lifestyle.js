@@ -6,9 +6,10 @@ import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 import SpeakerCard from "@/components/blog/speakerCard";
+import EventSignup from "@/components/event-signup";
 
 export default function Event(props) {
-  const { loading, event } = props;
+  const { loading, event, nextEventData } = props;
 
   const slug = event?.slug;
 
@@ -16,9 +17,7 @@ export default function Event(props) {
     notFound();
   }
 
-  const imageProps = event?.mainImage
-    ? urlForImage(event?.mainImage)
-    : null;
+  const imageProps = event?.mainImage ? urlForImage(event?.mainImage) : null;
 
   const SpeakerimageProps = event?.speaker?.image
     ? urlForImage(event.speaker.image)
@@ -89,6 +88,7 @@ export default function Event(props) {
 
       <Container>
         <article className="mx-auto max-w-screen-md ">
+          <EventSignup event={event} nextEventData={nextEventData} />
           <div className="prose prose-lg mx-auto my-3 dark:prose-invert prose-a:text-blue-500">
             {event.body && <PortableText value={event.body} />}
           </div>
