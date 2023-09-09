@@ -1,16 +1,11 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-function EventSignup(eventProps) {
-  const [eventData, setEventData] = useState();
+function EventSignup({ event, nextEventData }) {
   const [registerSuccess, setRegisterSuccess] = useState();
   const [ticketUrl, setTicketUrl] = useState("");
-
-  useEffect(() => {
-    setEventData(eventProps.nextEventData);
-  }, []);
 
   const {
     register,
@@ -19,6 +14,15 @@ function EventSignup(eventProps) {
   } = useForm({
     mode: "onTouched",
   });
+
+  const checkEventDatePast = (eventDate) => {
+    const today = new Date();
+    const event = new Date(eventDate);
+    return event.setHours(0, 0, 0, 0) <= today.setHours(0, 0, 0, 0);
+  };
+
+  const dateInPast = checkEventDatePast(event.eventAt);
+  if (dateInPast) return null;
 
   const onSubmit = async (data) => {
     const registration = {
@@ -30,7 +34,7 @@ function EventSignup(eventProps) {
         notify: true,
         line_items: [{ release_id: data.attendance, quantity: 1 }],
       },
-      nextEvent: eventData.nextEvent,
+      nextEvent: nextEventData.nextEvent,
     };
 
     try {
@@ -41,9 +45,10 @@ function EventSignup(eventProps) {
       const registrationJson = await createRegistration.json();
       setRegisterSuccess(true);
       setTicketUrl(registrationJson.ticket);
-    }
-    catch(error) {
-      console.error(`Something went wrong creating a user registration: ${error}`);
+    } catch (error) {
+      console.error(
+        `Something went wrong creating a user registration: ${error}`
+      );
       setRegisterSuccess(false);
     }
   };
@@ -126,26 +131,30 @@ function EventSignup(eventProps) {
                 type="radio"
                 id="inPerson"
                 name="attendance"
-                value={eventData?.inPerson}
+                value={nextEventData?.inPerson}
                 {...register("attendance", {
                   required:
                     "Please let us know if you will be attending online or in person",
                 })}
               />
-              <label htmlFor="inPerson">Attending In Person</label>
+              <label htmlFor="inPerson" className="ml-2">
+                Attending In Person
+              </label>
             </div>
             <div className="mb-2 mt-1">
               <input
                 type="radio"
                 id="online"
                 name="attendance"
-                value={eventData?.virtual}
+                value={nextEventData?.virtual}
                 {...register("attendance", {
                   required:
                     "Please let us know if you will be attending online or in person",
                 })}
               />
-              <label htmlFor="online">Joining Online</label>
+              <label htmlFor="online" className="ml-2">
+                Joining Online
+              </label>
             </div>
           </div>
           <button
@@ -188,7 +197,9 @@ function EventSignup(eventProps) {
         )}
         {registerSuccess === false && (
           <div className="mt-3 text-center text-sm text-red-500">
-            {"Something went wrong creating a user registration. Please try later."}
+            {
+              "Something went wrong creating a user registration. Please try later."
+            }
           </div>
         )}
       </div>

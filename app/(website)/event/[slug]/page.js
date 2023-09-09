@@ -1,5 +1,6 @@
 import EventPage from "./default";
 import { getAllEventSlugs, getEventBySlug } from "@/lib/sanity/client";
+import checkTitoSlug from "@/app/api/tito-check-slug";
 
 export async function generateStaticParams() {
   return await getAllEventSlugs();
@@ -12,9 +13,8 @@ export async function generateMetadata({ params }) {
 
 export default async function EventDefault({ params }) {
   const event = await getEventBySlug(params.slug);
-  const response = await fetch(`${process.env.DEVELOPMENT_URL}/api/tito-check-slug?eventId=${event.titoSlug}`)
-  const nextEventData = await response.json()
-  return <EventPage event={event} nextEventData={nextEventData}/>;
+  const nextEventData = await checkTitoSlug(event.titoSlug);
+  return <EventPage event={event} nextEventData={nextEventData} />;
 }
 
 // export const revalidate = 60;
