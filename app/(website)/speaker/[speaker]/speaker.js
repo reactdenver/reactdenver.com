@@ -35,8 +35,8 @@ export default function Speaker(props) {
           <div>
             <ul className="flex items-center justify-center mb-5 mt-3">
               <li className="mr-3">
-                <a href="#">
-                  <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                <a href="#" className="group">
+                  <svg className="group-hover:opacity-75" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                       <title>Github</title>
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g id="github" transform="translate(0.481591, 0.000000)" fill="#000000" opacity="0.723468599">
@@ -48,8 +48,8 @@ export default function Speaker(props) {
                 </a>
               </li>
               <li className="mr-3">
-                <a href="#">
-                  <svg width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" >
+                <a href="#" className="group">
+                  <svg className="group-hover:opacity-75" width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" >
                       <title>Facebook</title>
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g id="facebook" transform="translate(0.661331, 0.000000)">
@@ -61,8 +61,8 @@ export default function Speaker(props) {
                 </a>
               </li>
               <li className="mr-3">
-                <a href="#">
-                  <svg width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                <a className="group" href="#">
+                  <svg className="group-hover:opacity-75" width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                       <title>Instagram</title>
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g id="instagram" transform="translate(0.716323, 0.000000)">
@@ -75,8 +75,8 @@ export default function Speaker(props) {
                 </a>
               </li>
               <li className="mr-3">
-                <a href="#">
-                  <svg width="30px" height="30px" viewBox="0 0 30 30"  xmlns="http://www.w3.org/2000/svg">
+                <a className="group" href="#">
+                  <svg className="group-hover:opacity-75" width="30px" height="30px" viewBox="0 0 30 30"  xmlns="http://www.w3.org/2000/svg">
                       <title>Linkedin</title>
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g id="linkedin" transform="translate(0.500000, 0.000000)">
@@ -92,8 +92,8 @@ export default function Speaker(props) {
                 </a>
               </li>
               <li className="mr-3">
-                <a href="#">
-                  <svg width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                <a className="group" href="#">
+                  <svg className="group-hover:opacity-75" width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                       <title>Twitter</title>
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g id="twitter" transform="translate(0.946952, 0.000000)">
@@ -108,8 +108,8 @@ export default function Speaker(props) {
                 </a>
               </li>
               <li className="mr-3">
-                <a href="#">
-                  <svg width="30px" height="25px" viewBox="0 0 30 25" xmlns="http://www.w3.org/2000/svg">
+                <a className="group" href="#">
+                  <svg className="group-hover:opacity-75" width="30px" height="25px" viewBox="0 0 30 25" xmlns="http://www.w3.org/2000/svg">
                       <title>Youtube</title>
                       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g id="youtube" transform="translate(0.730629, 0.000000)">
