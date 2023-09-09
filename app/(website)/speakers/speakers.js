@@ -17,7 +17,7 @@ export default function Speakers({ speakers, settings }) {
             imageProps && (
               <div
                 key={speaker._id}
-                className="relative aspect-square overflow-hidden rounded-md odd:translate-y-10 odd:md:translate-y-16"
+                className="relative aspect-square overflow-hidden rounded-md odd:translate-y-10 odd:md:translate-y-16 transition-all hover:scale-105"
               >
                 <Link href={`/speaker/${speaker.slug}`}>
                   <Image
