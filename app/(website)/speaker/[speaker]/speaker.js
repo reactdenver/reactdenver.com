@@ -4,12 +4,12 @@ import { urlForImage } from "@/lib/sanity/image";
 import EventList from "@/components/eventlist";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import GithubSocial from "@/components/githubsocial";
-import FacebookSocial from "@/components/facebooksocial";
-import InstagramSocial from "@/components/instagramsocial";
-import LinkedinSocial from "@/components/linkedinsocial";
-import XSocial from "@/components/xsocial";
-import YoutubeSocial from "@/components/youtubesocial";
+import GithubSocial from "@/components/github-social";
+import FacebookSocial from "@/components/facebook-social";
+import InstagramSocial from "@/components/instagram-social";
+import LinkedinSocial from "@/components/linkedin-social";
+import XSocial from "@/components/x-social";
+import YoutubeSocial from "@/components/youtube-social";
 
 export default function Speaker(props) {
   const { events, speaker } = props;
