@@ -64,7 +64,7 @@ export default defineType({
               title: "Choose Social Media",
               options: {
                 list: [
-                  { title: "Twitter", value: "twitter" },
+                  { title: "X", value: "x" },
                   { title: "Facebook", value: "facebook" },
                   { title: "GitHub", value: "github" },
                   { title: "Instagram", value: "instagram" },
