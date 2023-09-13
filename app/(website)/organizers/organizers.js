@@ -17,7 +17,7 @@ export default function Organizers({ organizers }) {
             imageProps && (
               <div
                 key={organizer._id}
-                className="relative aspect-square overflow-hidden rounded-md odd:translate-y-10 odd:md:translate-y-16"
+                className="relative aspect-square overflow-hidden rounded-md"
               >
                 <Link href={`/organizer/${organizer.slug}`}>
                   <Image

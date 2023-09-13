@@ -3,6 +3,11 @@ import { urlForImage } from "@/lib/sanity/image";
 import Image from "next/image";
 import Link from "next/link";
 
+function shuffle(inputs) {
+  const output = inputs.sort(() => Math.random() - 0.5);
+  return output;
+}
+
 export default function Speakers({ speakers, settings }) {
   return (
     <Container>
@@ -11,13 +16,13 @@ export default function Speakers({ speakers, settings }) {
       </h1>
 
       <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16 md:gap-y-32">
-        {speakers.map((speaker) => {
+        {shuffle(speakers).map((speaker) => {
           const imageProps = urlForImage(speaker?.image) || null;
           return (
             imageProps && (
               <div
                 key={speaker._id}
-                className="relative aspect-square overflow-hidden rounded-md odd:translate-y-10 odd:md:translate-y-16"
+                className="relative aspect-square overflow-hidden rounded-md"
               >
                 <Link href={`/speaker/${speaker.slug}`}>
                   <Image
