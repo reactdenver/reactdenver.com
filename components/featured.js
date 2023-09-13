@@ -12,7 +12,7 @@ export default function Featured({ event, pathPrefix }) {
   return (
     <div
       className={cx(
-        "grid gap-5 md:min-h-[calc(100vh-60vh)] md:grid-cols-2 md:gap-10"
+        "grid gap-5 md:min-h-[calc(100vh-60vh)] md:grid-cols-2 md:gap-10 w-full"
       )}
       style={{
         backgroundColor: event?.mainImage?.ImageColor || "black",
