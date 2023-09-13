@@ -22,7 +22,7 @@ export default function Speakers({ speakers, settings }) {
             imageProps && (
               <div
                 key={speaker._id}
-                className="relative aspect-square overflow-hidden rounded-md"
+                className="relative aspect-square overflow-hidden rounded-md hover:scale-105"
               >
                 <Link href={`/speaker/${speaker.slug}`}>
                   <Image
