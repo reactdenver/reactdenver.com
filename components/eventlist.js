@@ -130,10 +130,10 @@ export default function EventList({
               </span>
               <time
                 className="truncate text-sm"
-                dateTime={event?.publishedAt || event._createdAt}
+                dateTime={event?.eventAt}
               >
                 {format(
-                  parseISO(event?.publishedAt || event._createdAt),
+                  parseISO(event?.eventAt),
                   "MMMM dd, yyyy"
                 )}
               </time>

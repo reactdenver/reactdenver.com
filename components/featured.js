@@ -75,14 +75,8 @@ export default function Featured({ event, pathPrefix }) {
 
                 <div>
                   <div className="flex space-x-2 text-sm md:flex-row md:items-center">
-                    <time
-                      className="text-white"
-                      dateTime={event?.publishedAt || event._createdAt}
-                    >
-                      {format(
-                        parseISO(event?.publishedAt || event._createdAt),
-                        "MMMM dd, yyyy"
-                      )}
+                    <time className="text-white" dateTime={event?.eventAt}>
+                      {format(parseISO(event?.eventAt), "MMMM dd, yyyy")}
                     </time>
                   </div>
                 </div>
