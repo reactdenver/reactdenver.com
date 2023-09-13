@@ -40,7 +40,7 @@ export default function Speaker(props) {
           </h1>
           <div>
             <ul className="flex items-center justify-center mb-5 mt-3">
-              {speaker.social.map((social) => {
+              {speaker.social?.map((social) => {
                 if (social.media === "github") {
                   return <GithubSocial key={social._key} url={social.url} />;
                 }
