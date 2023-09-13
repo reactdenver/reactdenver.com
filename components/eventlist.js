@@ -4,6 +4,7 @@ import { cx } from "@/utils/all";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 import { PhotoIcon } from "@heroicons/react/24/outline";
+import { formatWithOffset } from "@/utils/all";
 
 export default function EventList({
   event,
@@ -18,6 +19,7 @@ export default function EventList({
   const SpeakerimageProps = event?.speaker?.image
     ? urlForImage(event.speaker.image)
     : null;
+
   return (
     <>
       <div
@@ -128,14 +130,8 @@ export default function EventList({
               <span className="text-xs text-gray-300 dark:text-gray-600">
                 &bull;
               </span>
-              <time
-                className="truncate text-sm"
-                dateTime={event?.eventAt}
-              >
-                {format(
-                  parseISO(event?.eventAt),
-                  "MMMM dd, yyyy"
-                )}
+              <time className="truncate text-sm" dateTime={event?.eventAt}>
+                {formatWithOffset(event?.eventAt)}
               </time>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
-import { cx } from "@/utils/all";
+import { cx, formatWithOffset } from "@/utils/all";
 import Link from "next/link";
 
 export default function Featured({ event, pathPrefix }) {
@@ -76,7 +76,7 @@ export default function Featured({ event, pathPrefix }) {
                 <div>
                   <div className="flex space-x-2 text-sm md:flex-row md:items-center">
                     <time className="text-white" dateTime={event?.eventAt}>
-                      {format(parseISO(event?.eventAt), "MMMM dd, yyyy")}
+                      {formatWithOffset(event?.eventAt)}
                     </time>
                   </div>
                 </div>
