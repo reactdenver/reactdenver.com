@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import SpeakerCard from "@/components/blog/speakerCard";
 import Sidebar from "@/components/sidebar";
+import { formatWithOffset } from "@/utils/all";
 
 export default function Event(props) {
   const { loading, event } = props;
@@ -15,9 +15,7 @@ export default function Event(props) {
   if (!loading && !slug) {
     notFound();
   }
-  const imageProps = event?.mainImage
-    ? urlForImage(event?.mainImage)
-    : null;
+  const imageProps = event?.mainImage ? urlForImage(event?.mainImage) : null;
 
   const SpeakerimageProps = event?.speaker?.image
     ? urlForImage(event.speaker.image)
@@ -74,10 +72,7 @@ export default function Event(props) {
                     className="text-gray-100 "
                     dateTime={event?.eventAt || event._createdAt}
                   >
-                    {format(
-                      parseISO(event?.eventAt || event._createdAt),
-                      "MMMM dd, yyyy"
-                    )}
+                    {formatWithOffset(event?.eventAt)}
                   </time>
                 </div>
               </div>

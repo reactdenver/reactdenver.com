@@ -4,9 +4,9 @@ import Container from "@/components/container";
 import { notFound } from "next/navigation";
 import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
-import { parseISO, format } from "date-fns";
 import SpeakerCard from "@/components/blog/speakerCard";
 import EventSignup from "@/components/event-signup";
+import { formatWithOffset } from "@/utils/all";
 
 export default function Event(props) {
   const { loading, event, nextEventData } = props;
@@ -74,10 +74,7 @@ export default function Event(props) {
                     className="text-gray-100 "
                     dateTime={event?.eventAt || event._createdAt}
                   >
-                    {format(
-                      parseISO(event?.eventAt || event._createdAt),
-                      "MMMM dd, yyyy"
-                    )}
+                    {formatWithOffset(event?.eventAt)}
                   </time>
                 </div>
               </div>
