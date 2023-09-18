@@ -7,6 +7,7 @@ import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
 import SpeakerCard from "@/components/blog/speakerCard";
 import { formatWithOffset } from "@/utils/all";
+import { MapIcon } from "@heroicons/react/24/outline";
 
 export default function Event(props) {
   const { loading, event, nextEventData } = props;
@@ -63,6 +64,16 @@ export default function Event(props) {
               </div>
             </div>
           </div>
+          {event.host ? (
+            <div className="mt-3 flex text-gray-800 dark:text-gray-400 justify-center">
+              <div className="flex items-center gap-3">
+                <a href={event?.address} target="_blank" rel="noopener">
+                  <MapIcon className="w-4 h-4 inline mr-2 relative -top-0.5" />{" "}
+                  Host - {event?.host}
+                </a>
+              </div>
+            </div>
+          ) : null}
         </div>
       </Container>
 
