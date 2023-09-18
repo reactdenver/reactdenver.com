@@ -37,19 +37,34 @@ function EventSignup({ event, nextEventData }) {
       nextEvent: nextEventData.nextEvent,
     };
 
-    try {
-      const createRegistration = await fetch("/api/tito-create-registration", {
-        method: "POST",
-        body: JSON.stringify(registration),
-      });
-      const registrationJson = await createRegistration.json();
-      setRegisterSuccess(true);
-      setTicketUrl(registrationJson.ticket);
-    } catch (error) {
-      console.error(
-        `Something went wrong creating a user registration: ${error}`
-      );
-      setRegisterSuccess(false);
+    // try {
+    //   const createRegistration = await fetch("/api/tito-create-registration", {
+    //     method: "POST",
+    //     body: JSON.stringify(registration),
+    //   });
+    //   const registrationJson = await createRegistration.json();
+    //   setRegisterSuccess(true);
+    //   setTicketUrl(registrationJson.ticket);
+    // } catch (error) {
+    //   console.error(
+    //     `Something went wrong creating a user registration: ${error}`
+    //   );
+    //   setRegisterSuccess(false);
+    // }
+
+    if (data.email_subscribe === "yes") {
+      try {
+        await fetch("/api/email-subscription", {
+          method: "POST",
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            tags: ["event_registration"],
+          }),
+        });
+      } catch (error) {
+        console.error("Unable to subsdcribe to email notifications");
+      }
     }
   };
 
@@ -91,7 +106,7 @@ function EventSignup({ event, nextEventData }) {
               </div>
             )}
           </div>
-          <div className="mb-5 w-full">
+          <div className="w-full">
             <label htmlFor="email_address" className="sr-only">
               Email Address
             </label>
@@ -156,6 +171,19 @@ function EventSignup({ event, nextEventData }) {
                 Joining Online
               </label>
             </div>
+          </div>
+          <div className="items-center mb-2">
+            <input
+              type="checkbox"
+              name="email_subscribe"
+              id="email_subscribe"
+              value="yes"
+              {...register("email_subscribe")}
+            />
+            <label htmlFor="email_subscribe" className="ml-2">
+              Subscribe to our newsletter for event notifications and news?
+              Cancel anytime.
+            </label>
           </div>
           <button
             type="submit"

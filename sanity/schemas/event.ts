@@ -65,6 +65,16 @@ export default defineType({
       type: "string",
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: "host",
+      title: "Host",
+      type: "string",
+    }),
+    defineField({
+      name: "address",
+      title: "Google maps address (https://google.com/maps...)",
+      type: "string",
+    }),
   ],
 
   preview: {
