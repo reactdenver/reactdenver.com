@@ -18,9 +18,7 @@ function EventSignup({ event, nextEventData }) {
 
   const checkEventDatePast = (eventDate) => {
     const today = new Date();
-    const event = new Date(
-      newParsed(parseISO(eventDate), "America/Denver").toLocaleString()
-    );
+    const event = new Date(parseISO(eventDate)).toLocaleString();
     return event <= today;
   };
 
