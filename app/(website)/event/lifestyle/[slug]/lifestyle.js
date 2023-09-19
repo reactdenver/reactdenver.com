@@ -23,6 +23,8 @@ export default function Event(props) {
   const SpeakerimageProps = event?.speaker?.image
     ? urlForImage(event.speaker.image)
     : null;
+  
+  console.log(event.eventAt)
 
   return (
     <>
