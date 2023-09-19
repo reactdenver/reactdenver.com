@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { parseISO } from "date-fns";
 
 function EventSignup({ event, nextEventData }) {
   const [registerSuccess, setRegisterSuccess] = useState();
@@ -17,8 +18,8 @@ function EventSignup({ event, nextEventData }) {
 
   const checkEventDatePast = (eventDate) => {
     const today = new Date();
-    const event = new Date(eventDate);
-    return event.setHours(0, 0, 0, 0) <= today.setHours(0, 0, 0, 0);
+    const event = new Date(parseISO(eventDate).toLocaleString());
+    return event <= today;
   };
 
   const dateInPast = checkEventDatePast(event.eventAt);
