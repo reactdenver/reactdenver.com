@@ -1,5 +1,5 @@
 import { parseISO, format, isValid } from "date-fns";
-import { zonedTimeToUtc } from "date-fns-tz";
+import { utcToZonedTime } from "date-fns-tz";
 
 export const cx = (...classNames) => classNames.filter(Boolean).join(" ");
 
@@ -11,7 +11,7 @@ export const myLoader = ({ src }) => {
 
 export function formatWithOffset(datetime) {
   const parsed = parseISO(datetime);
-  const newParsed = zonedTimeToUtc(parsed, "America/Denver");
+  const newParsed = utcToZonedTime(parsed, "America/Denver");
 
   if (!isValid(newParsed)) {
     // return empty & log error for invalid dates
