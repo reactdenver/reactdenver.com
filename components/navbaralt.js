@@ -17,6 +17,10 @@ export default function NavbarAlt(props) {
       href: "/",
     },
     {
+      label: "Code of Conduct",
+      href: "/code-of-conduct",
+    },
+    {
       label: "Speakers",
       href: "/speakers",
     },
@@ -26,7 +30,7 @@ export default function NavbarAlt(props) {
     },
     {
       label: "Speaker Sign-up",
-      href: "/contact"
+      href: "/speaker-signup",
     },
   ];
 

@@ -9,7 +9,7 @@ import {
   PhoneIcon,
   ChatBubbleLeftRightIcon,
 } from "@heroicons/react/24/outline";
-export default function Contact({ settings }) {
+export default function SpeakerSignup({ settings }) {
   const {
     register,
     handleSubmit,
@@ -30,7 +30,7 @@ export default function Contact({ settings }) {
     access_key: apiKey,
     settings: {
       from_name: "ReactDenver_web3Forms",
-      subject: "New Speaker Sign-up from React Denver Website"
+      subject: "New Speaker Sign-up from React Denver Website",
     },
     onSuccess: (msg, data) => {
       setIsSuccess(true);
@@ -70,7 +70,12 @@ export default function Contact({ settings }) {
             )}
             <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
               <ChatBubbleLeftRightIcon className="w-4 h-4" />
-              <a className="no-underline hover:underline" href="https://discord.gg/33wkVQFV49">Click to join us on Discord</a>
+              <a
+                className="no-underline hover:underline"
+                href="https://discord.gg/33wkVQFV49"
+              >
+                Click to join us on Discord
+              </a>
             </div>
           </div>
         </div>
@@ -149,7 +154,7 @@ export default function Contact({ settings }) {
                 }`}
                 {...register("talk_title", {
                   required: "Enter talk title",
-                  maxLength: 120
+                  maxLength: 120,
                 })}
               />
               {errors.talk_title && (
@@ -164,13 +169,12 @@ export default function Contact({ settings }) {
                 name="message"
                 placeholder="Your Talk Description"
                 className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900   rounded-md outline-none  h-36 focus:ring-4  ${
-
                   errors.message
                     ? "border-red-600 ring-red-100 focus:border-red-600 dark:ring-0"
                     : "border-gray-300 ring-gray-100 focus:border-gray-600 dark:border-gray-600 dark:ring-0 dark:focus:border-white"
                 }`}
                 {...register("message", {
-                  required: "Enter your talk description"
+                  required: "Enter your talk description",
                 })}
               />
               {errors.message && (
@@ -184,11 +188,12 @@ export default function Contact({ settings }) {
             <div>
               <label className="mb-5 dark:text-white">Talk Duration</label>
               <div
-                  className={`mb-5 ${
+                className={`mb-5 ${
                   errors.duration
                     ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
                     : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
-              }`}>
+                }`}
+              >
                 <input
                   id="15min"
                   type="radio"
@@ -196,7 +201,7 @@ export default function Contact({ settings }) {
                   value="15_minutes"
                   className="mt-3"
                   {...register("duration", {
-                    required: "Select your talk duration"
+                    required: "Select your talk duration",
                   })}
                 />
                 <label className="ml-1 mr-3 dark:text-white">15 Min</label>
@@ -206,7 +211,7 @@ export default function Contact({ settings }) {
                   name="duration"
                   value="30_minutes"
                   {...register("duration", {
-                    required: "Select your talk duration"
+                    required: "Select your talk duration",
                   })}
                 />
                 <label className="ml-1 mr-3 dark:text-white ">30 Min</label>
@@ -216,33 +221,33 @@ export default function Contact({ settings }) {
                   name="duration"
                   value="1_hour"
                   {...register("duration", {
-                    required: "Select your talk duration"
+                    required: "Select your talk duration",
                   })}
                 />
                 <label className="ml-1 mr-3 dark:text-white">1 Hour</label>
                 {errors.duration && (
-                    <div className="mt-1 text-red-600">
-                      {" "}
-                      <small>{errors.duration.message}</small>
-                    </div>
+                  <div className="mt-1 text-red-600">
+                    {" "}
+                    <small>{errors.duration.message}</small>
+                  </div>
                 )}
               </div>
             </div>
             <div className="mb-3">
               <input
-                  name="discord"
-                  type="text"
-                  placeholder="Your Discord Username (optional)"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   
+                name="discord"
+                type="text"
+                placeholder="Your Discord Username (optional)"
+                className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   
                   focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0`}
-                  {...register("discord")}
+                {...register("discord")}
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 my-5 font-semibold text-white transition-colors bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-gray-200 px-7 dark:bg-white dark:text-black ">
-
+              className="w-full py-4 my-5 font-semibold text-white transition-colors bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-gray-200 px-7 dark:bg-white dark:text-black "
+            >
               {isSubmitting ? (
                 <svg
                   className="mx-auto h-5 w-5 animate-spin text-white dark:text-black"

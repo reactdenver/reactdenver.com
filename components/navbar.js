@@ -16,6 +16,10 @@ export default function Navbar(props) {
       href: "/",
     },
     {
+      label: "Code of Conduct",
+      href: "/code-of-conduct",
+    },
+    {
       label: "Speakers",
       href: "/speakers",
     },
@@ -23,12 +27,12 @@ export default function Navbar(props) {
 
   const rightmenu = [
     {
-      label: 'Organizers',
-      href: '/organizers'
+      label: "Organizers",
+      href: "/organizers",
     },
     {
       label: "Speaker Sign-Up",
-      href: "/contact",
+      href: "/speaker-signup",
     },
   ];
 
