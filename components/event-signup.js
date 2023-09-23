@@ -18,7 +18,7 @@ function EventSignup({ event, nextEventData }) {
 
   const checkEventDatePast = (eventDate) => {
     const today = new Date();
-    const event = new Date(parseISO(eventDate)).toLocaleString();
+    const event = new Date(parseISO(eventDate));
     return event <= today;
   };
 
@@ -38,20 +38,20 @@ function EventSignup({ event, nextEventData }) {
       nextEvent: nextEventData.nextEvent,
     };
 
-    // try {
-    //   const createRegistration = await fetch("/api/tito-create-registration", {
-    //     method: "POST",
-    //     body: JSON.stringify(registration),
-    //   });
-    //   const registrationJson = await createRegistration.json();
-    //   setRegisterSuccess(true);
-    //   setTicketUrl(registrationJson.ticket);
-    // } catch (error) {
-    //   console.error(
-    //     `Something went wrong creating a user registration: ${error}`
-    //   );
-    //   setRegisterSuccess(false);
-    // }
+    try {
+      const createRegistration = await fetch("/api/tito-create-registration", {
+        method: "POST",
+        body: JSON.stringify(registration),
+      });
+      const registrationJson = await createRegistration.json();
+      setRegisterSuccess(true);
+      setTicketUrl(registrationJson.ticket);
+    } catch (error) {
+      console.error(
+        `Something went wrong creating a user registration: ${error}`
+      );
+      setRegisterSuccess(false);
+    }
 
     if (data.email_subscribe === "yes") {
       try {
