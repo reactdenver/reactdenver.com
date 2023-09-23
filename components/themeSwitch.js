@@ -18,7 +18,10 @@ const ThemeSwitch = () => {
       onValueChange={(value) => setTheme(value)}
       defaultValue={resolvedTheme ? resolvedTheme : "light"}
     >
-      <SelectTrigger className="w-[180px] text-black dark:text-white">
+      <SelectTrigger
+        className="w-[180px] text-black dark:text-white"
+        aria-label="Theme Switch"
+      >
         <SelectValue />
       </SelectTrigger>
       <SelectContent className="bg-white dark:bg-black text-black dark:text-white">
