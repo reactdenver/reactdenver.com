@@ -2,9 +2,8 @@ import Link from "next/link";
 import Container from "@/components/container";
 import EventList from "@/components/eventlist";
 import Featured from "@/components/featured";
-import EventSignup from "@/components/event-signup";
-export default function Event({events}) {
-  console.log(events)
+
+export default function Event({ events }) {
   return (
     <>
       {events && (
