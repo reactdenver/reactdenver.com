@@ -18,10 +18,11 @@ async function getSpeaker(slug) {
 export async function generateMetadata({ params }) {
   const speaker = await getSpeaker(params.speaker);
   return {
-    title: speaker.title,
+    title: speaker.name,
     keywords: ["React", "React Denver", speaker.name],
     openGraph: {
       title: speaker.name,
+      description: speaker.bio,
       images: [
         {
           url: urlForImage(speaker.image)?.src || "/img/opengraph.jpg",
