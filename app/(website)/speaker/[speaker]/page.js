@@ -22,7 +22,6 @@ export async function generateMetadata({ params }) {
     keywords: ["React", "React Denver", speaker.name],
     openGraph: {
       title: speaker.name,
-      description: speaker.bio,
       images: [
         {
           url: urlForImage(speaker.image)?.src || "/img/opengraph.jpg",
