@@ -22,7 +22,13 @@ export async function generateMetadata({ params }) {
     keywords: ["React", "React Denver", speaker.name],
     openGraph: {
       title: speaker.name,
-      images: [urlForImage(speaker.image).src],
+      images: [
+        {
+          url: urlForImage(speaker.image)?.src || "/img/opengraph.jpg",
+          width: 800,
+          height: 600,
+        },
+      ],
     },
   };
 }

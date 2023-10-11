@@ -9,7 +9,20 @@ async function getOrganizer(slug) {
 
 export async function generateMetadata({ params }) {
   const organizer = await getOrganizer(params.organizer);
-  return { name: organizer.name };
+  return {
+    title: organizer.name,
+    keywords: ["React", "React Denver", organizer.name],
+    openGraph: {
+      title: organizer.name,
+      images: [
+        {
+          url: urlForImage(organizer.image)?.src || "/img/opengraph.jpg",
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
 }
 
 export default async function OrganizerPage({ params }) {
