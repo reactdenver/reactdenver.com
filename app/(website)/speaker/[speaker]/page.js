@@ -1,3 +1,4 @@
+import { urlForImage } from "@/sanity/lib/image";
 import Speaker from "./speaker";
 
 import {
@@ -16,7 +17,14 @@ async function getSpeaker(slug) {
 
 export async function generateMetadata({ params }) {
   const speaker = await getSpeaker(params.speaker);
-  return { title: speaker.title };
+  return {
+    title: speaker.title,
+    keywords: ["React", "React Denver", speaker.name],
+    openGraph: {
+      title: speaker.name,
+      images: [urlForImage(speaker.image).src],
+    },
+  };
 }
 
 export default async function SpeakerPage({ params }) {
