@@ -1,5 +1,5 @@
 import Organizer from "./organizer";
-
+import { urlForImage } from "@/lib/sanity/image";
 import { getOrganizerBySlug } from "@/lib/sanity/client";
 
 async function getOrganizer(slug) {

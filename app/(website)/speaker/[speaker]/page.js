@@ -1,4 +1,4 @@
-import { urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/lib/sanity/image";
 import Speaker from "./speaker";
 
 import {
@@ -17,6 +17,7 @@ async function getSpeaker(slug) {
 
 export async function generateMetadata({ params }) {
   const speaker = await getSpeaker(params.speaker);
+
   return {
     title: speaker.name,
     keywords: ["React", "React Denver", speaker.name],
