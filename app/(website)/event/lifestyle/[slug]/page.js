@@ -1,6 +1,6 @@
 import EventPage from "./lifestyle";
 
-import {getAllEventSlugs, getEventBySlug} from "@/lib/sanity/client";
+import { getAllEventSlugs, getEventBySlug } from "@/lib/sanity/client";
 import { urlForImage } from "@/lib/sanity/image";
 import checkTitoSlug from "@/app/api/tito-check-slug";
 
@@ -19,14 +19,14 @@ export async function generateMetadata({ params }) {
       description: event.excerpt,
       images: [
         {
-          url: urlForImage(settings?.mainImage)?.src || "/img/opengraph.jpg",
+          url: urlForImage(event?.mainImage)?.src || "/img/opengraph.jpg",
           width: 800,
           height: 600,
         },
       ],
     },
     twitter: {
-      title: settings?.title || "React Denver",
+      title: event?.title || "React Denver",
       card: "summary_large_image",
     },
     robots: {
