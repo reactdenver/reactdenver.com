@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.17",
     "@portabletext/react": "^2.0.2",
     "@radix-ui/react-select": "^1.2.2",
+    "@radix-ui/react-slot": "^1.0.2",
     "@sanity/code-input": "^4.1.0",
     "@sanity/icons": "^2.2.2",
     "@sanity/image-url": "^1.0.2",
