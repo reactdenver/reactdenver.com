@@ -24,6 +24,6 @@ export async function POST(request: Request) {
   );
 
   return NextResponse.json({
-    ok: true,
+    ok: response.ok,
   });
 }

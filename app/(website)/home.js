@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/container";
 import EventList from "@/components/eventlist";
 import Featured from "@/components/featured";
+import { EmailSubscriptionPopup } from "@/components/component/email-subscription-popup";
 
 export default function Event({ events }) {
   return (
@@ -28,6 +29,7 @@ export default function Event({ events }) {
           </div>
         </Container>
       )}
+      <EmailSubscriptionPopup />
     </>
   );
 }
