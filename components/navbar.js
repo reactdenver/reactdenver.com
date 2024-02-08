@@ -31,6 +31,10 @@ export default function Navbar(props) {
       href: "/organizers",
     },
     {
+      label: "Discord",
+      href: "https://discord.gg/fFngBEwNmV",
+    },
+    {
       label: "Speaker Sign-Up",
       href: "/speaker-signup",
     },
