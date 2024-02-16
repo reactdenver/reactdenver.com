@@ -1,7 +1,12 @@
+import { Suspense } from "react";
 import Search from "./search";
 
 export default async function SearchPage() {
-  return <Search />;
+  return (
+    <Suspense>
+      <Search />
+    </Suspense>
+  );
 }
 
 // export const revalidate = 60;
