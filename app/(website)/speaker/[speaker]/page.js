@@ -40,4 +40,4 @@ export default async function SpeakerPage({ params }) {
   return <Speaker events={events} speaker={speaker} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

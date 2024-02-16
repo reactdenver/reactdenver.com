@@ -7,4 +7,4 @@ export default async function SpeakersPage() {
   return <Speakers settings={settings} speakers={speakers} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

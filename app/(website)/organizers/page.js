@@ -6,4 +6,4 @@ export default async function OrganizersPage() {
   return <Organizers organizers={organizers} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

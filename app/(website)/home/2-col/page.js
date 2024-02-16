@@ -7,4 +7,4 @@ export default async function MinimalHomePage() {
   return <HomeTwoCol events={events} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

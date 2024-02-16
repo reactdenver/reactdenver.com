@@ -42,4 +42,4 @@ export default async function EventDefault({ params }) {
   return <EventPage event={event} nextEventData={nextEventData} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

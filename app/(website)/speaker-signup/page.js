@@ -6,4 +6,4 @@ export default async function SpeakerSignupPage() {
   return <SpeakerSignup settings={settings} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;
