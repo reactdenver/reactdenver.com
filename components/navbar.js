@@ -32,7 +32,7 @@ export default function Navbar(props) {
     },
     {
       label: "Discord",
-      href: "https://discord.gg/fFngBEwNmV",
+      href: "https://discord.gg/q5wa5n5UsT",
     },
     {
       label: "Speaker Sign-Up",

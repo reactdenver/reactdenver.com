@@ -1,20 +1,10 @@
 import Link from "next/link";
 
-import { Twitter, Github, Youtube } from "lucide-react";
+import { Github, Youtube } from "lucide-react";
 
 export default function SocialLinks() {
   return (
     <section className="flex justify-center space-x-8 mb-4">
-      <Link
-        aria-label="X"
-        href="https://twitter.com/ReactDenver"
-        target="_blank"
-        rel="noopener"
-        title="https://twitter.com/ReactDenver"
-        className="focus-visible:text-indigo-500 hover:text-indigo-500"
-      >
-        <Twitter />
-      </Link>
       <Link
         aria-label="GitHub"
         href="https://github.com/reactdenver/reactdenver.com"

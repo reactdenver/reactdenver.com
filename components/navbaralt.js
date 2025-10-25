@@ -30,7 +30,7 @@ export default function NavbarAlt(props) {
     },
     {
       label: "Discord",
-      href: "https://discord.gg/fFngBEwNmV",
+      href: "https://discord.gg/q5wa5n5UsT",
     },
     {
       label: "Speaker Sign-up",
