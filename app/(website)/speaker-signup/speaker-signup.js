@@ -45,7 +45,7 @@ export default function SpeakerSignup({ settings }) {
 
   return (
     <Container>
-      <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
+      <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
         Speaker Sign-Up
       </h1>
       <div className="text-center">
@@ -68,11 +68,11 @@ export default function SpeakerSignup({ settings }) {
                 <a href={`mailto:${settings.email}`}>{settings.email}</a>
               </div>
             )}
-            <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
-              <ChatBubbleLeftRightIcon className="w-4 h-4" />
+            <div className="text-dark-600 mt-2 flex items-center space-x-2 dark:text-gray-400">
+              <ChatBubbleLeftRightIcon className="h-4 w-4" />
               <a
                 className="no-underline hover:underline"
-                href="https://discord.gg/33wkVQFV49"
+                href="https://discord.gg/SKwH9JPPJK"
               >
                 Click to join us on Discord
               </a>
@@ -147,10 +147,10 @@ export default function SpeakerSignup({ settings }) {
                 placeholder="Talk Title"
                 name="talk_title"
                 autoComplete="false"
-                className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${
+                className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-800 focus:ring-4 dark:bg-gray-900 dark:text-white   dark:placeholder:text-gray-200  ${
                   errors.talk_title
-                    ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
-                    : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
+                    ? "border-red-600 ring-red-100 focus:border-red-600 dark:ring-0"
+                    : "border-gray-300 ring-gray-100 focus:border-gray-600 dark:border-gray-600 dark:ring-0 dark:focus:border-white"
                 }`}
                 {...register("talk_title", {
                   required: "Enter talk title",
@@ -168,7 +168,7 @@ export default function SpeakerSignup({ settings }) {
               <textarea
                 name="message"
                 placeholder="Your Talk Description"
-                className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900   rounded-md outline-none  h-36 focus:ring-4  ${
+                className={`h-36 w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-800   focus:ring-4 dark:bg-gray-900  dark:text-white dark:placeholder:text-gray-200  ${
                   errors.message
                     ? "border-red-600 ring-red-100 focus:border-red-600 dark:ring-0"
                     : "border-gray-300 ring-gray-100 focus:border-gray-600 dark:border-gray-600 dark:ring-0 dark:focus:border-white"
@@ -190,8 +190,8 @@ export default function SpeakerSignup({ settings }) {
               <div
                 className={`mb-5 ${
                   errors.duration
-                    ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
-                    : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
+                    ? "border-red-600 ring-red-100 focus:border-red-600 dark:ring-0"
+                    : "border-gray-300 ring-gray-100 focus:border-gray-600 dark:border-gray-600 dark:ring-0 dark:focus:border-white"
                 }`}
               >
                 <input
@@ -238,15 +238,15 @@ export default function SpeakerSignup({ settings }) {
                 name="discord"
                 type="text"
                 placeholder="Your Discord Username (optional)"
-                className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   
-                  focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0`}
+                className={`w-full rounded-md border-2 border-gray-300 px-4 py-3 outline-none ring-gray-100 placeholder:text-gray-800 focus:border-gray-600   
+                  focus:ring-4 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:ring-0 dark:placeholder:text-gray-200 dark:focus:border-white`}
                 {...register("discord")}
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 my-5 font-semibold text-white transition-colors bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-gray-200 px-7 dark:bg-white dark:text-black "
+              className="my-5 w-full rounded-md bg-gray-900 px-7 py-4 font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 dark:bg-white dark:text-black "
             >
               {isSubmitting ? (
                 <svg
