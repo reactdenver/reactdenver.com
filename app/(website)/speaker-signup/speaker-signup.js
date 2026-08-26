@@ -72,7 +72,7 @@ export default function SpeakerSignup({ settings }) {
               <ChatBubbleLeftRightIcon className="h-4 w-4" />
               <a
                 className="no-underline hover:underline"
-                href="https://discord.gg/SKwH9JPPJK"
+                href="https://discord.gg/q5wa5n5UsT"
               >
                 Click to join us on Discord
               </a>
