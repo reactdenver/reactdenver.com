@@ -2,8 +2,11 @@
 *.log
 .DS_Store
 .env
+.env.*
 /.cache
 /public/build
 /build
 /.netlify
 /.vscode
+/.next
+/.idea
