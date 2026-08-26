@@ -3,7 +3,7 @@
 import Container from "@/components/container";
 import EventList from "@/components/eventlist";
 import SearchInput from "@/components/ui/search";
-import { searchquery } from "@/lib/sanity/groq";
+import { searcheventquery } from "@/lib/sanity/groq";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import useSWR from "swr";
@@ -16,7 +16,7 @@ export default function Search(props) {
 
   const [timer, setTimer] = useState(null);
   const { data, error } = useSWR(
-    [searchquery, { query: query }],
+    [searcheventquery, { query: query }],
     fetcher
   );
 

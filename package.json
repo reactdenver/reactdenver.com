@@ -44,12 +44,14 @@
     "react-iframe": "^1.8.5",
     "react-refractor": "^2.1.7",
     "refractor": "^4.8.1",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.5.3",
     "swr": "^2.2.5",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
     "eslint-config-next": "^13.3.0",
